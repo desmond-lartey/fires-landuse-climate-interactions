@@ -29,7 +29,7 @@ Published as:
 > conservation landscapes of West Africa. *Tropical Conservation Science.*
 > https://doi.org/10.1177/19400829261486748
 
-## What this study does
+## What this study do
 
 - **Harmonizes 20 years of MODIS burned-area detections** (MCD64A1, 500 m)
   into a monthly fire-frequency climatology, 2004–2024.
