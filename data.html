@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Data layers, fires-landuse-climate-interactions</title>
+<meta name="description" content="Source datasets, resolutions, and the CSV output schema produced by the Earth Engine pipeline.">
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+<a class="skip" href="#content">Skip to content</a>
+<header class="masthead">
+  <div class="masthead-in">
+    <a class="brand" href="index.html"><b>fires-landuse-climate</b><span class="slash">/</span>interactions</a>
+    <button class="navtoggle" aria-expanded="false" aria-label="Toggle navigation">Menu</button>
+    <nav class="mast-nav" aria-label="Primary">
+      <a href="index.html">Overview</a>
+      <a href="study-area.html">Study area</a>
+      <a href="methodology.html">Methodology</a>
+      <a href="data.html" aria-current="page">Data layers</a>
+      <a href="gee-scripts.html">GEE scripts</a>
+      <a href="api-reference.html">API reference</a>
+      <a href="results.html">Results</a>
+      <a href="reproduce.html">Reproduce</a>
+      <a class="ext" href="https://github.com/desmond-lartey/fires-landuse-climate-interactions">Repo ↗</a>
+    </nav>
+  </div>
+</header>
+
+<div class="shell">
+  <aside class="sidebar" aria-label="On this page">
+    <p class="side-label">On this page</p>
+    <ol>
+      <li><a href="#sources">Source datasets</a></li>
+      <li><a href="#assets">Intermediate EE assets</a></li>
+      <li><a href="#schema">Output CSV schema</a></li>
+      <li><a href="#repo">Repository data layout</a></li>
+    </ol>
+    <p class="side-label">Site map</p>
+    <ul>
+      <li><a href="index.html">Overview</a></li>
+      <li><a href="methodology.html">Methodology</a></li>
+      <li><a href="gee-scripts.html">Earth Engine scripts</a></li>
+      <li><a href="api-reference.html">API reference</a></li>
+      <li><a href="reproduce.html">Reproduce this analysis</a></li>
+    </ul>
+  </aside>
+
+  <main class="main" id="content">
+    <p class="eyebrow">Data layers</p>
+    <h1>Four remotely sensed inputs, one joined output table</h1>
+    <p class="lede">Everything downstream of Earth Engine, the regressions, figures, and tables in the
+    manuscript, is built from a single wide CSV keyed by park, buffer distance, and year. This page
+    documents the four source layers (Table 3) and the resulting schema.</p>
+
+    <section id="sources">
+      <h2>Source datasets (Table 3)</h2>
+      <div class="tablewrap">
+        <table class="data">
+          <thead><tr><th>Layer</th><th>Source</th><th>Resolution</th><th>Temporal coverage</th></tr></thead>
+          <tbody>
+            <tr>
+              <td>Burned area</td>
+              <td>MODIS MCD64A1 Collection 6.1, monthly global burned area from 500 m surface reflectance and active-fire detections (Giglio et al., 2018)</td>
+              <td class="num">500 m</td>
+              <td class="num">2004–2024</td>
+            </tr>
+            <tr>
+              <td>Land cover</td>
+              <td>GLAD GLCLU2020 v2 (Potapov et al., 2022) harmonised with ESRI Global 10 m Annual LULC (Karra et al., 2021)</td>
+              <td class="num">30 m / 10 m</td>
+              <td class="num">2000–2020 / 2017–2024</td>
+            </tr>
+            <tr>
+              <td>Climate</td>
+              <td>ERA5-Land Monthly Aggregates, ECMWF/Copernicus Climate Change Service (C3S, 2018), precipitation, air temperature, wind</td>
+              <td class="num">~0.25° (~25 km); native grid ~11 km</td>
+              <td class="num">2004–2024</td>
+            </tr>
+            <tr>
+              <td>Park boundaries</td>
+              <td>WDPA-derived polygons, merged into one authors' shapefile with an <code>ORIG_NAME</code> attribute</td>
+              <td class="num">vector</td>
+              <td class="num">static</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="assets">
+      <h2>Intermediate Earth Engine assets</h2>
+      <p>The pipeline persists intermediate products as EE assets so later steps don't recompute
+      earlier ones. The naming convention used throughout the scripts:</p>
+      <div class="tablewrap">
+        <table class="data">
+          <thead><tr><th>Asset ID pattern</th><th>Produced by</th><th>Contents</th></tr></thead>
+          <tbody>
+            <tr><td><code>assets/SummedBurnedArea_Month{1..12}</code></td><td>Step 1 script</td><td>21-year summed monthly burn-frequency image, 500 m</td></tr>
+            <tr><td><code>assets/SummedBurnedArea_AllMonths</code></td><td>Step 1 script</td><td>All-months summed burn-frequency image</td></tr>
+            <tr><td><code>assets/NewParkMerged</code></td><td>manual GIS step</td><td>Merged 15-park boundary FeatureCollection (<code>ORIG_NAME</code>)</td></tr>
+            <tr><td><code>assets/GLAD_harmonised_30m_2000</code></td><td>Step 3 script</td><td>GLAD 2000 remapped to the 9-class scheme, 30 m</td></tr>
+            <tr><td><code>assets/BurnedAreaAndFrequencyResultsAsset</code></td><td>Buffer script (v1)</td><td>Park × buffer burn-frequency/area table, no land cover/climate</td></tr>
+            <tr><td><code>assets/BurnedArea_LC_ESRI_GLAD_2000_2024</code></td><td>Buffer+LULC script (v2)</td><td>Park × buffer × benchmark-year, burn + land-cover histogram</td></tr>
+            <tr><td><code>assets/BurnedArea_LC_Climate_ESRI_GLAD_2000_2024</code></td><td>Full script (v3)</td><td>Park × buffer × year, burn + land cover + 8 ERA5 climate variables</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="schema">
+      <h2>Output CSV schema</h2>
+      <p>The final export (<code>BurnedArea_LC_Climate_ESRI_GLAD_2000_2024_corrected2.csv</code>) has
+      one row per <code>(park, buffer distance, year)</code> combination, 15 parks × 5 buffers × 9
+      benchmark years = 675 rows in the land-cover-linked table; the fully seasonal version
+      (<code>BurnedArea_ERA5Seasonal_2004_2024.csv</code>) has one row per
+      <code>(park, year, season)</code>, 15 × 21 × 2 = 630 rows.</p>
+      <div class="tablewrap">
+        <table class="data">
+          <thead><tr><th>Column</th><th>Type</th><th>Description</th></tr></thead>
+          <tbody>
+            <tr><td><code>ORIG_NAME</code></td><td>string</td><td>Park name, matches the study-area table</td></tr>
+            <tr><td><code>Year</code></td><td>int</td><td>Benchmark year (land-cover table) or calendar year (seasonal table)</td></tr>
+            <tr><td><code>Buffer_km</code> / <code>Bufferdist</code></td><td>float</td><td>0, 5, 10, 15, or 20</td></tr>
+            <tr><td><code>BufferArea_sqkm</code></td><td>float</td><td>Geodesic area of the buffer polygon</td></tr>
+            <tr><td><code>{Mon}_BurnFrequency</code></td><td>int</td><td>Summed pixel-years burned for that month, one column per Oct–Mar</td></tr>
+            <tr><td><code>{Mon}_BurnedArea_sqkm</code></td><td>float</td><td>Burn frequency converted to km² at 500 m/pixel</td></tr>
+            <tr><td><code>TotalPixels</code></td><td>float</td><td>Buffer area divided by pixel area at the relevant resolution</td></tr>
+            <tr><td><code>AvgBurnPerPixel</code></td><td>float</td><td>Summed monthly frequencies ÷ TotalPixels</td></tr>
+            <tr><td><code>AvgBurnPerYear</code></td><td>float</td><td>AvgBurnPerPixel ÷ 22 (climatology length)</td></tr>
+            <tr><td><code>LandUseDistribution</code></td><td>dict/JSON</td><td>Class → pixel-count histogram from <code>frequencyHistogram()</code>, 30 m</td></tr>
+            <tr><td><code>ERA5_Tmean_C</code>, <code>_Tmin_C</code>, <code>_Tmax_C</code>, <code>_Tdew_C</code></td><td>float</td><td>Zonal mean temperature variables, °C</td></tr>
+            <tr><td><code>ERA5_Precip_mm</code></td><td>float</td><td>Zonal mean total precipitation, mm</td></tr>
+            <tr><td><code>ERA5_SurfacePressure_hPa</code></td><td>float</td><td>Zonal mean surface pressure, hPa</td></tr>
+            <tr><td><code>ERA5_WindU</code>, <code>ERA5_WindV</code></td><td>float</td><td>Zonal mean 10 m wind components, m/s</td></tr>
+            <tr><td><code>Season</code></td><td>string</td><td><code>Dry</code> (Oct–Mar) or <code>Wet</code> (Apr–Sep), seasonal table only</td></tr>
+            <tr><td><code>BurnedArea_km2</code>, <code>Rainfall_mm</code></td><td>float</td><td>Seasonal totals, seasonal table only</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="note"><span class="tag">frequencyHistogram output</span><code>LandUseDistribution</code>
+      is exported as a nested dictionary keyed by class code (<code>"1"</code>…<code>"9"</code>) with
+      pixel counts as values. Divide each value by the row's <code>TotalPixels</code> to get a class
+      fraction, or multiply by <code>0.0009</code> km² (30 m pixel area) to get class area.</p>
+    </section>
+
+    <section id="repo">
+      <h2>Repository data layout</h2>
+      <p>On disk, raw exports, cleaned tables, and figures are kept in separate top-level folders so
+      the pipeline scripts never read from or write into a directory meant for a different stage:</p>
+      <div class="codewrap">
+        <div class="codebar"><span class="fname">repository layout</span><span class="lang">text</span><button class="copy" type="button">Copy</button></div>
+        <pre><code>fires-landuse-climate-interactions/
+├── DATA_DIR/              # raw CSV/SHP exports pulled from Google Drive → GEE
+├── gee-full-script/        # canonical Earth Engine scripts (source of truth)
+├── pipeline/                # Python: cleaning, joins, regressions, figure generation
+├── notebooks/                # exploratory notebooks (kept out of the pipeline path)
+├── outputs/                  # cleaned/joined CSVs consumed by pipeline scripts
+├── figures/                  # rendered PNG/SVG figures referenced in the manuscript
+├── docs/                     # this GitHub Pages site
+├── archive/                   # superseded scripts and one-off exploration, kept for provenance
+└── ecological_zones_5class/  # earlier 5-class zoning attempt, retained for reference</code></pre>
+      </div>
+      <p>See <a href="reproduce.html">Reproduce this analysis</a> for the exact commands used to move
+      data from <code>DATA_DIR/</code> through <code>pipeline/</code> to <code>outputs/</code> and
+      <code>figures/</code>.</p>
+    </section>
+  </main>
+</div>
+
+<footer class="foot">
+  <div class="foot-in">
+    <div><h4>fires-landuse-climate-interactions</h4><p>Documentation site for a 20-year, 15-park fire regime analysis in West Africa.</p></div>
+    <div><h4>Site</h4><ul><li><a href="gee-scripts.html">GEE scripts</a></li><li><a href="api-reference.html">API reference</a></li><li><a href="reproduce.html">Reproduce</a></li></ul></div>
+    <div><h4>Data sources</h4><ul><li>MODIS MCD64A1 C6.1</li><li>GLAD GLCLU2020 v2</li><li>ESRI Global LULC 10m</li><li>ERA5-Land Monthly Aggregates</li></ul></div>
+  </div>
+</footer>
+<script src="assets/site.js"></script>
+</body>
+</html>

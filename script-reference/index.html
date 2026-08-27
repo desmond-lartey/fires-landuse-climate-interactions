@@ -1,0 +1,1545 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Drivers of fire regimes in conservation landscapes of West Africa — a 20-year, 15-park buffer-based analysis">
+      
+      
+        <meta name="author" content="Desmond Lartey">
+      
+      
+      
+        <link rel="prev" href="../pipeline/">
+      
+      
+        <link rel="next" href="../data-outputs/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Script Reference - Fire, Land Use and Climate Interactions</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="deep-orange" data-md-color-accent="orange">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#script-reference" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Fire, Land Use and Climate Interactions" class="md-header__button md-logo" aria-label="Fire, Land Use and Climate Interactions" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Fire, Land Use and Climate Interactions
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Script Reference
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="deep-orange" data-md-color-accent="orange"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="deep-orange" data-md-color-accent="orange"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6m0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4M7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/desmond-lartey/fires-landuse-climate-interactions" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Fire, Land Use and Climate Interactions" class="md-nav__button md-logo" aria-label="Fire, Land Use and Climate Interactions" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Fire, Land Use and Climate Interactions
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/desmond-lartey/fires-landuse-climate-interactions" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../study-design/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Study Design
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pipeline/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pipeline
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Script Reference
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Script Reference
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#01_burned_area_compositesjs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        01_burned_area_composites.js
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#02_buffer_disaggregationjs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        02_buffer_disaggregation.js
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#03_landcover_harmonisation_fulljs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        03_landcover_harmonisation_full.js
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#04_climate_integrationjs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        04_climate_integration.js
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#05_combined_pipeline_fulljs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        05_combined_pipeline_full.js
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#05b_seasonal_fire_rainfall_fulljs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        05b_seasonal_fire_rainfall_full.js
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#full-function-reference" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Full function reference
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Full function reference">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#processburnedareadate-region-eeimage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        processBurnedArea(date, region) → ee.Image
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sumburnedareaforspecificmonthmonth-startyear-endyear-region-eeimage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        sumBurnedAreaForSpecificMonth(month, startYear, endYear, region) → ee.Image
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sumburnedareaforallmonthsstartyear-endyear-region-eeimage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        sumBurnedAreaForAllMonths(startYear, endYear, region) → ee.Image
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#calculateburnedareaandfrequencyfeature-eefeaturecollection" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        calculateBurnedAreaAndFrequency(feature) → ee.FeatureCollection
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#harmonisegladimg-eeimage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        harmoniseGlad(img) → ee.Image
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#remapesriimage-eeimage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        remapEsri(image) → ee.Image
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getlandcoveryearyear-eeimage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        getLandCoverYear(year) → ee.Image
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getclimateforyearyear-eeimage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        getClimateForYear(year) → ee.Image
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#calculateburnedareaandlandusefeature-landcover-year-eefeaturecollection" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        calculateBurnedAreaAndLandUse(feature, landCover, year) → ee.FeatureCollection
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#processparkyearseasonpark-year-season-eefeature" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        processParkYearSeason(park, year, season) → ee.Feature
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#constants-referenced-throughout" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Constants referenced throughout
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../data-outputs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data & Outputs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../findings/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Findings
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#01_burned_area_compositesjs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        01_burned_area_composites.js
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#02_buffer_disaggregationjs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        02_buffer_disaggregation.js
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#03_landcover_harmonisation_fulljs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        03_landcover_harmonisation_full.js
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#04_climate_integrationjs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        04_climate_integration.js
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#05_combined_pipeline_fulljs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        05_combined_pipeline_full.js
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#05b_seasonal_fire_rainfall_fulljs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        05b_seasonal_fire_rainfall_full.js
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#full-function-reference" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Full function reference
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Full function reference">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#processburnedareadate-region-eeimage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        processBurnedArea(date, region) → ee.Image
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sumburnedareaforspecificmonthmonth-startyear-endyear-region-eeimage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        sumBurnedAreaForSpecificMonth(month, startYear, endYear, region) → ee.Image
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sumburnedareaforallmonthsstartyear-endyear-region-eeimage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        sumBurnedAreaForAllMonths(startYear, endYear, region) → ee.Image
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#calculateburnedareaandfrequencyfeature-eefeaturecollection" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        calculateBurnedAreaAndFrequency(feature) → ee.FeatureCollection
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#harmonisegladimg-eeimage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        harmoniseGlad(img) → ee.Image
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#remapesriimage-eeimage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        remapEsri(image) → ee.Image
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getlandcoveryearyear-eeimage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        getLandCoverYear(year) → ee.Image
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getclimateforyearyear-eeimage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        getClimateForYear(year) → ee.Image
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#calculateburnedareaandlandusefeature-landcover-year-eefeaturecollection" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        calculateBurnedAreaAndLandUse(feature, landCover, year) → ee.FeatureCollection
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#processparkyearseasonpark-year-season-eefeature" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        processParkYearSeason(park, year, season) → ee.Feature
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#constants-referenced-throughout" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Constants referenced throughout
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="script-reference">Script Reference<a class="headerlink" href="#script-reference" title="Permanent link">&para;</a></h1>
+<p>This page documents the functions in each Earth Engine script. These
+scripts live in <strong><code>gee-full-script/</code></strong> and run in order (see
+<a href="../pipeline/">Pipeline</a>). They are a <strong>run-in-order study pipeline</strong>, pasted
+directly into the <a href="https://code.earthengine.google.com/">Earth Engine Code Editor</a>,
+not an installable package — so this is a reference for reading and
+adapting the code.</p>
+<div class="admonition note">
+<p class="admonition-title">Full unabridged source</p>
+<p>The excerpts below are trimmed for readability. Complete, unabridged
+scripts — including the full ~200-entry <code>gladToEsri</code> dictionary — are in
+<code>gee-full-script/</code> in the repository.</p>
+</div>
+<h2 id="01_burned_area_compositesjs">01_burned_area_composites.js<a class="headerlink" href="#01_burned_area_compositesjs" title="Permanent link">&para;</a></h2>
+<p>Builds the 20-year (2004–2024) monthly burn-frequency climatology from
+MODIS MCD64A1, one image per calendar month.</p>
+<ul>
+<li><strong><code>processBurnedArea(date, region)</code></strong> — filters MCD64A1 to a one-month
+  window, mosaics over <code>region</code>, returns a binary "burned this month" mask.</li>
+<li><strong><code>sumBurnedAreaForSpecificMonth(month, startYear, endYear, region)</code></strong> —
+  sums that mask across a year range into a per-pixel year-count
+  climatology.</li>
+<li><strong><code>sumBurnedAreaForAllMonths(startYear, endYear, region)</code></strong> — sums all 12
+  months into one all-months composite.</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="kd">function</span><span class="w"> </span><span class="nx">processBurnedArea</span><span class="p">(</span><span class="nx">date</span><span class="p">,</span><span class="w"> </span><span class="nx">region</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kd">var</span><span class="w"> </span><span class="nx">filtered</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">modisCollection</span><span class="p">.</span><span class="nx">filterDate</span><span class="p">(</span><span class="nx">date</span><span class="p">,</span><span class="w"> </span><span class="nx">ee</span><span class="p">.</span><span class="nb">Date</span><span class="p">(</span><span class="nx">date</span><span class="p">).</span><span class="nx">advance</span><span class="p">(</span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="s1">'month'</span><span class="p">));</span>
+<span class="w">  </span><span class="kd">var</span><span class="w"> </span><span class="nx">mosaicked</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">filtered</span><span class="p">.</span><span class="nx">mosaic</span><span class="p">().</span><span class="nx">clip</span><span class="p">(</span><span class="nx">region</span><span class="p">);</span>
+<span class="w">  </span><span class="kd">var</span><span class="w"> </span><span class="nx">burned</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">mosaicked</span><span class="p">.</span><span class="nx">select</span><span class="p">(</span><span class="s1">'BurnDate'</span><span class="p">).</span><span class="nx">gt</span><span class="p">(</span><span class="mf">0</span><span class="p">).</span><span class="nx">selfMask</span><span class="p">();</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="nx">burned</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="s1">'date'</span><span class="p">,</span><span class="w"> </span><span class="nx">date</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kd">function</span><span class="w"> </span><span class="nx">sumBurnedAreaForSpecificMonth</span><span class="p">(</span><span class="nx">month</span><span class="p">,</span><span class="w"> </span><span class="nx">startYear</span><span class="p">,</span><span class="w"> </span><span class="nx">endYear</span><span class="p">,</span><span class="w"> </span><span class="nx">region</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kd">var</span><span class="w"> </span><span class="nx">dateList</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">ee</span><span class="p">.</span><span class="nx">List</span><span class="p">.</span><span class="nx">sequence</span><span class="p">(</span><span class="nx">startYear</span><span class="p">,</span><span class="w"> </span><span class="nx">endYear</span><span class="p">).</span><span class="nx">map</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">year</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">ee</span><span class="p">.</span><span class="nb">Date</span><span class="p">.</span><span class="nx">fromYMD</span><span class="p">(</span><span class="nx">year</span><span class="p">,</span><span class="w"> </span><span class="nx">month</span><span class="p">,</span><span class="w"> </span><span class="mf">1</span><span class="p">);</span>
+<span class="w">  </span><span class="p">});</span>
+<span class="w">  </span><span class="kd">var</span><span class="w"> </span><span class="nx">monthlyBurned</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">ee</span><span class="p">.</span><span class="nx">ImageCollection</span><span class="p">.</span><span class="nx">fromImages</span><span class="p">(</span>
+<span class="w">    </span><span class="nx">dateList</span><span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">date</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="nx">processBurnedArea</span><span class="p">(</span><span class="nx">date</span><span class="p">,</span><span class="w"> </span><span class="nx">region</span><span class="p">);</span><span class="w"> </span><span class="p">})</span>
+<span class="w">  </span><span class="p">);</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="nx">monthlyBurned</span><span class="p">.</span><span class="nx">sum</span><span class="p">().</span><span class="nx">set</span><span class="p">(</span><span class="s1">'month'</span><span class="p">,</span><span class="w"> </span><span class="nx">month</span><span class="p">).</span><span class="nx">toDouble</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="kd">function</span><span class="w"> </span><span class="nx">sumBurnedAreaForAllMonths</span><span class="p">(</span><span class="nx">startYear</span><span class="p">,</span><span class="w"> </span><span class="nx">endYear</span><span class="p">,</span><span class="w"> </span><span class="nx">region</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kd">var</span><span class="w"> </span><span class="nx">monthList</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">ee</span><span class="p">.</span><span class="nx">List</span><span class="p">.</span><span class="nx">sequence</span><span class="p">(</span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="mf">12</span><span class="p">);</span>
+<span class="w">  </span><span class="kd">var</span><span class="w"> </span><span class="nx">allBurned</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">ee</span><span class="p">.</span><span class="nx">ImageCollection</span><span class="p">.</span><span class="nx">fromImages</span><span class="p">(</span>
+<span class="w">    </span><span class="nx">monthList</span><span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">month</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="nx">sumBurnedAreaForSpecificMonth</span><span class="p">(</span><span class="nx">month</span><span class="p">,</span><span class="w"> </span><span class="nx">startYear</span><span class="p">,</span><span class="w"> </span><span class="nx">endYear</span><span class="p">,</span><span class="w"> </span><span class="nx">region</span><span class="p">);</span>
+<span class="w">    </span><span class="p">})</span>
+<span class="w">  </span><span class="p">);</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="nx">allBurned</span><span class="p">.</span><span class="nx">sum</span><span class="p">().</span><span class="nx">toDouble</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">var</span><span class="w"> </span><span class="nx">month</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1</span><span class="p">;</span><span class="w"> </span><span class="nx">month</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mf">12</span><span class="p">;</span><span class="w"> </span><span class="nx">month</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">month</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nx">summedBurned</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">sumBurnedAreaForSpecificMonth</span><span class="p">(</span><span class="nx">month</span><span class="p">,</span><span class="w"> </span><span class="mf">2004</span><span class="p">,</span><span class="w"> </span><span class="mf">2024</span><span class="p">,</span><span class="w"> </span><span class="nx">area</span><span class="p">);</span>
+<span class="w">    </span><span class="nx">Export</span><span class="p">.</span><span class="nx">image</span><span class="p">.</span><span class="nx">toDrive</span><span class="p">({</span>
+<span class="w">      </span><span class="nx">image</span><span class="o">:</span><span class="w"> </span><span class="nx">summedBurned</span><span class="p">,</span><span class="w"> </span><span class="nx">description</span><span class="o">:</span><span class="w"> </span><span class="s1">'SummedBurnedArea_Month'</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">month</span><span class="p">,</span>
+<span class="w">      </span><span class="nx">scale</span><span class="o">:</span><span class="w"> </span><span class="mf">500</span><span class="p">,</span><span class="w"> </span><span class="nx">region</span><span class="o">:</span><span class="w"> </span><span class="nx">area</span><span class="p">,</span><span class="w"> </span><span class="nx">fileFormat</span><span class="o">:</span><span class="w"> </span><span class="s1">'GeoTIFF'</span>
+<span class="w">    </span><span class="p">});</span>
+<span class="w">  </span><span class="p">})(</span><span class="nx">month</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kd">var</span><span class="w"> </span><span class="nx">summedBurnedForAllMonths</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">sumBurnedAreaForAllMonths</span><span class="p">(</span><span class="mf">2004</span><span class="p">,</span><span class="w"> </span><span class="mf">2024</span><span class="p">,</span><span class="w"> </span><span class="nx">area</span><span class="p">);</span>
+<span class="nx">Export</span><span class="p">.</span><span class="nx">image</span><span class="p">.</span><span class="nx">toDrive</span><span class="p">({</span>
+<span class="w">  </span><span class="nx">image</span><span class="o">:</span><span class="w"> </span><span class="nx">summedBurnedForAllMonths</span><span class="p">,</span><span class="w"> </span><span class="nx">description</span><span class="o">:</span><span class="w"> </span><span class="s1">'SummedBurnedArea_AllMonths'</span><span class="p">,</span>
+<span class="w">  </span><span class="nx">scale</span><span class="o">:</span><span class="w"> </span><span class="mf">500</span><span class="p">,</span><span class="w"> </span><span class="nx">region</span><span class="o">:</span><span class="w"> </span><span class="nx">area</span><span class="p">,</span><span class="w"> </span><span class="nx">fileFormat</span><span class="o">:</span><span class="w"> </span><span class="s1">'GeoTIFF'</span>
+<span class="p">});</span>
+</code></pre></div>
+<h2 id="02_buffer_disaggregationjs">02_buffer_disaggregation.js<a class="headerlink" href="#02_buffer_disaggregationjs" title="Permanent link">&para;</a></h2>
+<p>Generates five concentric buffers per park (0, 5, 10, 15, 20 km) and
+computes burn frequency, burned area, and normalised exposure rates for
+each.</p>
+<ul>
+<li><strong><code>calculateBurnedAreaAndFrequency(feature)</code></strong> — builds the five buffer
+  geometries around one park and reduces each of the six dry-season monthly
+  composites within them.</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nx">bufferDistances</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">ee</span><span class="p">.</span><span class="nx">List</span><span class="p">.</span><span class="nx">sequence</span><span class="p">(</span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="mf">20</span><span class="p">,</span><span class="w"> </span><span class="mf">5</span><span class="p">).</span><span class="nx">map</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">distance</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="nx">ee</span><span class="p">.</span><span class="nb">Number</span><span class="p">(</span><span class="nx">distance</span><span class="p">).</span><span class="nx">multiply</span><span class="p">(</span><span class="mf">1000</span><span class="p">);</span>
+<span class="p">});</span>
+
+<span class="kd">function</span><span class="w"> </span><span class="nx">calculateBurnedAreaAndFrequency</span><span class="p">(</span><span class="nx">feature</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kd">var</span><span class="w"> </span><span class="nx">results</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">bufferDistances</span><span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">bufferDistance</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nx">bufferedGeometry</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">ee</span><span class="p">.</span><span class="nx">Algorithms</span><span class="p">.</span><span class="nx">If</span><span class="p">(</span>
+<span class="w">      </span><span class="nx">ee</span><span class="p">.</span><span class="nb">Number</span><span class="p">(</span><span class="nx">bufferDistance</span><span class="p">).</span><span class="nx">eq</span><span class="p">(</span><span class="mf">0</span><span class="p">),</span>
+<span class="w">      </span><span class="nx">feature</span><span class="p">.</span><span class="nx">geometry</span><span class="p">(),</span>
+<span class="w">      </span><span class="nx">feature</span><span class="p">.</span><span class="nx">geometry</span><span class="p">().</span><span class="nx">buffer</span><span class="p">(</span><span class="nx">bufferDistance</span><span class="p">)</span>
+<span class="w">    </span><span class="p">);</span>
+<span class="w">    </span><span class="nx">bufferedGeometry</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">ee</span><span class="p">.</span><span class="nx">Geometry</span><span class="p">(</span><span class="nx">bufferedGeometry</span><span class="p">);</span>
+
+<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nx">burnFrequencyDict</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">ee</span><span class="p">.</span><span class="nx">Dictionary</span><span class="p">({});</span>
+<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nx">burnedAreaDict</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">ee</span><span class="p">.</span><span class="nx">Dictionary</span><span class="p">({});</span>
+
+<span class="w">    </span><span class="nx">months</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">month</span><span class="p">,</span><span class="w"> </span><span class="nx">index</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="kd">var</span><span class="w"> </span><span class="nx">burnedImage</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">ee</span><span class="p">.</span><span class="nx">Image</span><span class="p">(</span><span class="nx">burnedAreaImages</span><span class="p">[</span><span class="nx">index</span><span class="p">]);</span>
+<span class="w">      </span><span class="kd">var</span><span class="w"> </span><span class="nx">burnFrequency</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">burnedImage</span><span class="p">.</span><span class="nx">reduceRegion</span><span class="p">({</span>
+<span class="w">        </span><span class="nx">reducer</span><span class="o">:</span><span class="w"> </span><span class="nx">ee</span><span class="p">.</span><span class="nx">Reducer</span><span class="p">.</span><span class="nx">sum</span><span class="p">(),</span><span class="w"> </span><span class="nx">geometry</span><span class="o">:</span><span class="w"> </span><span class="nx">bufferedGeometry</span><span class="p">,</span>
+<span class="w">        </span><span class="nx">scale</span><span class="o">:</span><span class="w"> </span><span class="mf">500</span><span class="p">,</span><span class="w"> </span><span class="nx">maxPixels</span><span class="o">:</span><span class="w"> </span><span class="mf">1e13</span>
+<span class="w">      </span><span class="p">}).</span><span class="nx">get</span><span class="p">(</span><span class="s1">'BurnDate'</span><span class="p">);</span>
+<span class="w">      </span><span class="kd">var</span><span class="w"> </span><span class="nx">burnedAreaSqKm</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">ee</span><span class="p">.</span><span class="nb">Number</span><span class="p">(</span><span class="nx">burnFrequency</span><span class="p">).</span><span class="nx">multiply</span><span class="p">(</span><span class="mf">500</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">500</span><span class="p">).</span><span class="nx">divide</span><span class="p">(</span><span class="mf">1e6</span><span class="p">);</span>
+<span class="w">      </span><span class="nx">burnFrequencyDict</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">burnFrequencyDict</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="nx">month</span><span class="p">,</span><span class="w"> </span><span class="nx">burnFrequency</span><span class="p">);</span>
+<span class="w">      </span><span class="nx">burnedAreaDict</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">burnedAreaDict</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="nx">month</span><span class="p">,</span><span class="w"> </span><span class="nx">burnedAreaSqKm</span><span class="p">);</span>
+<span class="w">    </span><span class="p">});</span>
+
+<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nx">bufferAreaSqKm</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">ee</span><span class="p">.</span><span class="nb">Number</span><span class="p">(</span><span class="nx">bufferedGeometry</span><span class="p">.</span><span class="nx">area</span><span class="p">()).</span><span class="nx">divide</span><span class="p">(</span><span class="mf">1e6</span><span class="p">);</span>
+<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nx">totalPixels</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">bufferAreaSqKm</span><span class="p">.</span><span class="nx">divide</span><span class="p">(</span><span class="mf">0.25</span><span class="p">);</span><span class="w"> </span><span class="c1">// 500 m pixel = 0.25 sqkm</span>
+<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nx">avgBurnPerPixel</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">ee</span><span class="p">.</span><span class="nb">Number</span><span class="p">(</span>
+<span class="w">      </span><span class="nx">burnFrequencyDict</span><span class="p">.</span><span class="nx">values</span><span class="p">().</span><span class="nx">reduce</span><span class="p">(</span><span class="nx">ee</span><span class="p">.</span><span class="nx">Reducer</span><span class="p">.</span><span class="nx">sum</span><span class="p">())</span>
+<span class="w">    </span><span class="p">).</span><span class="nx">divide</span><span class="p">(</span><span class="nx">totalPixels</span><span class="p">);</span>
+<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nx">avgBurnPerYear</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">avgBurnPerPixel</span><span class="p">.</span><span class="nx">divide</span><span class="p">(</span><span class="mf">22</span><span class="p">);</span>
+
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">ee</span><span class="p">.</span><span class="nx">Feature</span><span class="p">(</span><span class="nx">bufferedGeometry</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="s1">'ORIG_NAME'</span><span class="o">:</span><span class="w"> </span><span class="nx">feature</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">'ORIG_NAME'</span><span class="p">),</span>
+<span class="w">      </span><span class="s1">'Bufferdist'</span><span class="o">:</span><span class="w"> </span><span class="nx">ee</span><span class="p">.</span><span class="nb">Number</span><span class="p">(</span><span class="nx">bufferDistance</span><span class="p">).</span><span class="nx">divide</span><span class="p">(</span><span class="mf">1000</span><span class="p">),</span>
+<span class="w">      </span><span class="s1">'TotalPixels'</span><span class="o">:</span><span class="w"> </span><span class="nx">totalPixels</span><span class="p">,</span>
+<span class="w">      </span><span class="s1">'AvgBurnPerPixel'</span><span class="o">:</span><span class="w"> </span><span class="nx">avgBurnPerPixel</span><span class="p">,</span>
+<span class="w">      </span><span class="s1">'AvgBurnPerYear'</span><span class="o">:</span><span class="w"> </span><span class="nx">avgBurnPerYear</span><span class="p">,</span>
+<span class="w">      </span><span class="s1">'BufferArea_sqkm'</span><span class="o">:</span><span class="w"> </span><span class="nx">bufferAreaSqKm</span>
+<span class="w">      </span><span class="c1">// ...plus one {Month}_BurnFrequency / {Month}_BurnedArea_sqkm pair per month</span>
+<span class="w">    </span><span class="p">});</span>
+<span class="w">  </span><span class="p">});</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="nx">ee</span><span class="p">.</span><span class="nx">FeatureCollection</span><span class="p">(</span><span class="nx">results</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kd">var</span><span class="w"> </span><span class="nx">allResults</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">ee</span><span class="p">.</span><span class="nx">FeatureCollection</span><span class="p">(</span><span class="nx">parks</span><span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="nx">calculateBurnedAreaAndFrequency</span><span class="p">).</span><span class="nx">flatten</span><span class="p">());</span>
+<span class="nx">Export</span><span class="p">.</span><span class="nx">table</span><span class="p">.</span><span class="nx">toDrive</span><span class="p">({</span>
+<span class="w">  </span><span class="nx">collection</span><span class="o">:</span><span class="w"> </span><span class="nx">allResults</span><span class="p">,</span><span class="w"> </span><span class="nx">description</span><span class="o">:</span><span class="w"> </span><span class="s1">'BurnedAreaAndFrequencyResults'</span><span class="p">,</span>
+<span class="w">  </span><span class="nx">fileFormat</span><span class="o">:</span><span class="w"> </span><span class="s1">'CSV'</span><span class="p">,</span><span class="w"> </span><span class="nx">folder</span><span class="o">:</span><span class="w"> </span><span class="s1">'GEE'</span>
+<span class="p">});</span>
+</code></pre></div>
+<h2 id="03_landcover_harmonisation_fulljs">03_landcover_harmonisation_full.js<a class="headerlink" href="#03_landcover_harmonisation_fulljs" title="Permanent link">&para;</a></h2>
+<p>Remaps GLAD's native codes and ESRI's 11-class scheme onto one shared
+9-class scheme, and resolves the correct dataset for any requested year.</p>
+<ul>
+<li><strong><code>harmoniseGlad(img)</code></strong> — remaps GLAD codes via the <code>gladToEsri</code>
+  dictionary.</li>
+<li><strong><code>remapEsri(image)</code></strong> — remaps ESRI's 11 native codes onto the same
+  9-class target.</li>
+<li><strong><code>getLandCoverYear(year)</code></strong> — dispatches to GLAD (2000–2020) or ESRI
+  (2021–2024) automatically.</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nx">gladToEsri</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">ee</span><span class="p">.</span><span class="nx">Dictionary</span><span class="p">({</span>
+<span class="w">  </span><span class="c1">// Water</span>
+<span class="w">  </span><span class="mf">200</span><span class="o">:</span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="mf">201</span><span class="o">:</span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="mf">202</span><span class="o">:</span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="mf">203</span><span class="o">:</span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="mf">204</span><span class="o">:</span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="mf">207</span><span class="o">:</span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="mf">208</span><span class="o">:</span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="mf">209</span><span class="o">:</span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="mf">210</span><span class="o">:</span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="mf">211</span><span class="o">:</span><span class="mf">1</span><span class="p">,</span>
+<span class="w">  </span><span class="c1">// Trees: stable, disturbed, gains, and height-gain sub-codes all map to class 2</span>
+<span class="w">  </span><span class="mf">25</span><span class="o">:</span><span class="mf">2</span><span class="p">,</span><span class="w"> </span><span class="mf">26</span><span class="o">:</span><span class="mf">2</span><span class="p">,</span><span class="w"> </span><span class="cm">/* ... 27 through 195 follow the same pattern ... */</span><span class="w"> </span><span class="mf">196</span><span class="o">:</span><span class="mf">2</span><span class="p">,</span>
+<span class="w">  </span><span class="c1">// Flooded vegetation</span>
+<span class="w">  </span><span class="mf">100</span><span class="o">:</span><span class="mf">3</span><span class="p">,</span><span class="w"> </span><span class="mf">101</span><span class="o">:</span><span class="mf">3</span><span class="p">,</span><span class="w"> </span><span class="cm">/* ... */</span><span class="w"> </span><span class="mf">124</span><span class="o">:</span><span class="mf">3</span><span class="p">,</span>
+<span class="w">  </span><span class="c1">// Rangeland / short vegetation</span>
+<span class="w">  </span><span class="mf">0</span><span class="o">:</span><span class="mf">9</span><span class="p">,</span><span class="w"> </span><span class="mf">1</span><span class="o">:</span><span class="mf">9</span><span class="p">,</span><span class="w"> </span><span class="cm">/* ... */</span><span class="w"> </span><span class="mf">24</span><span class="o">:</span><span class="mf">9</span><span class="p">,</span>
+<span class="w">  </span><span class="c1">// Crops</span>
+<span class="w">  </span><span class="mf">244</span><span class="o">:</span><span class="mf">4</span><span class="p">,</span><span class="w"> </span><span class="mf">245</span><span class="o">:</span><span class="mf">4</span><span class="p">,</span><span class="w"> </span><span class="mf">246</span><span class="o">:</span><span class="mf">4</span><span class="p">,</span><span class="w"> </span><span class="mf">247</span><span class="o">:</span><span class="mf">4</span><span class="p">,</span><span class="w"> </span><span class="mf">248</span><span class="o">:</span><span class="mf">4</span><span class="p">,</span><span class="w"> </span><span class="mf">249</span><span class="o">:</span><span class="mf">4</span><span class="p">,</span>
+<span class="w">  </span><span class="c1">// Built-up</span>
+<span class="w">  </span><span class="mf">250</span><span class="o">:</span><span class="mf">5</span><span class="p">,</span><span class="w"> </span><span class="mf">251</span><span class="o">:</span><span class="mf">5</span><span class="p">,</span><span class="w"> </span><span class="mf">252</span><span class="o">:</span><span class="mf">5</span><span class="p">,</span><span class="w"> </span><span class="mf">253</span><span class="o">:</span><span class="mf">5</span><span class="p">,</span>
+<span class="w">  </span><span class="c1">// Snow/Ice</span>
+<span class="w">  </span><span class="mf">241</span><span class="o">:</span><span class="mf">7</span><span class="p">,</span><span class="w"> </span><span class="mf">242</span><span class="o">:</span><span class="mf">7</span><span class="p">,</span><span class="w"> </span><span class="mf">243</span><span class="o">:</span><span class="mf">7</span>
+<span class="w">  </span><span class="c1">// Clouds (8) has no GLAD equivalent -- absent by design</span>
+<span class="p">});</span>
+
+<span class="kd">function</span><span class="w"> </span><span class="nx">harmoniseGlad</span><span class="p">(</span><span class="nx">img</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="nx">img</span><span class="p">.</span><span class="nx">remap</span><span class="p">(</span>
+<span class="w">    </span><span class="nx">gladToEsri</span><span class="p">.</span><span class="nx">keys</span><span class="p">().</span><span class="nx">map</span><span class="p">(</span><span class="nx">ee</span><span class="p">.</span><span class="nb">Number</span><span class="p">.</span><span class="nx">parse</span><span class="p">),</span>
+<span class="w">    </span><span class="nx">gladToEsri</span><span class="p">.</span><span class="nx">values</span><span class="p">().</span><span class="nx">map</span><span class="p">(</span><span class="nx">ee</span><span class="p">.</span><span class="nb">Number</span><span class="p">.</span><span class="nx">parse</span><span class="p">)</span>
+<span class="w">  </span><span class="p">).</span><span class="nx">rename</span><span class="p">(</span><span class="s1">'landcover'</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kd">function</span><span class="w"> </span><span class="nx">remapEsri</span><span class="p">(</span><span class="nx">image</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="nx">image</span><span class="p">.</span><span class="nx">remap</span><span class="p">([</span><span class="mf">1</span><span class="p">,</span><span class="mf">2</span><span class="p">,</span><span class="mf">4</span><span class="p">,</span><span class="mf">5</span><span class="p">,</span><span class="mf">7</span><span class="p">,</span><span class="mf">8</span><span class="p">,</span><span class="mf">9</span><span class="p">,</span><span class="mf">10</span><span class="p">,</span><span class="mf">11</span><span class="p">],</span><span class="w"> </span><span class="p">[</span><span class="mf">1</span><span class="p">,</span><span class="mf">2</span><span class="p">,</span><span class="mf">3</span><span class="p">,</span><span class="mf">4</span><span class="p">,</span><span class="mf">5</span><span class="p">,</span><span class="mf">6</span><span class="p">,</span><span class="mf">7</span><span class="p">,</span><span class="mf">8</span><span class="p">,</span><span class="mf">9</span><span class="p">]).</span><span class="nx">rename</span><span class="p">(</span><span class="s1">'landcover'</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kd">function</span><span class="w"> </span><span class="nx">getLandCoverYear</span><span class="p">(</span><span class="nx">year</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">year</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mf">2021</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nx">esriImage</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">esri_lulc10</span><span class="p">.</span><span class="nx">filterDate</span><span class="p">(</span><span class="nx">year</span><span class="o">+</span><span class="s1">'-01-01'</span><span class="p">,</span><span class="w"> </span><span class="nx">year</span><span class="o">+</span><span class="s1">'-12-31'</span><span class="p">).</span><span class="nx">mosaic</span><span class="p">().</span><span class="nx">select</span><span class="p">(</span><span class="mf">0</span><span class="p">);</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">remapEsri</span><span class="p">(</span><span class="nx">esriImage</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">year</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mf">2000</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nx">year</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mf">2020</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">harmoniseGlad</span><span class="p">(</span><span class="nx">ee</span><span class="p">.</span><span class="nx">Image</span><span class="p">(</span><span class="s1">'projects/glad/GLCLU2020/v2/LCLUC_'</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">year</span><span class="p">).</span><span class="nx">select</span><span class="p">(</span><span class="mf">0</span><span class="p">));</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="nx">ee</span><span class="p">.</span><span class="nx">Image</span><span class="p">(</span><span class="mf">0</span><span class="p">).</span><span class="nx">rename</span><span class="p">(</span><span class="s1">'landcover'</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+<h2 id="04_climate_integrationjs">04_climate_integration.js<a class="headerlink" href="#04_climate_integrationjs" title="Permanent link">&para;</a></h2>
+<p>Builds an 8-band annual-mean ERA5-Land climate image with unit conversions
+already applied.</p>
+<ul>
+<li><strong><code>getClimateForYear(year)</code></strong> — K→°C, m→mm, Pa→hPa conversions, one image
+  per year.</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="kd">function</span><span class="w"> </span><span class="nx">getClimateForYear</span><span class="p">(</span><span class="nx">year</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kd">var</span><span class="w"> </span><span class="nx">start</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">ee</span><span class="p">.</span><span class="nb">Date</span><span class="p">.</span><span class="nx">fromYMD</span><span class="p">(</span><span class="nx">year</span><span class="p">,</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="mf">1</span><span class="p">);</span>
+<span class="w">  </span><span class="kd">var</span><span class="w"> </span><span class="nx">end</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="nx">ee</span><span class="p">.</span><span class="nb">Date</span><span class="p">.</span><span class="nx">fromYMD</span><span class="p">(</span><span class="nx">year</span><span class="p">,</span><span class="w"> </span><span class="mf">12</span><span class="p">,</span><span class="w"> </span><span class="mf">31</span><span class="p">);</span>
+
+<span class="w">  </span><span class="kd">var</span><span class="w"> </span><span class="nx">era5</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">ee</span><span class="p">.</span><span class="nx">ImageCollection</span><span class="p">(</span><span class="s2">"ECMWF/ERA5_LAND/MONTHLY_AGGR"</span><span class="p">)</span>
+<span class="w">      </span><span class="p">.</span><span class="nx">filterDate</span><span class="p">(</span><span class="nx">start</span><span class="p">,</span><span class="w"> </span><span class="nx">end</span><span class="p">)</span>
+<span class="w">      </span><span class="p">.</span><span class="nx">select</span><span class="p">([</span><span class="s1">'temperature_2m'</span><span class="p">,</span><span class="s1">'temperature_2m_min'</span><span class="p">,</span><span class="s1">'temperature_2m_max'</span><span class="p">,</span>
+<span class="w">                </span><span class="s1">'dewpoint_temperature_2m'</span><span class="p">,</span><span class="s1">'total_precipitation_sum'</span><span class="p">,</span>
+<span class="w">                </span><span class="s1">'surface_pressure'</span><span class="p">,</span><span class="s1">'u_component_of_wind_10m'</span><span class="p">,</span><span class="s1">'v_component_of_wind_10m'</span><span class="p">])</span>
+<span class="w">      </span><span class="p">.</span><span class="nx">mean</span><span class="p">();</span>
+
+<span class="w">  </span><span class="kd">var</span><span class="w"> </span><span class="nx">Tmean_C</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">era5</span><span class="p">.</span><span class="nx">select</span><span class="p">(</span><span class="s1">'temperature_2m'</span><span class="p">).</span><span class="nx">subtract</span><span class="p">(</span><span class="mf">273.15</span><span class="p">).</span><span class="nx">rename</span><span class="p">(</span><span class="s1">'Tmean_C'</span><span class="p">);</span>
+<span class="w">  </span><span class="kd">var</span><span class="w"> </span><span class="nx">Tmin_C</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="nx">era5</span><span class="p">.</span><span class="nx">select</span><span class="p">(</span><span class="s1">'temperature_2m_min'</span><span class="p">).</span><span class="nx">subtract</span><span class="p">(</span><span class="mf">273.15</span><span class="p">).</span><span class="nx">rename</span><span class="p">(</span><span class="s1">'Tmin_C'</span><span class="p">);</span>
+<span class="w">  </span><span class="kd">var</span><span class="w"> </span><span class="nx">Tmax_C</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="nx">era5</span><span class="p">.</span><span class="nx">select</span><span class="p">(</span><span class="s1">'temperature_2m_max'</span><span class="p">).</span><span class="nx">subtract</span><span class="p">(</span><span class="mf">273.15</span><span class="p">).</span><span class="nx">rename</span><span class="p">(</span><span class="s1">'Tmax_C'</span><span class="p">);</span>
+<span class="w">  </span><span class="kd">var</span><span class="w"> </span><span class="nx">Tdew_C</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="nx">era5</span><span class="p">.</span><span class="nx">select</span><span class="p">(</span><span class="s1">'dewpoint_temperature_2m'</span><span class="p">).</span><span class="nx">subtract</span><span class="p">(</span><span class="mf">273.15</span><span class="p">).</span><span class="nx">rename</span><span class="p">(</span><span class="s1">'Tdew_C'</span><span class="p">);</span>
+<span class="w">  </span><span class="kd">var</span><span class="w"> </span><span class="nx">Precip_mm</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">era5</span><span class="p">.</span><span class="nx">select</span><span class="p">(</span><span class="s1">'total_precipitation_sum'</span><span class="p">).</span><span class="nx">multiply</span><span class="p">(</span><span class="mf">1000</span><span class="p">).</span><span class="nx">rename</span><span class="p">(</span><span class="s1">'Precip_mm'</span><span class="p">);</span>
+<span class="w">  </span><span class="kd">var</span><span class="w"> </span><span class="nx">SurfaceP_hPa</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">era5</span><span class="p">.</span><span class="nx">select</span><span class="p">(</span><span class="s1">'surface_pressure'</span><span class="p">).</span><span class="nx">divide</span><span class="p">(</span><span class="mf">100</span><span class="p">).</span><span class="nx">rename</span><span class="p">(</span><span class="s1">'SurfaceP_hPa'</span><span class="p">);</span>
+<span class="w">  </span><span class="kd">var</span><span class="w"> </span><span class="nx">WindU</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">era5</span><span class="p">.</span><span class="nx">select</span><span class="p">(</span><span class="s1">'u_component_of_wind_10m'</span><span class="p">).</span><span class="nx">rename</span><span class="p">(</span><span class="s1">'WindU'</span><span class="p">);</span>
+<span class="w">  </span><span class="kd">var</span><span class="w"> </span><span class="nx">WindV</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">era5</span><span class="p">.</span><span class="nx">select</span><span class="p">(</span><span class="s1">'v_component_of_wind_10m'</span><span class="p">).</span><span class="nx">rename</span><span class="p">(</span><span class="s1">'WindV'</span><span class="p">);</span>
+
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="nx">ee</span><span class="p">.</span><span class="nx">Image</span><span class="p">.</span><span class="nx">cat</span><span class="p">([</span><span class="nx">Tmean_C</span><span class="p">,</span><span class="w"> </span><span class="nx">Tmin_C</span><span class="p">,</span><span class="w"> </span><span class="nx">Tmax_C</span><span class="p">,</span><span class="w"> </span><span class="nx">Tdew_C</span><span class="p">,</span><span class="w"> </span><span class="nx">Precip_mm</span><span class="p">,</span><span class="w"> </span><span class="nx">SurfaceP_hPa</span><span class="p">,</span><span class="w"> </span><span class="nx">WindU</span><span class="p">,</span><span class="w"> </span><span class="nx">WindV</span><span class="p">]);</span>
+<span class="p">}</span>
+</code></pre></div>
+<h2 id="05_combined_pipeline_fulljs">05_combined_pipeline_full.js<a class="headerlink" href="#05_combined_pipeline_fulljs" title="Permanent link">&para;</a></h2>
+<p>The production script: for every park × buffer × benchmark year, emits burn
+frequency, burned area, the land-cover histogram, and all eight climate
+variables in a single feature.</p>
+<ul>
+<li><strong><code>calculateBurnedAreaAndLandUse(feature, landCover, year)</code></strong> — the main
+  per-park-per-year driver, merging burn stats, land cover, and climate into
+  one output row per buffer.</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="kd">function</span><span class="w"> </span><span class="nx">calculateBurnedAreaAndLandUse</span><span class="p">(</span><span class="nx">feature</span><span class="p">,</span><span class="w"> </span><span class="nx">landCover</span><span class="p">,</span><span class="w"> </span><span class="nx">year</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kd">var</span><span class="w"> </span><span class="nx">results</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">bufferDistances</span><span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">bufferDistance</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nx">geom</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">ee</span><span class="p">.</span><span class="nx">Algorithms</span><span class="p">.</span><span class="nx">If</span><span class="p">(</span>
+<span class="w">      </span><span class="nx">ee</span><span class="p">.</span><span class="nb">Number</span><span class="p">(</span><span class="nx">bufferDistance</span><span class="p">).</span><span class="nx">eq</span><span class="p">(</span><span class="mf">0</span><span class="p">),</span><span class="w"> </span><span class="nx">feature</span><span class="p">.</span><span class="nx">geometry</span><span class="p">(),</span><span class="w"> </span><span class="nx">feature</span><span class="p">.</span><span class="nx">geometry</span><span class="p">().</span><span class="nx">buffer</span><span class="p">(</span><span class="nx">bufferDistance</span><span class="p">)</span>
+<span class="w">    </span><span class="p">);</span>
+<span class="w">    </span><span class="nx">geom</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">ee</span><span class="p">.</span><span class="nx">Geometry</span><span class="p">(</span><span class="nx">geom</span><span class="p">);</span>
+
+<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nx">climate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">getClimateForYear</span><span class="p">(</span><span class="nx">year</span><span class="p">).</span><span class="nx">reduceRegion</span><span class="p">({</span>
+<span class="w">      </span><span class="nx">reducer</span><span class="o">:</span><span class="w"> </span><span class="nx">ee</span><span class="p">.</span><span class="nx">Reducer</span><span class="p">.</span><span class="nx">mean</span><span class="p">(),</span><span class="w"> </span><span class="nx">geometry</span><span class="o">:</span><span class="w"> </span><span class="nx">geom</span><span class="p">,</span><span class="w"> </span><span class="nx">scale</span><span class="o">:</span><span class="w"> </span><span class="mf">11132</span><span class="p">,</span><span class="w"> </span><span class="nx">maxPixels</span><span class="o">:</span><span class="w"> </span><span class="mf">1e13</span>
+<span class="w">    </span><span class="p">});</span>
+
+<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nx">burnFrequencyDict</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">ee</span><span class="p">.</span><span class="nx">Dictionary</span><span class="p">({});</span>
+<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nx">burnedAreaDict</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">ee</span><span class="p">.</span><span class="nx">Dictionary</span><span class="p">({});</span>
+<span class="w">    </span><span class="nx">months</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">month</span><span class="p">,</span><span class="w"> </span><span class="nx">index</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="kd">var</span><span class="w"> </span><span class="nx">burnFreq</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">burnedAreaImages</span><span class="p">[</span><span class="nx">index</span><span class="p">].</span><span class="nx">reduceRegion</span><span class="p">({</span>
+<span class="w">        </span><span class="nx">reducer</span><span class="o">:</span><span class="w"> </span><span class="nx">ee</span><span class="p">.</span><span class="nx">Reducer</span><span class="p">.</span><span class="nx">sum</span><span class="p">(),</span><span class="w"> </span><span class="nx">geometry</span><span class="o">:</span><span class="w"> </span><span class="nx">geom</span><span class="p">,</span><span class="w"> </span><span class="nx">scale</span><span class="o">:</span><span class="w"> </span><span class="mf">500</span><span class="p">,</span><span class="w"> </span><span class="nx">maxPixels</span><span class="o">:</span><span class="w"> </span><span class="mf">1e13</span>
+<span class="w">      </span><span class="p">}).</span><span class="nx">get</span><span class="p">(</span><span class="s1">'BurnDate'</span><span class="p">);</span>
+<span class="w">      </span><span class="kd">var</span><span class="w"> </span><span class="nx">areaSqKm</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">ee</span><span class="p">.</span><span class="nb">Number</span><span class="p">(</span><span class="nx">burnFreq</span><span class="p">).</span><span class="nx">multiply</span><span class="p">(</span><span class="mf">500</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">500</span><span class="p">).</span><span class="nx">divide</span><span class="p">(</span><span class="mf">1e6</span><span class="p">);</span>
+<span class="w">      </span><span class="nx">burnFrequencyDict</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">burnFrequencyDict</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="nx">month</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s1">'_BurnFrequency'</span><span class="p">,</span><span class="w"> </span><span class="nx">burnFreq</span><span class="p">);</span>
+<span class="w">      </span><span class="nx">burnedAreaDict</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">burnedAreaDict</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="nx">month</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s1">'_BurnedArea_sqkm'</span><span class="p">,</span><span class="w"> </span><span class="nx">areaSqKm</span><span class="p">);</span>
+<span class="w">    </span><span class="p">});</span>
+
+<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nx">landCoverStats</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">landCover</span><span class="p">.</span><span class="nx">reduceRegion</span><span class="p">({</span>
+<span class="w">      </span><span class="nx">reducer</span><span class="o">:</span><span class="w"> </span><span class="nx">ee</span><span class="p">.</span><span class="nx">Reducer</span><span class="p">.</span><span class="nx">frequencyHistogram</span><span class="p">(),</span><span class="w"> </span><span class="nx">geometry</span><span class="o">:</span><span class="w"> </span><span class="nx">geom</span><span class="p">,</span><span class="w"> </span><span class="nx">scale</span><span class="o">:</span><span class="w"> </span><span class="mf">30</span><span class="p">,</span><span class="w"> </span><span class="nx">maxPixels</span><span class="o">:</span><span class="w"> </span><span class="mf">1e13</span>
+<span class="w">    </span><span class="p">}).</span><span class="nx">get</span><span class="p">(</span><span class="s1">'landcover'</span><span class="p">);</span>
+
+<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nx">bufferAreaSqKm</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">ee</span><span class="p">.</span><span class="nb">Number</span><span class="p">(</span><span class="nx">geom</span><span class="p">.</span><span class="nx">area</span><span class="p">()).</span><span class="nx">divide</span><span class="p">(</span><span class="mf">1e6</span><span class="p">);</span>
+<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nx">totalBurns</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">ee</span><span class="p">.</span><span class="nb">Number</span><span class="p">(</span><span class="nx">burnFrequencyDict</span><span class="p">.</span><span class="nx">values</span><span class="p">().</span><span class="nx">reduce</span><span class="p">(</span><span class="nx">ee</span><span class="p">.</span><span class="nx">Reducer</span><span class="p">.</span><span class="nx">sum</span><span class="p">()));</span>
+<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nx">totalPixels</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">bufferAreaSqKm</span><span class="p">.</span><span class="nx">divide</span><span class="p">(</span><span class="mf">0.0009</span><span class="p">);</span><span class="w"> </span><span class="c1">// 30 m LC pixels</span>
+<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nx">avgBurnPerPixel</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">totalBurns</span><span class="p">.</span><span class="nx">divide</span><span class="p">(</span><span class="nx">totalPixels</span><span class="p">);</span>
+<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nx">avgBurnPerYear</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">avgBurnPerPixel</span><span class="p">.</span><span class="nx">divide</span><span class="p">(</span><span class="mf">22</span><span class="p">);</span>
+
+<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nx">props</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">ee</span><span class="p">.</span><span class="nx">Dictionary</span><span class="p">({</span>
+<span class="w">      </span><span class="s1">'ORIG_NAME'</span><span class="o">:</span><span class="w"> </span><span class="nx">feature</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">'ORIG_NAME'</span><span class="p">),</span><span class="w"> </span><span class="s1">'Year'</span><span class="o">:</span><span class="w"> </span><span class="nx">year</span><span class="p">,</span>
+<span class="w">      </span><span class="s1">'Buffer_km'</span><span class="o">:</span><span class="w"> </span><span class="nx">ee</span><span class="p">.</span><span class="nb">Number</span><span class="p">(</span><span class="nx">bufferDistance</span><span class="p">).</span><span class="nx">divide</span><span class="p">(</span><span class="mf">1000</span><span class="p">),</span>
+<span class="w">      </span><span class="s1">'BufferArea_sqkm'</span><span class="o">:</span><span class="w"> </span><span class="nx">bufferAreaSqKm</span><span class="p">,</span><span class="w"> </span><span class="s1">'TotalPixels'</span><span class="o">:</span><span class="w"> </span><span class="nx">totalPixels</span><span class="p">,</span>
+<span class="w">      </span><span class="s1">'AvgBurnPerPixel'</span><span class="o">:</span><span class="w"> </span><span class="nx">avgBurnPerPixel</span><span class="p">,</span><span class="w"> </span><span class="s1">'AvgBurnPerYear'</span><span class="o">:</span><span class="w"> </span><span class="nx">avgBurnPerYear</span><span class="p">,</span>
+<span class="w">      </span><span class="s1">'LandUseDistribution'</span><span class="o">:</span><span class="w"> </span><span class="nx">landCoverStats</span><span class="p">,</span>
+<span class="w">      </span><span class="s1">'ERA5_Tmean_C'</span><span class="o">:</span><span class="w"> </span><span class="nx">climate</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">'Tmean_C'</span><span class="p">),</span><span class="w"> </span><span class="s1">'ERA5_Tmin_C'</span><span class="o">:</span><span class="w"> </span><span class="nx">climate</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">'Tmin_C'</span><span class="p">),</span>
+<span class="w">      </span><span class="s1">'ERA5_Tmax_C'</span><span class="o">:</span><span class="w"> </span><span class="nx">climate</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">'Tmax_C'</span><span class="p">),</span><span class="w"> </span><span class="s1">'ERA5_Tdew_C'</span><span class="o">:</span><span class="w"> </span><span class="nx">climate</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">'Tdew_C'</span><span class="p">),</span>
+<span class="w">      </span><span class="s1">'ERA5_Precip_mm'</span><span class="o">:</span><span class="w"> </span><span class="nx">climate</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">'Precip_mm'</span><span class="p">),</span>
+<span class="w">      </span><span class="s1">'ERA5_SurfacePressure_hPa'</span><span class="o">:</span><span class="w"> </span><span class="nx">climate</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">'SurfaceP_hPa'</span><span class="p">),</span>
+<span class="w">      </span><span class="s1">'ERA5_WindU'</span><span class="o">:</span><span class="w"> </span><span class="nx">climate</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">'WindU'</span><span class="p">),</span><span class="w"> </span><span class="s1">'ERA5_WindV'</span><span class="o">:</span><span class="w"> </span><span class="nx">climate</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">'WindV'</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}).</span><span class="nx">combine</span><span class="p">(</span><span class="nx">burnFrequencyDict</span><span class="p">).</span><span class="nx">combine</span><span class="p">(</span><span class="nx">burnedAreaDict</span><span class="p">);</span>
+
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">ee</span><span class="p">.</span><span class="nx">Feature</span><span class="p">(</span><span class="nx">geom</span><span class="p">,</span><span class="w"> </span><span class="nx">props</span><span class="p">);</span>
+<span class="w">  </span><span class="p">});</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="nx">ee</span><span class="p">.</span><span class="nx">FeatureCollection</span><span class="p">(</span><span class="nx">results</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kd">var</span><span class="w"> </span><span class="nx">allResults</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">ee</span><span class="p">.</span><span class="nx">FeatureCollection</span><span class="p">([]);</span>
+<span class="p">[</span><span class="mf">2000</span><span class="p">,</span><span class="w"> </span><span class="mf">2005</span><span class="p">,</span><span class="w"> </span><span class="mf">2010</span><span class="p">,</span><span class="w"> </span><span class="mf">2015</span><span class="p">,</span><span class="w"> </span><span class="mf">2020</span><span class="p">,</span><span class="w"> </span><span class="mf">2021</span><span class="p">,</span><span class="w"> </span><span class="mf">2022</span><span class="p">,</span><span class="w"> </span><span class="mf">2023</span><span class="p">,</span><span class="w"> </span><span class="mf">2024</span><span class="p">].</span><span class="nx">forEach</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">y</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kd">var</span><span class="w"> </span><span class="nx">lcImg</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">getLandCoverYear</span><span class="p">(</span><span class="nx">y</span><span class="p">);</span>
+<span class="w">  </span><span class="kd">var</span><span class="w"> </span><span class="nx">yearFC</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">ee</span><span class="p">.</span><span class="nx">FeatureCollection</span><span class="p">(</span>
+<span class="w">    </span><span class="nx">parks</span><span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">f</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="nx">calculateBurnedAreaAndLandUse</span><span class="p">(</span><span class="nx">f</span><span class="p">,</span><span class="w"> </span><span class="nx">lcImg</span><span class="p">,</span><span class="w"> </span><span class="nx">y</span><span class="p">);</span><span class="w"> </span><span class="p">}).</span><span class="nx">flatten</span><span class="p">()</span>
+<span class="w">  </span><span class="p">);</span>
+<span class="w">  </span><span class="nx">allResults</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">allResults</span><span class="p">.</span><span class="nx">merge</span><span class="p">(</span><span class="nx">yearFC</span><span class="p">);</span>
+<span class="p">});</span>
+
+<span class="nx">Export</span><span class="p">.</span><span class="nx">table</span><span class="p">.</span><span class="nx">toDrive</span><span class="p">({</span>
+<span class="w">  </span><span class="nx">collection</span><span class="o">:</span><span class="w"> </span><span class="nx">allResults</span><span class="p">,</span>
+<span class="w">  </span><span class="nx">description</span><span class="o">:</span><span class="w"> </span><span class="s1">'BurnedArea_LC_Climate_ESRI_GLAD_2000_2024_corrected2'</span><span class="p">,</span>
+<span class="w">  </span><span class="nx">fileFormat</span><span class="o">:</span><span class="w"> </span><span class="s1">'CSV'</span><span class="p">,</span><span class="w"> </span><span class="nx">folder</span><span class="o">:</span><span class="w"> </span><span class="s1">'GEE'</span>
+<span class="p">});</span>
+</code></pre></div>
+<h2 id="05b_seasonal_fire_rainfall_fulljs">05b_seasonal_fire_rainfall_full.js<a class="headerlink" href="#05b_seasonal_fire_rainfall_fulljs" title="Permanent link">&para;</a></h2>
+<p>Computes dry- vs wet-season burned-area and rainfall totals per park/year —
+the input to the fire–rainfall regressions.</p>
+<ul>
+<li><strong><code>processParkYearSeason(park, year, season)</code></strong> — one seasonal
+  burned-area/rainfall total for one park in one year.</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nx">seasons</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span>
+<span class="w">  </span><span class="p">{</span><span class="nx">label</span><span class="o">:</span><span class="w"> </span><span class="s1">'Dry'</span><span class="p">,</span><span class="w"> </span><span class="nx">startMonth</span><span class="o">:</span><span class="w"> </span><span class="mf">10</span><span class="p">,</span><span class="w"> </span><span class="nx">endMonth</span><span class="o">:</span><span class="w"> </span><span class="mf">3</span><span class="p">},</span><span class="w">  </span><span class="c1">// Oct -&gt; Mar (crosses year boundary)</span>
+<span class="w">  </span><span class="p">{</span><span class="nx">label</span><span class="o">:</span><span class="w"> </span><span class="s1">'Wet'</span><span class="p">,</span><span class="w"> </span><span class="nx">startMonth</span><span class="o">:</span><span class="w"> </span><span class="mf">4</span><span class="p">,</span><span class="w">  </span><span class="nx">endMonth</span><span class="o">:</span><span class="w"> </span><span class="mf">9</span><span class="p">}</span><span class="w">   </span><span class="c1">// Apr -&gt; Sep</span>
+<span class="p">];</span>
+
+<span class="kd">var</span><span class="w"> </span><span class="nx">processParkYearSeason</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kd">function</span><span class="p">(</span><span class="nx">park</span><span class="p">,</span><span class="w"> </span><span class="nx">year</span><span class="p">,</span><span class="w"> </span><span class="nx">season</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kd">var</span><span class="w"> </span><span class="nx">geom</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">park</span><span class="p">.</span><span class="nx">geometry</span><span class="p">();</span>
+<span class="w">  </span><span class="kd">var</span><span class="w"> </span><span class="nx">start</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">ee</span><span class="p">.</span><span class="nb">Date</span><span class="p">.</span><span class="nx">fromYMD</span><span class="p">(</span><span class="nx">year</span><span class="p">,</span><span class="w"> </span><span class="nx">season</span><span class="p">.</span><span class="nx">startMonth</span><span class="p">,</span><span class="w"> </span><span class="mf">1</span><span class="p">);</span>
+<span class="w">  </span><span class="kd">var</span><span class="w"> </span><span class="nx">end</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">ee</span><span class="p">.</span><span class="nx">Algorithms</span><span class="p">.</span><span class="nx">If</span><span class="p">(</span>
+<span class="w">    </span><span class="nx">ee</span><span class="p">.</span><span class="nb">Number</span><span class="p">(</span><span class="nx">season</span><span class="p">.</span><span class="nx">startMonth</span><span class="p">).</span><span class="nx">gt</span><span class="p">(</span><span class="nx">season</span><span class="p">.</span><span class="nx">endMonth</span><span class="p">),</span>
+<span class="w">    </span><span class="nx">ee</span><span class="p">.</span><span class="nb">Date</span><span class="p">.</span><span class="nx">fromYMD</span><span class="p">(</span><span class="nx">ee</span><span class="p">.</span><span class="nb">Number</span><span class="p">(</span><span class="nx">year</span><span class="p">).</span><span class="nx">add</span><span class="p">(</span><span class="mf">1</span><span class="p">),</span><span class="w"> </span><span class="nx">season</span><span class="p">.</span><span class="nx">endMonth</span><span class="p">,</span><span class="w"> </span><span class="mf">28</span><span class="p">),</span>
+<span class="w">    </span><span class="nx">ee</span><span class="p">.</span><span class="nb">Date</span><span class="p">.</span><span class="nx">fromYMD</span><span class="p">(</span><span class="nx">year</span><span class="p">,</span><span class="w"> </span><span class="nx">season</span><span class="p">.</span><span class="nx">endMonth</span><span class="p">,</span><span class="w"> </span><span class="mf">28</span><span class="p">)</span>
+<span class="w">  </span><span class="p">);</span>
+<span class="w">  </span><span class="nx">end</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">ee</span><span class="p">.</span><span class="nb">Date</span><span class="p">(</span><span class="nx">end</span><span class="p">);</span>
+
+<span class="w">  </span><span class="kd">var</span><span class="w"> </span><span class="nx">BA_season</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">MODIS_BA</span><span class="p">.</span><span class="nx">filterDate</span><span class="p">(</span><span class="nx">start</span><span class="p">,</span><span class="w"> </span><span class="nx">end</span><span class="p">).</span><span class="nx">map</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">img</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">ee</span><span class="p">.</span><span class="nx">Image</span><span class="p">.</span><span class="nx">pixelArea</span><span class="p">().</span><span class="nx">updateMask</span><span class="p">(</span><span class="nx">img</span><span class="p">.</span><span class="nx">select</span><span class="p">(</span><span class="s1">'BurnDate'</span><span class="p">).</span><span class="nx">gt</span><span class="p">(</span><span class="mf">0</span><span class="p">)).</span><span class="nx">divide</span><span class="p">(</span><span class="mf">1e6</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}).</span><span class="nx">sum</span><span class="p">();</span>
+<span class="w">  </span><span class="kd">var</span><span class="w"> </span><span class="nx">baDict</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">BA_season</span><span class="p">.</span><span class="nx">reduceRegion</span><span class="p">({</span>
+<span class="w">    </span><span class="nx">reducer</span><span class="o">:</span><span class="w"> </span><span class="nx">ee</span><span class="p">.</span><span class="nx">Reducer</span><span class="p">.</span><span class="nx">sum</span><span class="p">(),</span><span class="w"> </span><span class="nx">geometry</span><span class="o">:</span><span class="w"> </span><span class="nx">geom</span><span class="p">,</span><span class="w"> </span><span class="nx">scale</span><span class="o">:</span><span class="w"> </span><span class="mf">500</span><span class="p">,</span><span class="w"> </span><span class="nx">maxPixels</span><span class="o">:</span><span class="w"> </span><span class="mf">1e13</span>
+<span class="w">  </span><span class="p">});</span>
+<span class="w">  </span><span class="kd">var</span><span class="w"> </span><span class="nx">burnedArea_km2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">ee</span><span class="p">.</span><span class="nb">Number</span><span class="p">(</span><span class="nx">ee</span><span class="p">.</span><span class="nx">Algorithms</span><span class="p">.</span><span class="nx">If</span><span class="p">(</span><span class="nx">baDict</span><span class="p">.</span><span class="nx">contains</span><span class="p">(</span><span class="s1">'area'</span><span class="p">),</span><span class="w"> </span><span class="nx">baDict</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">'area'</span><span class="p">),</span><span class="w"> </span><span class="mf">0</span><span class="p">));</span>
+
+<span class="w">  </span><span class="kd">var</span><span class="w"> </span><span class="nx">rainImg</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">ERA5</span><span class="p">.</span><span class="nx">filterDate</span><span class="p">(</span><span class="nx">start</span><span class="p">,</span><span class="w"> </span><span class="nx">end</span><span class="p">).</span><span class="nx">sum</span><span class="p">().</span><span class="nx">multiply</span><span class="p">(</span><span class="mf">1000</span><span class="p">).</span><span class="nx">rename</span><span class="p">(</span><span class="s1">'rainfall_mm'</span><span class="p">);</span>
+<span class="w">  </span><span class="kd">var</span><span class="w"> </span><span class="nx">rainDict</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">rainImg</span><span class="p">.</span><span class="nx">reduceRegion</span><span class="p">({</span>
+<span class="w">    </span><span class="nx">reducer</span><span class="o">:</span><span class="w"> </span><span class="nx">ee</span><span class="p">.</span><span class="nx">Reducer</span><span class="p">.</span><span class="nx">mean</span><span class="p">(),</span><span class="w"> </span><span class="nx">geometry</span><span class="o">:</span><span class="w"> </span><span class="nx">geom</span><span class="p">,</span><span class="w"> </span><span class="nx">scale</span><span class="o">:</span><span class="w"> </span><span class="mf">27830</span><span class="p">,</span><span class="w"> </span><span class="nx">maxPixels</span><span class="o">:</span><span class="w"> </span><span class="mf">1e13</span>
+<span class="w">  </span><span class="p">});</span>
+<span class="w">  </span><span class="kd">var</span><span class="w"> </span><span class="nx">rainfall_mm</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">ee</span><span class="p">.</span><span class="nb">Number</span><span class="p">(</span><span class="nx">ee</span><span class="p">.</span><span class="nx">Algorithms</span><span class="p">.</span><span class="nx">If</span><span class="p">(</span><span class="nx">rainDict</span><span class="p">.</span><span class="nx">contains</span><span class="p">(</span><span class="s1">'rainfall_mm'</span><span class="p">),</span><span class="w"> </span><span class="nx">rainDict</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">'rainfall_mm'</span><span class="p">),</span><span class="w"> </span><span class="mf">0</span><span class="p">));</span>
+
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="nx">ee</span><span class="p">.</span><span class="nx">Feature</span><span class="p">(</span><span class="kc">null</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="s1">'Park'</span><span class="o">:</span><span class="w"> </span><span class="nx">park</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">'ORIG_NAME'</span><span class="p">),</span><span class="w"> </span><span class="s1">'Year'</span><span class="o">:</span><span class="w"> </span><span class="nx">year</span><span class="p">,</span><span class="w"> </span><span class="s1">'Season'</span><span class="o">:</span><span class="w"> </span><span class="nx">season</span><span class="p">.</span><span class="nx">label</span><span class="p">,</span>
+<span class="w">    </span><span class="s1">'BurnedArea_km2'</span><span class="o">:</span><span class="w"> </span><span class="nx">burnedArea_km2</span><span class="p">,</span><span class="w"> </span><span class="s1">'Rainfall_mm'</span><span class="o">:</span><span class="w"> </span><span class="nx">rainfall_mm</span>
+<span class="w">  </span><span class="p">});</span>
+<span class="p">};</span>
+
+<span class="nx">Export</span><span class="p">.</span><span class="nx">table</span><span class="p">.</span><span class="nx">toDrive</span><span class="p">({</span>
+<span class="w">  </span><span class="nx">collection</span><span class="o">:</span><span class="w"> </span><span class="nx">outputFC</span><span class="p">,</span><span class="w"> </span><span class="nx">description</span><span class="o">:</span><span class="w"> </span><span class="s1">'BurnedArea_ERA5Seasonal_2004_2024'</span><span class="p">,</span>
+<span class="w">  </span><span class="nx">folder</span><span class="o">:</span><span class="w"> </span><span class="s1">'GEE'</span><span class="p">,</span><span class="w"> </span><span class="nx">fileFormat</span><span class="o">:</span><span class="w"> </span><span class="s1">'CSV'</span><span class="p">,</span>
+<span class="w">  </span><span class="nx">selectors</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="s1">'Park'</span><span class="p">,</span><span class="w"> </span><span class="s1">'Year'</span><span class="p">,</span><span class="w"> </span><span class="s1">'Season'</span><span class="p">,</span><span class="w"> </span><span class="s1">'BurnedArea_km2'</span><span class="p">,</span><span class="w"> </span><span class="s1">'Rainfall_mm'</span><span class="p">]</span>
+<span class="p">});</span>
+</code></pre></div>
+<div class="admonition warning">
+<p class="admonition-title">Performance note</p>
+<p>The triple loop over parks × years × seasons calls <code>.getInfo()</code> to get
+client-side list lengths. Fine for 15 parks × 21 years × 2 seasons (630
+features), but restructure as server-side <code>.map()</code> nesting for much
+larger park lists.</p>
+</div>
+<h2 id="full-function-reference">Full function reference<a class="headerlink" href="#full-function-reference" title="Permanent link">&para;</a></h2>
+<p>Parameter and return-type documentation for every custom function above.</p>
+<h3 id="processburnedareadate-region-eeimage"><code>processBurnedArea(date, region)</code> → <code>ee.Image</code><a class="headerlink" href="#processburnedareadate-region-eeimage" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>date</code></td>
+<td><code>ee.Date</code></td>
+<td>First day of the target month</td>
+</tr>
+<tr>
+<td><code>region</code></td>
+<td><code>ee.Geometry</code></td>
+<td>Clipping extent (study area)</td>
+</tr>
+</tbody>
+</table>
+<p>Returns a single-band binary mask (<code>BurnDate &gt; 0</code>, self-masked), tagged with
+a <code>date</code> property.</p>
+<h3 id="sumburnedareaforspecificmonthmonth-startyear-endyear-region-eeimage"><code>sumBurnedAreaForSpecificMonth(month, startYear, endYear, region)</code> → <code>ee.Image</code><a class="headerlink" href="#sumburnedareaforspecificmonthmonth-startyear-endyear-region-eeimage" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>month</code></td>
+<td>int (1–12)</td>
+<td>Calendar month</td>
+</tr>
+<tr>
+<td><code>startYear</code>, <code>endYear</code></td>
+<td>int</td>
+<td>Climatology bounds (2004, 2024)</td>
+</tr>
+<tr>
+<td><code>region</code></td>
+<td><code>ee.Geometry</code></td>
+<td>Study area extent</td>
+</tr>
+</tbody>
+</table>
+<p>Returns the pixel-wise count of years (0–21) that recorded a burn in that
+month, cast to <code>double</code>.</p>
+<h3 id="sumburnedareaforallmonthsstartyear-endyear-region-eeimage"><code>sumBurnedAreaForAllMonths(startYear, endYear, region)</code> → <code>ee.Image</code><a class="headerlink" href="#sumburnedareaforallmonthsstartyear-endyear-region-eeimage" title="Permanent link">&para;</a></h3>
+<p>Calls <code>sumBurnedAreaForSpecificMonth</code> for all 12 months and sums the
+results into one all-months composite.</p>
+<h3 id="calculateburnedareaandfrequencyfeature-eefeaturecollection"><code>calculateBurnedAreaAndFrequency(feature)</code> → <code>ee.FeatureCollection</code><a class="headerlink" href="#calculateburnedareaandfrequencyfeature-eefeaturecollection" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>feature</code></td>
+<td><code>ee.Feature</code></td>
+<td>One park polygon with an <code>ORIG_NAME</code> property</td>
+</tr>
+</tbody>
+</table>
+<p>Returns 5 features (one per buffer distance), each with the fields listed
+in the <a href="../data-outputs/#output-csv-schema">output schema</a>. Closes over
+module-level <code>months</code>, <code>burnedAreaImages</code>, <code>bufferDistances</code>.</p>
+<h3 id="harmonisegladimg-eeimage"><code>harmoniseGlad(img)</code> → <code>ee.Image</code><a class="headerlink" href="#harmonisegladimg-eeimage" title="Permanent link">&para;</a></h3>
+<p><code>img</code>: single-band GLAD image, native codes. Returns a single band named
+<code>landcover</code>, values 1–9 (class 8/Clouds never appears from this source).</p>
+<h3 id="remapesriimage-eeimage"><code>remapEsri(image)</code> → <code>ee.Image</code><a class="headerlink" href="#remapesriimage-eeimage" title="Permanent link">&para;</a></h3>
+<p><code>image</code>: single-band ESRI image, native codes <code>1,2,4,5,7,8,9,10,11</code>.
+Returns a single band named <code>landcover</code>, values 1–9.</p>
+<h3 id="getlandcoveryearyear-eeimage"><code>getLandCoverYear(year)</code> → <code>ee.Image</code><a class="headerlink" href="#getlandcoveryearyear-eeimage" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Year range</th>
+<th>Source</th>
+<th>Function called</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2000–2020</td>
+<td>GLAD GLCLU2020 v2</td>
+<td><code>harmoniseGlad()</code></td>
+</tr>
+<tr>
+<td>2021–2024</td>
+<td>ESRI Global LULC 10 m</td>
+<td><code>remapEsri()</code> after annual mosaic</td>
+</tr>
+<tr>
+<td>other</td>
+<td>—</td>
+<td><code>ee.Image(0)</code> fallback</td>
+</tr>
+</tbody>
+</table>
+<h3 id="getclimateforyearyear-eeimage"><code>getClimateForYear(year)</code> → <code>ee.Image</code><a class="headerlink" href="#getclimateforyearyear-eeimage" title="Permanent link">&para;</a></h3>
+<p><code>year</code>: calendar year, filtered Jan 1–Dec 31. Returns 8 bands: <code>Tmean_C</code>,
+<code>Tmin_C</code>, <code>Tmax_C</code>, <code>Tdew_C</code>, <code>Precip_mm</code>, <code>SurfaceP_hPa</code>, <code>WindU</code>,
+<code>WindV</code>.</p>
+<h3 id="calculateburnedareaandlandusefeature-landcover-year-eefeaturecollection"><code>calculateBurnedAreaAndLandUse(feature, landCover, year)</code> → <code>ee.FeatureCollection</code><a class="headerlink" href="#calculateburnedareaandlandusefeature-landcover-year-eefeaturecollection" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>feature</code></td>
+<td><code>ee.Feature</code></td>
+<td>One park polygon</td>
+</tr>
+<tr>
+<td><code>landCover</code></td>
+<td><code>ee.Image</code></td>
+<td>Output of <code>getLandCoverYear(year)</code> for the matching year</td>
+</tr>
+<tr>
+<td><code>year</code></td>
+<td>int</td>
+<td>Benchmark year, forwarded to <code>getClimateForYear</code></td>
+</tr>
+</tbody>
+</table>
+<p>Returns 5 features (one per buffer), each with the full schema documented
+on <a href="../data-outputs/#output-csv-schema">Data &amp; Outputs</a>.</p>
+<h3 id="processparkyearseasonpark-year-season-eefeature"><code>processParkYearSeason(park, year, season)</code> → <code>ee.Feature</code><a class="headerlink" href="#processparkyearseasonpark-year-season-eefeature" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>park</code></td>
+<td><code>ee.Feature</code></td>
+<td>One park polygon with <code>ORIG_NAME</code></td>
+</tr>
+<tr>
+<td><code>year</code></td>
+<td><code>ee.Number</code></td>
+<td>Calendar year of the season's start</td>
+</tr>
+<tr>
+<td><code>season</code></td>
+<td><code>{label, startMonth, endMonth}</code></td>
+<td>Dry (10→3) or Wet (4→9); <code>startMonth &gt; endMonth</code> means the season crosses the year boundary</td>
+</tr>
+</tbody>
+</table>
+<p>Returns a geometry-less feature with <code>Park</code>, <code>Year</code>, <code>Season</code>,
+<code>BurnedArea_km2</code>, <code>Rainfall_mm</code>.</p>
+<h3 id="constants-referenced-throughout">Constants referenced throughout<a class="headerlink" href="#constants-referenced-throughout" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Value</th>
+<th>Used by</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>months</code></td>
+<td><code>['Oct','Nov','Dec','Jan','Feb','Mar']</code></td>
+<td>Scripts 02, 05</td>
+</tr>
+<tr>
+<td><code>bufferDistances</code></td>
+<td><code>[0, 5000, 10000, 15000, 20000]</code> m</td>
+<td>Scripts 02, 05</td>
+</tr>
+<tr>
+<td>Burned-area reduce scale</td>
+<td>500 m</td>
+<td>All burn-frequency <code>reduceRegion</code> calls</td>
+</tr>
+<tr>
+<td>Land-cover reduce scale</td>
+<td>30 m</td>
+<td>All <code>frequencyHistogram</code> calls</td>
+</tr>
+<tr>
+<td>Climate reduce scale</td>
+<td>11,132 m</td>
+<td>All ERA5-Land <code>reduceRegion</code> calls (native grid)</td>
+</tr>
+<tr>
+<td>Climatology length</td>
+<td>22 years</td>
+<td><code>AvgBurnPerYear</code> normalisation</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2026 Desmond Lartey
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.instant", "navigation.tracking", "navigation.top", "search.highlight", "search.share", "content.code.copy"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>

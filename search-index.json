@@ -1,0 +1,230 @@
+[
+{
+"page": "index.html",
+"pageTitle": "Home",
+"id": "about",
+"text": "About this study"
+},
+{
+"page": "index.html",
+"pageTitle": "Home",
+"id": "headline",
+"text": "Headline findings"
+},
+{
+"page": "index.html",
+"pageTitle": "Home",
+"id": "calendar",
+"text": "Fire-season calendar"
+},
+{
+"page": "index.html",
+"pageTitle": "Home",
+"id": "map",
+"text": "Quick links"
+},
+{
+"page": "index.html",
+"pageTitle": "Home",
+"id": "cite",
+"text": "Citation"
+},
+{
+"page": "index.html",
+"pageTitle": "Home",
+"id": "",
+"text": "Home"
+},
+{
+"page": "study-design.html",
+"pageTitle": "Study Design",
+"id": "objective",
+"text": "Objective"
+},
+{
+"page": "study-design.html",
+"pageTitle": "Study Design",
+"id": "domain",
+"text": "Study region and period"
+},
+{
+"page": "study-design.html",
+"pageTitle": "Study Design",
+"id": "questions",
+"text": "Research questions"
+},
+{
+"page": "study-design.html",
+"pageTitle": "Study Design",
+"id": "zones",
+"text": "Ecological zones"
+},
+{
+"page": "study-design.html",
+"pageTitle": "Study Design",
+"id": "parks",
+"text": "Protected areas evaluated"
+},
+{
+"page": "study-design.html",
+"pageTitle": "Study Design",
+"id": "sources",
+"text": "Data sources"
+},
+{
+"page": "study-design.html",
+"pageTitle": "Study Design",
+"id": "",
+"text": "Study Design"
+},
+{
+"page": "pipeline.html",
+"pageTitle": "Pipeline",
+"id": "environment",
+"text": "Environment"
+},
+{
+"page": "pipeline.html",
+"pageTitle": "Pipeline",
+"id": "run-order",
+"text": "Run order"
+},
+{
+"page": "pipeline.html",
+"pageTitle": "Pipeline",
+"id": "pull",
+"text": "Pulling exports into the repository"
+},
+{
+"page": "pipeline.html",
+"pageTitle": "Pipeline",
+"id": "products",
+"text": "Key data products"
+},
+{
+"page": "pipeline.html",
+"pageTitle": "Pipeline",
+"id": "troubleshoot",
+"text": "Troubleshooting"
+},
+{
+"page": "pipeline.html",
+"pageTitle": "Pipeline",
+"id": "",
+"text": "Pipeline"
+},
+{
+"page": "script-reference.html",
+"pageTitle": "Script Reference",
+"id": "burned-area",
+"text": "01 · burned_area_composites.js"
+},
+{
+"page": "script-reference.html",
+"pageTitle": "Script Reference",
+"id": "buffer",
+"text": "02 · buffer_disaggregation.js"
+},
+{
+"page": "script-reference.html",
+"pageTitle": "Script Reference",
+"id": "landcover",
+"text": "03 · landcover_harmonisation.js"
+},
+{
+"page": "script-reference.html",
+"pageTitle": "Script Reference",
+"id": "climate",
+"text": "04 · climate_integration.js"
+},
+{
+"page": "script-reference.html",
+"pageTitle": "Script Reference",
+"id": "combined",
+"text": "05 · combined_pipeline.js"
+},
+{
+"page": "script-reference.html",
+"pageTitle": "Script Reference",
+"id": "seasonal",
+"text": "05b · seasonal_fire_rainfall.js"
+},
+{
+"page": "script-reference.html",
+"pageTitle": "Script Reference",
+"id": "functions",
+"text": "Full function reference"
+},
+{
+"page": "script-reference.html",
+"pageTitle": "Script Reference",
+"id": "",
+"text": "Script Reference"
+},
+{
+"page": "data-outputs.html",
+"pageTitle": "Data & Outputs",
+"id": "assets",
+"text": "Intermediate Earth Engine assets"
+},
+{
+"page": "data-outputs.html",
+"pageTitle": "Data & Outputs",
+"id": "schema",
+"text": "Output CSV schema"
+},
+{
+"page": "data-outputs.html",
+"pageTitle": "Data & Outputs",
+"id": "repo",
+"text": "Repository layout"
+},
+{
+"page": "data-outputs.html",
+"pageTitle": "Data & Outputs",
+"id": "",
+"text": "Data & Outputs"
+},
+{
+"page": "findings.html",
+"pageTitle": "Findings",
+"id": "headline",
+"text": "Headline results"
+},
+{
+"page": "findings.html",
+"pageTitle": "Findings",
+"id": "frequency",
+"text": "Frequency by protected area"
+},
+{
+"page": "findings.html",
+"pageTitle": "Findings",
+"id": "rainfall",
+"text": "Rainfall coupling"
+},
+{
+"page": "findings.html",
+"pageTitle": "Findings",
+"id": "gradient",
+"text": "Buffer and land-cover gradient"
+},
+{
+"page": "findings.html",
+"pageTitle": "Findings",
+"id": "guidance",
+"text": "Zone-by-zone guidance"
+},
+{
+"page": "findings.html",
+"pageTitle": "Findings",
+"id": "timing",
+"text": "Inside vs. outside timing"
+},
+{
+"page": "findings.html",
+"pageTitle": "Findings",
+"id": "",
+"text": "Findings"
+}
+]

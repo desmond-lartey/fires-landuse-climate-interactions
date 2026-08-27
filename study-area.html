@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Study area, fires-landuse-climate-interactions</title>
+<meta name="description" content="The 15 West African protected areas analysed: location, rainfall, designation, IUCN category, and ecological zone.">
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+<a class="skip" href="#content">Skip to content</a>
+<header class="masthead">
+  <div class="masthead-in">
+    <a class="brand" href="index.html"><b>fires-landuse-climate</b><span class="slash">/</span>interactions</a>
+    <button class="navtoggle" aria-expanded="false" aria-label="Toggle navigation">Menu</button>
+    <nav class="mast-nav" aria-label="Primary">
+      <a href="index.html">Overview</a>
+      <a href="study-area.html" aria-current="page">Study area</a>
+      <a href="methodology.html">Methodology</a>
+      <a href="data.html">Data layers</a>
+      <a href="gee-scripts.html">GEE scripts</a>
+      <a href="api-reference.html">API reference</a>
+      <a href="results.html">Results</a>
+      <a href="reproduce.html">Reproduce</a>
+      <a class="ext" href="https://github.com/desmond-lartey/fires-landuse-climate-interactions">Repo ↗</a>
+    </nav>
+  </div>
+</header>
+
+<div class="shell">
+  <aside class="sidebar" aria-label="On this page">
+    <p class="side-label">On this page</p>
+    <ol>
+      <li><a href="#region">Region</a></li>
+      <li><a href="#geo">Geography &amp; rainfall</a></li>
+      <li><a href="#designation">Designation &amp; human activity</a></li>
+      <li><a href="#zones">Ecological zone criteria</a></li>
+      <li><a href="#shapefile">Park boundary asset</a></li>
+    </ol>
+    <p class="side-label">Site map</p>
+    <ul>
+      <li><a href="index.html">Overview</a></li>
+      <li><a href="methodology.html">Methodology</a></li>
+      <li><a href="data.html">Data layers &amp; outputs</a></li>
+      <li><a href="gee-scripts.html">Earth Engine scripts</a></li>
+      <li><a href="api-reference.html">API reference</a></li>
+      <li><a href="results.html">Results summary</a></li>
+      <li><a href="reproduce.html">Reproduce this analysis</a></li>
+    </ul>
+  </aside>
+
+  <main class="main" id="content">
+    <p class="eyebrow">Study area</p>
+    <h1>15 protected areas across four West African ecological zones</h1>
+    <p class="lede">The study region spans Upper Guinea, 5°N–10°N and 10°W–5°E, across Côte d'Ivoire,
+    Ghana, Togo, Burkina Faso, Benin, and Nigeria. Annual rainfall in the region peaks near 4,000 mm/yr
+    and declines to about 1,200 mm/yr at the forest–savanna boundary, falling further in the driest segments.</p>
+
+    <section id="region">
+      <h2>Regional context</h2>
+      <p>Parks were selected to represent a gradient from continuous Sudanian savanna in the north
+      to closed-canopy moist forest in the south, with forest–savanna mosaics and montane transition
+      systems in between. This spread is what makes it possible to separate the effect of ecological
+      zone from park-specific management or boundary pressure.</p>
+    </section>
+
+    <section id="geo">
+      <h2>Geography, rainfall, and land cover (Table 1)</h2>
+      <div class="tablewrap">
+        <table class="data">
+          <thead>
+            <tr><th>#</th><th>Protected area</th><th>Country</th><th>Mean annual rainfall (mm)</th><th>Dry season (months)</th><th>Land cover</th><th>Ecological zone</th></tr>
+          </thead>
+          <tbody>
+            <tr><td class="num">7</td><td>W (Benin)</td><td>Benin</td><td class="num">~700</td><td class="num">6–7</td><td>Woodland savanna</td><td><span class="zone ns">Northern Savanna</span></td></tr>
+            <tr><td class="num">6</td><td>Forêt Classée de Tiogo</td><td>Burkina Faso</td><td class="num">~1,200</td><td class="num">5–6</td><td>Savanna woodland, agroforestry</td><td><span class="zone ns">Northern Savanna</span></td></tr>
+            <tr><td class="num">1</td><td>Bontioli (Partial Reserve)</td><td>Burkina Faso</td><td class="num">~1,200</td><td class="num">5–6</td><td>Savanna woodland, agroforestry</td><td><span class="zone ns">Northern Savanna</span></td></tr>
+            <tr><td class="num">9</td><td>Bontioli (Total Reserve)</td><td>Burkina Faso</td><td class="num">~1,200</td><td class="num">5–6</td><td>Savanna woodland</td><td><span class="zone nf">Northern Forest</span></td></tr>
+            <tr><td class="num">3</td><td>Kaboré Tambi</td><td>Burkina Faso</td><td class="num">600–700</td><td class="num">6–7</td><td>Savanna woodland</td><td><span class="zone ns">Northern Savanna</span></td></tr>
+            <tr><td class="num">8</td><td>W (Burkina Faso)</td><td>Burkina Faso</td><td class="num">~700</td><td class="num">6–7</td><td>Woodland savanna</td><td><span class="zone ns">Northern Savanna</span></td></tr>
+            <tr><td class="num">2</td><td>Comoé</td><td>Côte d'Ivoire</td><td class="num">900–1,100</td><td class="num">5–6</td><td>Forest-savanna mosaic</td><td><span class="zone ns">Northern Savanna</span></td></tr>
+            <tr><td class="num">13</td><td>Marahoué</td><td>Côte d'Ivoire</td><td class="num">~1,100</td><td class="num">5–6</td><td>Forest-savanna mosaic</td><td><span class="zone st">Southern Transition</span></td></tr>
+            <tr><td class="num">15</td><td>Bia</td><td>Ghana</td><td class="num">1,500–1,800</td><td class="num">4–5</td><td>Tropical moist forest</td><td><span class="zone sf">Southern Forest</span></td></tr>
+            <tr><td class="num">11</td><td>Kogyae</td><td>Ghana</td><td class="num">1,200–1,300</td><td class="num">5–6</td><td>Dry forest-savanna mosaic</td><td><span class="zone st">Southern Transition</span></td></tr>
+            <tr><td class="num">12</td><td>Kyabobo</td><td>Ghana</td><td class="num">922–1,874</td><td class="num">5–6</td><td>Forest-savanna mosaic</td><td><span class="zone st">Southern Transition</span></td></tr>
+            <tr><td class="num">5</td><td>Mole</td><td>Ghana</td><td class="num">~1,100</td><td class="num">5–6</td><td>Open woodland savanna</td><td><span class="zone ns">Northern Savanna</span></td></tr>
+            <tr><td class="num">10</td><td>Gashaka-Gumti</td><td>Nigeria</td><td class="num">1,350–1,720</td><td class="num">4–5</td><td>Montane forest-savanna mosaic</td><td><span class="zone st">Southern Transition</span></td></tr>
+            <tr><td class="num">4</td><td>Kainji Lake</td><td>Nigeria</td><td class="num">1,100–1,200</td><td class="num">5–6</td><td>Woodland savanna, reservoir</td><td><span class="zone ns">Northern Savanna</span></td></tr>
+            <tr><td class="num">14</td><td>Old Oyo</td><td>Nigeria</td><td class="num">900–1,500</td><td class="num">5–6</td><td>Forest-savanna mosaic</td><td><span class="zone st">Southern Transition</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="note"><span class="tag">Figure 1</span>Park numbers above match the numbered markers on
+      the study-area map in the manuscript (Figure 1): 1 = Bontioli (Partial), 2 = Comoé, 3 = Kaboré
+      Tambi, 4 = Kainji Lake, 5 = Mole, 6 = Tiogo, 7 = W (Benin), 8 = W (Burkina Faso), 9 = Bontioli
+      (Total), 10 = Gashaka-Gumti, 11 = Kogyae, 12 = Kyabobo, 13 = Marahoué, 14 = Old Oyo, 15 = Bia.</p>
+    </section>
+
+    <section id="designation">
+      <h2>Designation, IUCN category, and human activity (Table 2)</h2>
+      <div class="tablewrap">
+        <table class="data">
+          <thead>
+            <tr><th>Protected area</th><th>IUCN cat.</th><th>Designation</th><th>Year</th><th>Area (km²)</th><th>Human occupancy / primary activity</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Bia National Park</td><td>II</td><td>National Park</td><td class="num">1974</td><td class="num">78.0</td><td>No resident population since park upgrade; surrounded by cocoa/food-crop farmland</td></tr>
+            <tr><td>Forêt Classée de Tiogo</td><td>—</td><td>Classified Forest</td><td class="num">1940</td><td class="num">376.0</td><td>Regulated community wood harvesting/grazing permitted</td></tr>
+            <tr><td>Bontioli (Partial Reserve)</td><td>IV</td><td>Classified Forest &amp; Partial Wildlife Reserve</td><td class="num">1957</td><td class="num">295.0</td><td>Regulated grazing and NTFP collection by adjoining communities</td></tr>
+            <tr><td>Bontioli (Total Reserve)</td><td>IV</td><td>Classified Forest &amp; Total Wildlife Reserve</td><td class="num">1957</td><td class="num">127.0</td><td>Strict reserve; no permitted settlement or extraction in core</td></tr>
+            <tr><td>Gashaka-Gumti</td><td>II</td><td>National Park</td><td class="num">1991</td><td class="num">6,730.0</td><td>Regulated Fulani pastoralist enclaves (grazing, small-scale farming)</td></tr>
+            <tr><td>Kainji Lake</td><td>II</td><td>National Park</td><td class="num">1979</td><td class="num">5,380.0</td><td>Sparsely populated; grazing/burning pressure in Zugurma sector</td></tr>
+            <tr><td>Kogyae</td><td>Ia</td><td>Strict Nature Reserve</td><td class="num">1971</td><td class="num">385.0</td><td>No resident population; intensive boundary farming nearby</td></tr>
+            <tr><td>Kyabobo</td><td>II</td><td>National Park</td><td class="num">2003</td><td class="num">222.0</td><td>Sparsely populated, near Togo border</td></tr>
+            <tr><td>Mole</td><td>II</td><td>National Park</td><td class="num">1971</td><td class="num">4,575.5</td><td>No resident population since 1971 resettlement; heavy tourism and buffer-zone farming/grazing</td></tr>
+            <tr><td>Old Oyo</td><td>II</td><td>National Park</td><td class="num">1991</td><td class="num">2,530.0</td><td>Historically settled; under herder encroachment and farming pressure</td></tr>
+            <tr><td>Kaboré Tambi</td><td>II</td><td>National Park</td><td class="num">1976</td><td class="num">1,555.0</td><td>No resident population; surrounding communities farm and graze livestock</td></tr>
+            <tr><td>W (Burkina Faso)</td><td>—</td><td>Ramsar Site</td><td class="num">2007</td><td class="num">3,114.7</td><td>Transboundary WAP complex; regulated pastoralist/agro-pastoral use</td></tr>
+            <tr><td>Comoé</td><td>II</td><td>National Park</td><td class="num">1968</td><td class="num">11,487.6</td><td>Historically sparsely populated; periphery under cattle grazing and cashew expansion</td></tr>
+            <tr><td>Marahoué</td><td>II</td><td>National Park</td><td class="num">1968</td><td class="num">1,010.0</td><td>Periphery and parts of interior affected by cocoa farming and settlement</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="font-size:0.85rem;color:var(--char-mute);">Source: WDPA-derived attributes exported from the authors' merged park shapefile.</p>
+    </section>
+
+    <section id="zones">
+      <h2>How the four ecological zones were defined</h2>
+      <p>Zones are a regional classification, not a global biome scheme. They combine three criteria:</p>
+      <ul>
+        <li><strong>Mean annual rainfall</strong>, following Tano et al. (2023)</li>
+        <li><strong>Dry season length</strong>, following Eva &amp; Lambin (2000) and Ouattara et al. (2024)</li>
+        <li><strong>Vegetation structure</strong>, following Ametsitsi et al. (2020), Janssen et al. (2018), Liu et al. (2016)</li>
+      </ul>
+      <div class="grid2">
+        <div class="card"><span class="k">Northern Savanna</span><h3>Sudanian savanna</h3><p>Open canopy, continuous grass cover, long dry season. Frequent, extensive, low-intensity fire is expected.</p></div>
+        <div class="card"><span class="k">Northern Forest</span><h3>Woodland–forest mosaic</h3><p>More humid than Northern Savanna. Fire expected to be less frequent and more spatially patchy.</p></div>
+        <div class="card"><span class="k">Southern Transition</span><h3>Forest–savanna mosaic</h3><p>Tree and grass dominance co-exist under moderate rainfall. Intermediate, interannually variable fire activity.</p></div>
+        <div class="card"><span class="k">Southern Forest</span><h3>Humid tropical forest</h3><p>Closed canopy, high rainfall, limited fire spread. Rare fire, but locally severe under drought.</p></div>
+      </div>
+      <p>These zone–fire associations are treated as hypotheses tested against the 15 study parks, not
+      assumptions, see <a href="results.html">Results</a> for how each zone actually behaved.</p>
+    </section>
+
+    <section id="shapefile">
+      <h2>Park boundary asset</h2>
+      <p>All zonal statistics are computed against one merged Earth Engine <code>FeatureCollection</code>
+      of the 15 park boundaries, reduced to a single identifying field:</p>
+      <div class="codewrap">
+        <div class="codebar"><span class="fname">boundary reference</span><span class="lang">js</span><button class="copy" type="button">Copy</button></div>
+        <pre><code>var parks = ee.FeatureCollection('projects/ee-desmond/assets/NewParkMerged')
+  .select(['ORIG_NAME']);</code></pre>
+      </div>
+      <p>Every downstream script in <a href="gee-scripts.html">GEE scripts</a> starts from this same
+      asset, so buffer geometries, land-cover histograms, and climate means are always keyed to the
+      same <code>ORIG_NAME</code> values used in the tables above.</p>
+    </section>
+  </main>
+</div>
+
+<footer class="foot">
+  <div class="foot-in">
+    <div><h4>fires-landuse-climate-interactions</h4><p>Documentation site for a 20-year, 15-park fire regime analysis in West Africa.</p></div>
+    <div><h4>Site</h4><ul><li><a href="methodology.html">Methodology</a></li><li><a href="data.html">Data layers</a></li><li><a href="reproduce.html">Reproduce</a></li></ul></div>
+    <div><h4>Data sources</h4><ul><li>MODIS MCD64A1 C6.1</li><li>GLAD GLCLU2020 v2</li><li>ESRI Global LULC 10m</li><li>ERA5-Land Monthly Aggregates</li></ul></div>
+  </div>
+</footer>
+<script src="assets/site.js"></script>
+</body>
+</html>

@@ -1,0 +1,258 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Methodology, fires-landuse-climate-interactions</title>
+<meta name="description" content="Step-by-step reproducible methodology: burned-area harmonization, buffer disaggregation, land-cover harmonisation, climate integration, and seasonal fire-rainfall coupling.">
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+<a class="skip" href="#content">Skip to content</a>
+<header class="masthead">
+  <div class="masthead-in">
+    <a class="brand" href="index.html"><b>fires-landuse-climate</b><span class="slash">/</span>interactions</a>
+    <button class="navtoggle" aria-expanded="false" aria-label="Toggle navigation">Menu</button>
+    <nav class="mast-nav" aria-label="Primary">
+      <a href="index.html">Overview</a>
+      <a href="study-area.html">Study area</a>
+      <a href="methodology.html" aria-current="page">Methodology</a>
+      <a href="data.html">Data layers</a>
+      <a href="gee-scripts.html">GEE scripts</a>
+      <a href="api-reference.html">API reference</a>
+      <a href="results.html">Results</a>
+      <a href="reproduce.html">Reproduce</a>
+      <a class="ext" href="https://github.com/desmond-lartey/fires-landuse-climate-interactions">Repo ↗</a>
+    </nav>
+  </div>
+</header>
+
+<div class="shell">
+  <aside class="sidebar" aria-label="On this page">
+    <p class="side-label">Five steps</p>
+    <ol>
+      <li><a href="#step1">1 · Burned-area harmonization</a></li>
+      <li><a href="#step2">2 · Buffer disaggregation</a></li>
+      <li><a href="#step3">3 · Land-cover harmonisation</a></li>
+      <li><a href="#step4">4 · Climate integration</a></li>
+      <li><a href="#step5">5 · Seasonal fire–rainfall coupling</a></li>
+    </ol>
+    <p class="side-label">Site map</p>
+    <ul>
+      <li><a href="index.html">Overview</a></li>
+      <li><a href="study-area.html">Study area</a></li>
+      <li><a href="data.html">Data layers &amp; outputs</a></li>
+      <li><a href="gee-scripts.html">Earth Engine scripts</a></li>
+      <li><a href="api-reference.html">API reference</a></li>
+      <li><a href="reproduce.html">Reproduce this analysis</a></li>
+    </ul>
+  </aside>
+
+  <main class="main" id="content">
+    <p class="eyebrow">Methodology</p>
+    <h1>A five-step workflow from raw satellite composites to a park-buffer-year dataset</h1>
+    <p class="lede">Each step below states its exact inputs, the Earth Engine operations applied, its
+    output units, and where it feeds into the next step. The corresponding code lives on the
+    <a href="gee-scripts.html">GEE scripts</a> page and is cross-referenced throughout.</p>
+
+    <div class="note">
+      <span class="tag">Reconciling resolutions</span>
+      <p>Burned area (MODIS, 500 m), land cover (GLAD/ESRI, 30 m), and climate (ERA5-Land, ~25 km) are
+      never resampled onto a common pixel grid. Instead, each layer is reduced independently to zonal
+      statistics <em>within</em> the same park/buffer geometry, burned-area sums at 500 m,
+      land-cover class fractions at 30 m, climate means at ERA5's native ~11–25 km, and the resulting
+      scalars are joined by <code>(park, buffer, year)</code>. This avoids introducing resampling
+      artefacts while still allowing direct comparison across layers.</p>
+    </div>
+
+    <div class="step" id="step1">
+      <div class="step-n">Step 1</div>
+      <div class="step-body">
+        <h2>Burned-area harmonization (2004–2024)</h2>
+        <p><strong>Input:</strong> MODIS MCD64A1 Collection 6.1, filtered to the study extent.
+        <strong>Output:</strong> 12 monthly composite images, each summing 21 years of fire detections
+        for that calendar month.</p>
+        <ol>
+          <li>For each year 2004–2024 and each calendar month, filter <code>MCD64A1</code> to that
+          one-month window and mosaic the collection over the study area.</li>
+          <li>Select the <code>BurnDate</code> band and threshold it (<code>BurnDate &gt; 0</code>),
+          producing a binary "did this pixel burn in this month/year" mask.</li>
+          <li>Stack the 21 yearly binary masks for a given calendar month into an
+          <code>ImageCollection</code> and take the pixel-wise <code>sum()</code>. The result is an
+          integer image: for each pixel, "in how many of the 21 years did this month record a burn?"</li>
+          <li>Repeat for all 12 months, producing <code>SummedBurnedArea_Month1</code> … <code>_Month12</code>
+          (one asset per calendar month), each exported at 500 m as a GeoTIFF and, separately, to an
+          Earth Engine asset.</li>
+        </ol>
+        <p>The downstream fire-regime analysis re-uses six of these, October through March, the
+        dry-season window, as <code>SummedBurnedArea_Month10 … Month3</code>.</p>
+        <p class="note" style="margin-top:1rem;"><span class="tag">Why a 20-year composite, not per-year</span>
+        Pixel-level fire behaviour showed no large year-to-year discontinuity across the study period,
+        so a single 20-year monthly composite (rather than 20 separate annual layers) was used as the
+        foundation for spatial disaggregation, keeping the buffer-zone reduction in Step 2 computationally
+        tractable across 15 parks × 5 buffers × 6 months.</p>
+      </div>
+    </div>
+
+    <div class="step" id="step2">
+      <div class="step-n">Step 2</div>
+      <div class="step-body">
+        <h2>Buffer-based disaggregation of fire frequency and burned area</h2>
+        <p><strong>Input:</strong> the 15-park boundary <code>FeatureCollection</code> and the six
+        monthly composite images from Step 1. <strong>Output:</strong> one feature per
+        (park × buffer distance), carrying monthly burn frequency, monthly burned area (km²), and two
+        normalised burn-exposure metrics.</p>
+        <ol>
+          <li>For each park, generate five analysis units: the interior boundary (0 km) and buffers
+          at 5, 10, 15, and 20 km, built with <code>geometry().buffer(distance)</code>.</li>
+          <li>For each analysis unit and each of the six dry-season months, run
+          <code>reduceRegion</code> with <code>ee.Reducer.sum()</code> at <strong>scale = 500 m</strong>
+          against the corresponding monthly composite, reading the <code>BurnDate</code> band, this
+          gives burn frequency (pixel-years) for that month.</li>
+          <li>Convert frequency to area: <code>burned_km² = frequency × 500 × 500 / 1e6</code>.</li>
+          <li>Compute buffer area (<code>geometry().area() / 1e6</code>), the implied pixel count at
+          500 m resolution, and two summary rates:
+            <ul>
+              <li><code>AvgBurnPerPixel = Σ(monthly frequencies) / TotalPixels</code></li>
+              <li><code>AvgBurnPerYear = AvgBurnPerPixel / 22</code> (climatology length)</li>
+            </ul>
+          </li>
+        </ol>
+        <p>This produces a fire-exposure gradient, highest at 0 km, generally declining toward
+        20 km, that is comparable across parks and ecological zones regardless of park size.</p>
+      </div>
+    </div>
+
+    <div class="step" id="step3">
+      <div class="step-n">Step 3</div>
+      <div class="step-body">
+        <h2>Land-cover harmonisation and annual composition</h2>
+        <p><strong>Input:</strong> GLAD GLCLU2020 v2 annual layers (2000–2020, 30 m) and the ESRI
+        Global 10 m Annual LULC time series (2017–2024). <strong>Output:</strong> one 9-class land-cover
+        image per benchmark year, and per-buffer class-frequency histograms.</p>
+        <h3>9-class target scheme</h3>
+        <div class="tablewrap">
+          <table class="data">
+            <thead><tr><th>Code</th><th>Class</th><th>Colour</th></tr></thead>
+            <tbody>
+              <tr><td class="num">1</td><td>Water</td><td><span class="swatch" style="background:#1A5BAB"></span><code>#1A5BAB</code></td></tr>
+              <tr><td class="num">2</td><td>Trees</td><td><span class="swatch" style="background:#358221"></span><code>#358221</code></td></tr>
+              <tr><td class="num">3</td><td>Flooded Vegetation</td><td><span class="swatch" style="background:#87D19E"></span><code>#87D19E</code></td></tr>
+              <tr><td class="num">4</td><td>Crops</td><td><span class="swatch" style="background:#FFDB5C"></span><code>#FFDB5C</code></td></tr>
+              <tr><td class="num">5</td><td>Built Area</td><td><span class="swatch" style="background:#ED022A"></span><code>#ED022A</code></td></tr>
+              <tr><td class="num">6</td><td>Bare Ground</td><td><span class="swatch" style="background:#EDE9E4"></span><code>#EDE9E4</code></td></tr>
+              <tr><td class="num">7</td><td>Snow/Ice</td><td><span class="swatch" style="background:#F2FAFF"></span><code>#F2FAFF</code></td></tr>
+              <tr><td class="num">8</td><td>Clouds <em>(ESRI only; absent from GLAD)</em></td><td><span class="swatch" style="background:#C8C8C8"></span><code>#C8C8C8</code></td></tr>
+              <tr><td class="num">9</td><td>Rangeland</td><td><span class="swatch" style="background:#C6AD8D"></span><code>#C6AD8D</code></td></tr>
+            </tbody>
+          </table>
+        </div>
+        <ol>
+          <li>Following the harmonisation approach of Xu et al. (2024), remap GLAD's native class
+          codes (0–211, including disturbance and height-gain sub-codes) into the 9-class scheme with
+          an explicit <code>ee.Dictionary</code> lookup, see <code>gladToEsri</code> on the
+          <a href="gee-scripts.html#lc">GEE scripts</a> page for the full mapping.</li>
+          <li>Remap ESRI's native 11-class codes (1,2,4,5,7,8,9,10,11) onto the same 9-class scheme
+          with <code>image.remap(...)</code>.</li>
+          <li>Resolve a "which dataset for which year" function: GLAD for 2000 ≤ year ≤ 2020, ESRI for
+          year ≥ 2021.</li>
+          <li>For each protected area × buffer × benchmark year (2000, 2005, 2010, 2015, 2020, 2021,
+          2022, 2023, 2024), run <code>reduceRegion</code> with
+          <code>ee.Reducer.frequencyHistogram()</code> at <strong>scale = 30 m</strong>, returning the
+          pixel count for each of the 9 classes within that analysis unit.</li>
+        </ol>
+        <p class="note"><span class="tag">Resolution reconciliation</span>Land-cover fractions are
+        computed at native 30 m resolution and then aggregated to the park/buffer level, burned-area
+        pixels (500 m) are never resampled down to 30 m, and land-cover pixels are never resampled up
+        to 500 m. The two layers are joined only after both have already been reduced to zonal
+        summaries for the same geometry.</p>
+      </div>
+    </div>
+
+    <div class="step" id="step4">
+      <div class="step-n">Step 4</div>
+      <div class="step-body">
+        <h2>Integration of climatic drivers</h2>
+        <p><strong>Input:</strong> <code>ECMWF/ERA5_LAND/MONTHLY_AGGR</code>. <strong>Output:</strong>
+        eight climate variables per park × buffer × year, in physical units.</p>
+        <ol>
+          <li>For a given year, filter ERA5-Land to <code>Jan 1 – Dec 31</code> and take the temporal
+          mean of eight bands: 2 m mean/min/max temperature, 2 m dewpoint temperature, total
+          precipitation sum, surface pressure, and the 10 m U/V wind components.</li>
+          <li>Convert units: temperatures <code>K → °C</code> (subtract 273.15); precipitation
+          <code>m → mm</code> (×1000); pressure <code>Pa → hPa</code> (÷100). Wind components are
+          left in m/s.</li>
+          <li>Run <code>reduceRegion</code> with <code>ee.Reducer.mean()</code> at
+          <strong>scale = 11,132 m</strong> (ERA5-Land's native grid), weighted so cropped grid cells
+          at park/buffer edges are handled as area-weighted means.</li>
+        </ol>
+        <p>These eight zonal means are attached to every park-buffer-year feature as
+        <code>ERA5_Tmean_C</code>, <code>ERA5_Tmin_C</code>, <code>ERA5_Tmax_C</code>,
+        <code>ERA5_Tdew_C</code>, <code>ERA5_Precip_mm</code>, <code>ERA5_SurfacePressure_hPa</code>,
+        <code>ERA5_WindU</code>, and <code>ERA5_WindV</code>.</p>
+      </div>
+    </div>
+
+    <div class="step" id="step5">
+      <div class="step-n">Step 5</div>
+      <div class="step-body">
+        <h2>Seasonal fire–rainfall coupling (dry vs. wet)</h2>
+        <p><strong>Input:</strong> MCD64A1 monthly composites and ERA5-Land monthly aggregates,
+        2004–2024. <strong>Output:</strong> park-level OLS regression statistics at two temporal
+        scales, plus a lagged wet-season fuel-load test.</p>
+        <ol>
+          <li>Define seasons following Ichoku et al. (2016): dry season = October–March, wet season =
+          April–September.</li>
+          <li>Sum MCD64A1 monthly burned area (pixel-area weighted) within each season/year/park to
+          get seasonal burned-area totals; sum ERA5-Land monthly precipitation the same way for
+          seasonal rainfall totals. Both are computed with zonal reductions in Earth Engine.</li>
+          <li><strong>Within-year regression (2024 only):</strong> regress monthly burned area against
+          monthly precipitation using all buffer-zone observations (0–20 km) as data points, one OLS
+          fit per park.</li>
+          <li><strong>Multi-year regression (2004–2024):</strong> regress total burned area against
+          annual precipitation using all buffer-zone × year observations per park (5 buffers ×
+          ~20 years ≈ 100 points per park), giving enough variance for slope estimation.</li>
+          <li><strong>Pooled regression:</strong> combine all parks and years into one OLS fit to test
+          the overall precipitation–burned-area relationship.</li>
+          <li><strong>Lagged fuel-load test</strong> (following Archibald et al., 2009): regress
+          dry-season burned area against the <em>preceding</em> wet-season rainfall (April–September
+          of year <em>t</em>−1) to test whether fuel accumulation, rather than concurrent moisture,
+          better predicts dry-season burning.</li>
+        </ol>
+        <div class="tablewrap">
+          <table class="data">
+            <thead><tr><th>Fit</th><th>Scale</th><th>Slope</th><th>p</th><th>R²</th><th>Notes</th></tr></thead>
+            <tbody>
+              <tr><td>Pooled, all parks &amp; years</td><td>2004–2024</td><td class="num">−371.08 km²/mm</td><td class="num">&lt;0.001</td><td class="num">0.04</td><td>Durbin–Watson = 0.57 (residual autocorrelation expected given repeated buffer-zone structure)</td></tr>
+              <tr><td>Gashaka-Gumti</td><td>2004–2024</td><td class="num">−182.69 km²/mm</td><td class="num">0.014</td><td class="num">—</td><td>Only park with an individually significant negative slope</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>All regressions were run with the <code>statsmodels</code> OLS module at
+        <strong>α = 0.05</strong>. See <a href="results.html">Results</a> for the per-park regression
+        panels (Figures 4 and 5).</p>
+      </div>
+    </div>
+
+    <div class="note warn" style="margin-top:2.5rem;">
+      <span class="tag">Known limitations</span>
+      <p>Satellite-derived burned-area products may under-detect understory fires beneath closed
+      canopy. Socio-economic drivers of ignition (e.g. agricultural burning calendars, pastoralist
+      movement) were not spatially mapped and are inferred from timing patterns only. Repeated
+      buffer-zone observations within a park are not statistically independent, which is why pooled
+      regression R² is modest even where the effect direction is consistent.</p>
+    </div>
+  </main>
+</div>
+
+<footer class="foot">
+  <div class="foot-in">
+    <div><h4>fires-landuse-climate-interactions</h4><p>Documentation site for a 20-year, 15-park fire regime analysis in West Africa.</p></div>
+    <div><h4>Site</h4><ul><li><a href="gee-scripts.html">GEE scripts</a></li><li><a href="api-reference.html">API reference</a></li><li><a href="reproduce.html">Reproduce</a></li></ul></div>
+    <div><h4>Data sources</h4><ul><li>MODIS MCD64A1 C6.1</li><li>GLAD GLCLU2020 v2</li><li>ESRI Global LULC 10m</li><li>ERA5-Land Monthly Aggregates</li></ul></div>
+  </div>
+</footer>
+<script src="assets/site.js"></script>
+</body>
+</html>

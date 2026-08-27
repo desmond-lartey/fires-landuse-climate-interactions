@@ -1,0 +1,243 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>API reference, fires-landuse-climate-interactions</title>
+<meta name="description" content="Parameter-by-parameter reference for every custom Earth Engine function used in the pipeline.">
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+<a class="skip" href="#content">Skip to content</a>
+<header class="masthead">
+  <div class="masthead-in">
+    <a class="brand" href="index.html"><b>fires-landuse-climate</b><span class="slash">/</span>interactions</a>
+    <button class="navtoggle" aria-expanded="false" aria-label="Toggle navigation">Menu</button>
+    <nav class="mast-nav" aria-label="Primary">
+      <a href="index.html">Overview</a>
+      <a href="study-area.html">Study area</a>
+      <a href="methodology.html">Methodology</a>
+      <a href="data.html">Data layers</a>
+      <a href="gee-scripts.html">GEE scripts</a>
+      <a href="api-reference.html" aria-current="page">API reference</a>
+      <a href="results.html">Results</a>
+      <a href="reproduce.html">Reproduce</a>
+      <a class="ext" href="https://github.com/desmond-lartey/fires-landuse-climate-interactions">Repo ↗</a>
+    </nav>
+  </div>
+</header>
+
+<div class="shell">
+  <aside class="sidebar" aria-label="On this page">
+    <p class="side-label">Functions</p>
+    <ol>
+      <li><a href="#processBurnedArea">processBurnedArea</a></li>
+      <li><a href="#sumBurnedAreaForSpecificMonth">sumBurnedAreaForSpecificMonth</a></li>
+      <li><a href="#sumBurnedAreaForAllMonths">sumBurnedAreaForAllMonths</a></li>
+      <li><a href="#calculateBurnedAreaAndFrequency">calculateBurnedAreaAndFrequency</a></li>
+      <li><a href="#harmoniseGlad">harmoniseGlad</a></li>
+      <li><a href="#remapEsri">remapEsri</a></li>
+      <li><a href="#getLandCoverYear">getLandCoverYear</a></li>
+      <li><a href="#getClimateForYear">getClimateForYear</a></li>
+      <li><a href="#calculateBurnedAreaAndLandUse">calculateBurnedAreaAndLandUse</a></li>
+      <li><a href="#processParkYearSeason">processParkYearSeason</a></li>
+    </ol>
+    <p class="side-label">Site map</p>
+    <ul>
+      <li><a href="index.html">Overview</a></li>
+      <li><a href="methodology.html">Methodology</a></li>
+      <li><a href="gee-scripts.html">Earth Engine scripts</a></li>
+      <li><a href="reproduce.html">Reproduce this analysis</a></li>
+    </ul>
+  </aside>
+
+  <main class="main" id="content">
+    <p class="eyebrow">API reference</p>
+    <h1>Custom function reference</h1>
+    <p class="lede">Every non-built-in function used across the five pipeline scripts, documented with
+    its parameters, return type, and the EE operations it wraps. Built-in Earth Engine methods
+    (<code>reduceRegion</code>, <code>remap</code>, etc.) are linked to the
+    <a href="https://developers.google.com/earth-engine/apidocs">official EE API docs</a> rather than
+    re-documented here.</p>
+
+    <h3 id="processBurnedArea"><code>processBurnedArea(date, region)</code></h3>
+    <p>Defined in <a href="gee-scripts.html#burned-area">01_burned_area_composites.js</a>. Filters
+    MCD64A1 to a one-month window starting at <code>date</code>, mosaics it over <code>region</code>,
+    and returns a binary "burned this month" mask.</p>
+    <div class="tablewrap">
+      <table class="data">
+        <thead><tr><th>Parameter</th><th>Type</th><th>Description</th></tr></thead>
+        <tbody>
+          <tr><td><code>date</code></td><td><code>ee.Date</code></td><td>First day of the target month</td></tr>
+          <tr><td><code>region</code></td><td><code>ee.Geometry</code></td><td>Clipping extent (study area)</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p><strong>Returns</strong> <code>ee.Image</code>, single-band binary mask (<code>BurnDate &gt; 0</code>, self-masked), tagged with a <code>date</code> property.</p>
+
+    <h3 id="sumBurnedAreaForSpecificMonth"><code>sumBurnedAreaForSpecificMonth(month, startYear, endYear, region)</code></h3>
+    <p>Sums <a href="#processBurnedArea"><code>processBurnedArea</code></a> masks for one calendar month across a year range, producing the climatology count.</p>
+    <div class="tablewrap">
+      <table class="data">
+        <thead><tr><th>Parameter</th><th>Type</th><th>Description</th></tr></thead>
+        <tbody>
+          <tr><td><code>month</code></td><td>int (1–12)</td><td>Calendar month</td></tr>
+          <tr><td><code>startYear</code></td><td>int</td><td>First year of the climatology (2004)</td></tr>
+          <tr><td><code>endYear</code></td><td>int</td><td>Last year of the climatology (2024)</td></tr>
+          <tr><td><code>region</code></td><td><code>ee.Geometry</code></td><td>Study area extent</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p><strong>Returns</strong> <code>ee.Image</code>, pixel-wise count of years (0–21) that recorded a burn in that month, tagged with a <code>month</code> property, cast to <code>double</code>.</p>
+
+    <h3 id="sumBurnedAreaForAllMonths"><code>sumBurnedAreaForAllMonths(startYear, endYear, region)</code></h3>
+    <p>Calls <a href="#sumBurnedAreaForSpecificMonth"><code>sumBurnedAreaForSpecificMonth</code></a> for all 12 months and sums the results into one all-months composite.</p>
+    <div class="tablewrap">
+      <table class="data">
+        <thead><tr><th>Parameter</th><th>Type</th><th>Description</th></tr></thead>
+        <tbody>
+          <tr><td><code>startYear</code>, <code>endYear</code></td><td>int</td><td>Climatology bounds</td></tr>
+          <tr><td><code>region</code></td><td><code>ee.Geometry</code></td><td>Study area extent</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p><strong>Returns</strong> <code>ee.Image</code>, single-band, all-months burn-frequency composite.</p>
+
+    <h3 id="calculateBurnedAreaAndFrequency"><code>calculateBurnedAreaAndFrequency(feature)</code></h3>
+    <p>Defined in <a href="gee-scripts.html#buffer">02_buffer_disaggregation.js</a>. Builds five buffer
+    geometries around one park feature and computes monthly burn frequency, burned area, and
+    normalised burn-exposure metrics for each.</p>
+    <div class="tablewrap">
+      <table class="data">
+        <thead><tr><th>Parameter</th><th>Type</th><th>Description</th></tr></thead>
+        <tbody>
+          <tr><td><code>feature</code></td><td><code>ee.Feature</code></td><td>One park polygon with an <code>ORIG_NAME</code> property</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p><strong>Returns</strong> <code>ee.FeatureCollection</code>, 5 features (one per buffer distance), each carrying the fields listed in the <a href="data.html#schema">output schema</a>.</p>
+    <p><strong>Closures over</strong> <code>months</code>, <code>burnedAreaImages</code>, <code>bufferDistances</code> (module-level constants set earlier in the script).</p>
+
+    <h3 id="harmoniseGlad"><code>harmoniseGlad(img)</code></h3>
+    <p>Defined in <a href="gee-scripts.html#lc">03_landcover_harmonisation.js</a>. Remaps GLAD native
+    class codes to the shared 9-class scheme using the <code>gladToEsri</code> dictionary.</p>
+    <div class="tablewrap">
+      <table class="data">
+        <thead><tr><th>Parameter</th><th>Type</th><th>Description</th></tr></thead>
+        <tbody>
+          <tr><td><code>img</code></td><td><code>ee.Image</code></td><td>Single-band GLAD land-cover image, native codes</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p><strong>Returns</strong> <code>ee.Image</code>, single band named <code>landcover</code>, values 1–9 (class 8/Clouds never appears from this source).</p>
+
+    <h3 id="remapEsri"><code>remapEsri(image)</code></h3>
+    <p>Remaps ESRI's 11-class scheme (native codes <code>1,2,4,5,7,8,9,10,11</code>) onto the same
+    9-class target as <a href="#harmoniseGlad"><code>harmoniseGlad</code></a>.</p>
+    <div class="tablewrap">
+      <table class="data">
+        <thead><tr><th>Parameter</th><th>Type</th><th>Description</th></tr></thead>
+        <tbody>
+          <tr><td><code>image</code></td><td><code>ee.Image</code></td><td>Single-band ESRI LULC image, native codes</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p><strong>Returns</strong> <code>ee.Image</code>, single band named <code>landcover</code>, values 1–9.</p>
+
+    <h3 id="getLandCoverYear"><code>getLandCoverYear(year)</code></h3>
+    <p>Dispatches to the correct source dataset and harmonisation function based on year, so callers
+    never need to know which underlying dataset serves a given year.</p>
+    <div class="tablewrap">
+      <table class="data">
+        <thead><tr><th>Parameter</th><th>Type</th><th>Description</th></tr></thead>
+        <tbody>
+          <tr><td><code>year</code></td><td>int</td><td>Any year 2000–2024. <code>&lt;2000</code> or non-covered years return an empty (all-zero) fallback image.</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="tablewrap">
+      <table class="data">
+        <thead><tr><th>Year range</th><th>Source</th><th>Function called</th></tr></thead>
+        <tbody>
+          <tr><td class="num">2000–2020</td><td>GLAD GLCLU2020 v2</td><td><code>harmoniseGlad()</code></td></tr>
+          <tr><td class="num">2021–2024</td><td>ESRI Global LULC 10 m</td><td><code>remapEsri()</code> after annual mosaic</td></tr>
+          <tr><td>other</td><td>—</td><td><code>ee.Image(0)</code> fallback</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p><strong>Returns</strong> <code>ee.Image</code>, single band named <code>landcover</code>.</p>
+
+    <h3 id="getClimateForYear"><code>getClimateForYear(year)</code></h3>
+    <p>Defined in <a href="gee-scripts.html#climate">04_climate_integration.js</a>. Builds an
+    8-band annual-mean climate image from ERA5-Land, with unit conversions already applied.</p>
+    <div class="tablewrap">
+      <table class="data">
+        <thead><tr><th>Parameter</th><th>Type</th><th>Description</th></tr></thead>
+        <tbody>
+          <tr><td><code>year</code></td><td>int</td><td>Calendar year, filtered <code>Jan 1–Dec 31</code></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p><strong>Returns</strong> <code>ee.Image</code>, 8 bands: <code>Tmean_C</code>, <code>Tmin_C</code>, <code>Tmax_C</code>, <code>Tdew_C</code>, <code>Precip_mm</code>, <code>SurfaceP_hPa</code>, <code>WindU</code>, <code>WindV</code>.</p>
+
+    <h3 id="calculateBurnedAreaAndLandUse"><code>calculateBurnedAreaAndLandUse(feature, landCover, year)</code></h3>
+    <p>Defined in <a href="gee-scripts.html#seasonal">05_combined_pipeline.js</a>. The main
+    per-park-per-year driver: builds five buffers, then computes burn stats, land-cover histogram,
+    and climate means for each, merging everything into one feature per buffer.</p>
+    <div class="tablewrap">
+      <table class="data">
+        <thead><tr><th>Parameter</th><th>Type</th><th>Description</th></tr></thead>
+        <tbody>
+          <tr><td><code>feature</code></td><td><code>ee.Feature</code></td><td>One park polygon</td></tr>
+          <tr><td><code>landCover</code></td><td><code>ee.Image</code></td><td>Output of <a href="#getLandCoverYear"><code>getLandCoverYear(year)</code></a> for the matching year</td></tr>
+          <tr><td><code>year</code></td><td>int</td><td>Benchmark year, forwarded to <a href="#getClimateForYear"><code>getClimateForYear</code></a></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p><strong>Returns</strong> <code>ee.FeatureCollection</code>, 5 features (one per buffer), each with the full schema documented on the <a href="data.html#schema">data layers</a> page.</p>
+
+    <h3 id="processParkYearSeason"><code>processParkYearSeason(park, year, season)</code></h3>
+    <p>Defined in <a href="gee-scripts.html#seasonal">05b_seasonal_fire_rainfall.js</a>. Computes one
+    seasonal (dry or wet) burned-area and rainfall total for one park in one year, the unit consumed
+    by the Step 5 fire–rainfall regressions.</p>
+    <div class="tablewrap">
+      <table class="data">
+        <thead><tr><th>Parameter</th><th>Type</th><th>Description</th></tr></thead>
+        <tbody>
+          <tr><td><code>park</code></td><td><code>ee.Feature</code></td><td>One park polygon with <code>ORIG_NAME</code></td></tr>
+          <tr><td><code>year</code></td><td><code>ee.Number</code></td><td>Calendar year of the season's start</td></tr>
+          <tr><td><code>season</code></td><td><code>{label, startMonth, endMonth}</code></td><td><code>{label:'Dry', startMonth:10, endMonth:3}</code> or <code>{label:'Wet', startMonth:4, endMonth:9}</code>. When <code>startMonth &gt; endMonth</code> the season is treated as crossing the year boundary.</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p><strong>Returns</strong> <code>ee.Feature</code> (no geometry) with properties <code>Park</code>, <code>Year</code>, <code>Season</code>, <code>BurnedArea_km2</code>, <code>Rainfall_mm</code>.</p>
+
+    <h2 style="margin-top:3rem;">Constants referenced throughout</h2>
+    <div class="tablewrap">
+      <table class="data">
+        <thead><tr><th>Name</th><th>Value</th><th>Used by</th></tr></thead>
+        <tbody>
+          <tr><td><code>months</code></td><td><code>['Oct','Nov','Dec','Jan','Feb','Mar']</code></td><td>Scripts 02, 05</td></tr>
+          <tr><td><code>bufferDistances</code></td><td><code>[0, 5000, 10000, 15000, 20000]</code> m</td><td>Scripts 02, 05</td></tr>
+          <tr><td><code>burnedAreaAssets</code></td><td><code>SummedBurnedArea_Month{10,11,12,1,2,3}</code></td><td>Scripts 02, 05</td></tr>
+          <tr><td>Burned-area reduce scale</td><td class="num">500 m</td><td>All burn-frequency <code>reduceRegion</code> calls</td></tr>
+          <tr><td>Land-cover reduce scale</td><td class="num">30 m</td><td>All <code>frequencyHistogram</code> calls</td></tr>
+          <tr><td>Climate reduce scale</td><td class="num">11,132 m</td><td>All ERA5-Land <code>reduceRegion</code> calls (native grid)</td></tr>
+          <tr><td>Climatology length</td><td class="num">22 years</td><td><code>AvgBurnPerYear</code> normalisation</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </main>
+</div>
+
+<footer class="foot">
+  <div class="foot-in">
+    <div><h4>fires-landuse-climate-interactions</h4><p>Documentation site for a 20-year, 15-park fire regime analysis in West Africa.</p></div>
+    <div><h4>Site</h4><ul><li><a href="gee-scripts.html">GEE scripts</a></li><li><a href="data.html">Data layers</a></li><li><a href="reproduce.html">Reproduce</a></li></ul></div>
+    <div><h4>External reference</h4><ul><li><a href="https://developers.google.com/earth-engine/apidocs">Earth Engine API docs ↗</a></li></ul></div>
+  </div>
+</footer>
+<script src="assets/site.js"></script>
+</body>
+</html>
