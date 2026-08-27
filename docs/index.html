@@ -1,0 +1,355 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fire, Land Use and Climate Interactions — West African Protected Areas</title>
+<meta name="description" content="Reproducible methods, Earth Engine scripts, and data layers behind a 20-year (2004–2024) fire-regime analysis of 15 West African protected areas.">
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+<a class="skip" href="#content">Skip to content</a>
+
+<header class="masthead">
+  <div class="masthead-in">
+    <a class="brand" href="index.html"><b>fires-landuse-climate</b><span class="slash">/</span>interactions</a>
+    <button class="navtoggle" aria-expanded="false" aria-label="Toggle navigation">Menu</button>
+    <nav class="mast-nav" aria-label="Primary">
+      <a href="index.html" aria-current="page">Overview</a>
+      <a href="study-area.html">Study area</a>
+      <a href="methodology.html">Methodology</a>
+      <a href="data.html">Data layers</a>
+      <a href="gee-scripts.html">GEE scripts</a>
+      <a href="api-reference.html">API reference</a>
+      <a href="results.html">Results</a>
+      <a href="reproduce.html">Reproduce</a>
+      <a class="ext" href="https://github.com/desmond-lartey/fires-landuse-climate-interactions">Repo ↗</a>
+    </nav>
+  </div>
+</header>
+
+<div class="shell">
+  <aside class="sidebar" aria-label="On this page">
+    <p class="side-label">On this page</p>
+    <ol>
+      <li><a href="#abstract">Abstract</a></li>
+      <li><a href="#calendar">Fire-season calendar</a></li>
+      <li><a href="#questions">Research questions</a></li>
+      <li><a href="#workflow">Five-step workflow</a></li>
+      <li><a href="#zones">Ecological zones</a></li>
+      <li><a href="#authors">Authors &amp; citation</a></li>
+    </ol>
+    <p class="side-label">Site map</p>
+    <ul>
+      <li><a href="study-area.html">Study area &amp; parks</a></li>
+      <li><a href="methodology.html">Methodology</a></li>
+      <li><a href="data.html">Data layers &amp; outputs</a></li>
+      <li><a href="gee-scripts.html">Earth Engine scripts</a></li>
+      <li><a href="api-reference.html">API reference</a></li>
+      <li><a href="results.html">Results summary</a></li>
+      <li><a href="reproduce.html">Reproduce this analysis</a></li>
+    </ul>
+  </aside>
+
+  <main class="main" id="content">
+    <section class="hero" id="abstract">
+      <p class="eyebrow">Manuscript in production · TRC-26-0053</p>
+      <h1>Fire, land use, and climate interactions in West African conservation landscapes</h1>
+      <p class="lede">A spatially explicit, buffer-based analysis of 20 years (2004–2024) of MODIS burned-area
+      detections across 15 protected areas in Côte d'Ivoire, Ghana, Togo, Burkina Faso, Benin, and Nigeria —
+      integrating harmonized GLAD/ESRI land cover and ERA5-Land climate reanalysis to explain why fire regimes
+      differ across ecological zones, buffer distance, and vegetation type.</p>
+      <p class="hero-meta">
+        <span><b>Period</b> 2004–2024</span>
+        <span><b>Protected areas</b> 15</span>
+        <span><b>Ecological zones</b> 4</span>
+        <span><b>Buffer distances</b> 0, 5, 10, 15, 20 km</span>
+        <span><b>Countries</b> CI · GH · TG · BF · BJ · NG</span>
+      </p>
+
+      <div class="grid2" style="margin-top:1.9rem;">
+        <div class="card">
+          <span class="k">Data inputs</span>
+          <h3>Four remotely sensed layers</h3>
+          <p>MODIS MCD64A1 burned area (500 m), harmonized GLAD 2000–2020 / ESRI 2021–2024 land cover
+          (30 m / 10 m), and ERA5-Land monthly climate reanalysis (~25 km), reduced to park- and
+          buffer-level zonal statistics in Google Earth Engine.</p>
+        </div>
+        <div class="card">
+          <span class="k">Spatial framework</span>
+          <h3>Interior-to-edge gradients</h3>
+          <p>Each park is analysed as five concentric units — the interior (0 km) and buffer rings at
+          5, 10, 15, and 20 km — so that fire exposure, land cover, and climate can be compared from
+          park core to surrounding human-modified landscape.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="calendar" id="calendar" aria-labelledby="cal-h">
+      <div class="cal-head">
+        <h2 id="cal-h" class="cal-title">Fire season, 15 protected areas — average % of park area burned per month, 2004–2024</h2>
+      </div>
+      <div class="cal-scroll">
+        <table class="cal">
+    <thead>
+      <tr>
+        <th class="park" scope="col">Protected area</th>
+        <th scope="col">Oct</th>
+        <th scope="col">Nov</th>
+        <th scope="col">Dec</th>
+        <th scope="col">Jan</th>
+        <th scope="col">Feb</th>
+        <th scope="col">Mar</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="park">Mole<em>GH</em></td>
+        <td class="v" style="background:#F8F4E9;color:#2A211C">0.01</td>
+        <td class="v" style="background:#FF933A;color:#2A211C">7.15</td>
+        <td class="v" style="background:#5D0600;color:#F1ECE6">57.35</td>
+        <td class="v" style="background:#FF6A27;color:#F1ECE6">10.33</td>
+        <td class="v" style="background:#FDE48D;color:#2A211C">1.35</td>
+        <td class="v" style="background:#FAF0D1;color:#2A211C">0.14</td>
+      </tr>
+      <tr>
+        <td class="park">Parc national de la Comoé<em>CI</em></td>
+        <td class="v" style="background:#F9F4E6;color:#2A211C">0.02</td>
+        <td class="v" style="background:#FF933A;color:#2A211C">7.15</td>
+        <td class="v" style="background:#780A01;color:#F1ECE6">51.23</td>
+        <td class="v" style="background:#FF8D38;color:#F1ECE6">7.57</td>
+        <td class="v" style="background:#FBE9A8;color:#2A211C">0.71</td>
+        <td class="v" style="background:#F9F1D6;color:#2A211C">0.10</td>
+      </tr>
+      <tr>
+        <td class="park">Kogyae<em>GH</em></td>
+        <td class="v" style="background:#F8F6F2;color:#2A211C">0</td>
+        <td class="v" style="background:#FAEFCA;color:#2A211C">0.21</td>
+        <td class="v" style="background:#FF571E;color:#F1ECE6">12.05</td>
+        <td class="v" style="background:#A31002;color:#F1ECE6">41.96</td>
+        <td class="v" style="background:#FF9139;color:#F1ECE6">7.28</td>
+        <td class="v" style="background:#FAEEC6;color:#2A211C">0.25</td>
+      </tr>
+      <tr>
+        <td class="park">Parc National du W<em>BF</em></td>
+        <td class="v" style="background:#FFB94C;color:#2A211C">4.73</td>
+        <td class="v" style="background:#AD1202;color:#F1ECE6">39.94</td>
+        <td class="v" style="background:#FF2406;color:#F1ECE6">17.24</td>
+        <td class="v" style="background:#FFDA5C;color:#2A211C">2.99</td>
+        <td class="v" style="background:#FDE38A;color:#2A211C">1.43</td>
+        <td class="v" style="background:#FCE8A7;color:#2A211C">0.74</td>
+      </tr>
+      <tr>
+        <td class="park">W (Benin)<em>BJ</em></td>
+        <td class="v" style="background:#FDE17C;color:#2A211C">1.82</td>
+        <td class="v" style="background:#FA1901;color:#F1ECE6">19.65</td>
+        <td class="v" style="background:#F01802;color:#F1ECE6">22.46</td>
+        <td class="v" style="background:#FF8E38;color:#F1ECE6">7.54</td>
+        <td class="v" style="background:#FFBE4F;color:#2A211C">4.40</td>
+        <td class="v" style="background:#FDE281;color:#2A211C">1.67</td>
+      </tr>
+      <tr>
+        <td class="park">Parc National de Pô dit Kaboré Tambi<em>BF</em></td>
+        <td class="v" style="background:#FEDF71;color:#2A211C">2.20</td>
+        <td class="v" style="background:#EC1802;color:#F1ECE6">23.43</td>
+        <td class="v" style="background:#FF6223;color:#F1ECE6">11.04</td>
+        <td class="v" style="background:#FFCD56;color:#2A211C">3.61</td>
+        <td class="v" style="background:#FEDF72;color:#2A211C">2.15</td>
+        <td class="v" style="background:#FBEBB7;color:#2A211C">0.45</td>
+      </tr>
+      <tr>
+        <td class="park">Kainji Lake<em>NG</em></td>
+        <td class="v" style="background:#F8F6F2;color:#2A211C">0</td>
+        <td class="v" style="background:#FF6B27;color:#F1ECE6">10.29</td>
+        <td class="v" style="background:#FF1901;color:#F1ECE6">18.57</td>
+        <td class="v" style="background:#FF2F0B;color:#F1ECE6">16.06</td>
+        <td class="v" style="background:#FFD65A;color:#2A211C">3.19</td>
+        <td class="v" style="background:#F9F2DD;color:#2A211C">0.06</td>
+      </tr>
+      <tr>
+        <td class="park">Old Oyo<em>NG</em></td>
+        <td class="v" style="background:#F8F6F2;color:#2A211C">0</td>
+        <td class="v" style="background:#F9F1D4;color:#2A211C">0.12</td>
+        <td class="v" style="background:#FF973C;color:#2A211C">6.87</td>
+        <td class="v" style="background:#FF4214;color:#F1ECE6">14.02</td>
+        <td class="v" style="background:#FFB84B;color:#2A211C">4.79</td>
+        <td class="v" style="background:#F8F6F2;color:#2A211C">0</td>
+      </tr>
+      <tr>
+        <td class="park">Kyabobo<em>GH</em></td>
+        <td class="v" style="background:#F9F4E6;color:#2A211C">0.02</td>
+        <td class="v" style="background:#FAEFCC;color:#2A211C">0.19</td>
+        <td class="v" style="background:#FF8936;color:#F1ECE6">7.87</td>
+        <td class="v" style="background:#FF6A27;color:#F1ECE6">10.40</td>
+        <td class="v" style="background:#FFC752;color:#2A211C">3.95</td>
+        <td class="v" style="background:#FBE9AC;color:#2A211C">0.65</td>
+      </tr>
+      <tr>
+        <td class="park">Forêt Classée et Réserve Totale de faune de Bontioli<em>BF</em></td>
+        <td class="v" style="background:#FFC954;color:#2A211C">3.82</td>
+        <td class="v" style="background:#FF9B3E;color:#2A211C">6.60</td>
+        <td class="v" style="background:#FFAA45;color:#2A211C">5.59</td>
+        <td class="v" style="background:#FCE8A2;color:#2A211C">0.84</td>
+        <td class="v" style="background:#FAEEC8;color:#2A211C">0.23</td>
+        <td class="v" style="background:#F8F6F2;color:#2A211C">0</td>
+      </tr>
+      <tr>
+        <td class="park">Gashaka-Gumti<em>NG</em></td>
+        <td class="v" style="background:#F9F4E6;color:#2A211C">0.02</td>
+        <td class="v" style="background:#FFC753;color:#2A211C">3.93</td>
+        <td class="v" style="background:#FFB44A;color:#2A211C">4.98</td>
+        <td class="v" style="background:#FEDF72;color:#2A211C">2.15</td>
+        <td class="v" style="background:#FDE17C;color:#2A211C">1.82</td>
+        <td class="v" style="background:#FAEEC4;color:#2A211C">0.28</td>
+      </tr>
+      <tr>
+        <td class="park">Forêt Classée et Réserve Partielle de Faune de Bontioli<em>BF</em></td>
+        <td class="v" style="background:#FCE8A6;color:#2A211C">0.75</td>
+        <td class="v" style="background:#FF933A;color:#2A211C">7.17</td>
+        <td class="v" style="background:#FDE284;color:#2A211C">1.58</td>
+        <td class="v" style="background:#F9F1D4;color:#2A211C">0.12</td>
+        <td class="v" style="background:#F8F4E9;color:#2A211C">0.01</td>
+        <td class="v" style="background:#F8F6F2;color:#2A211C">0</td>
+      </tr>
+      <tr>
+        <td class="park">Forêt Classée de Tiogo<em>BF</em></td>
+        <td class="v" style="background:#FF8A36;color:#F1ECE6">7.82</td>
+        <td class="v" style="background:#FFDD65;color:#2A211C">2.62</td>
+        <td class="v" style="background:#FDE48E;color:#2A211C">1.32</td>
+        <td class="v" style="background:#F9F1D8;color:#2A211C">0.09</td>
+        <td class="v" style="background:#F9F2D9;color:#2A211C">0.08</td>
+        <td class="v" style="background:#F8F6F2;color:#2A211C">0</td>
+      </tr>
+      <tr>
+        <td class="park">Parc national de la Marahoué<em>CI</em></td>
+        <td class="v" style="background:#F8F6F2;color:#2A211C">0</td>
+        <td class="v" style="background:#FBEBB4;color:#2A211C">0.51</td>
+        <td class="v" style="background:#FCE79C;color:#2A211C">0.96</td>
+        <td class="v" style="background:#FBEBB3;color:#2A211C">0.52</td>
+        <td class="v" style="background:#FAF0D1;color:#2A211C">0.14</td>
+        <td class="v" style="background:#F9F3E3;color:#2A211C">0.03</td>
+      </tr>
+      <tr>
+        <td class="park">Bia National Park<em>GH</em></td>
+        <td class="v" style="background:#F8F6F2;color:#2A211C">0</td>
+        <td class="v" style="background:#F8F6F2;color:#2A211C">0</td>
+        <td class="v" style="background:#F8F6F2;color:#2A211C">0</td>
+        <td class="v" style="background:#F8F6F2;color:#2A211C">0</td>
+        <td class="v" style="background:#F8F6F2;color:#2A211C">0</td>
+        <td class="v" style="background:#F8F6F2;color:#2A211C">0</td>
+      </tr>
+    </tbody>
+        </table>
+      </div>
+      <div class="cal-legend">
+        <span>0%</span>
+        <span class="ramp" role="img" aria-label="Colour ramp from pale cream at zero percent to dark red at the maximum"></span>
+        <span>61%</span>
+        <span style="margin-left:0.6rem;">— derived from Figure 3, dry-season composites (Oct–Mar)</span>
+      </div>
+      <p class="cal-note">Read a row left to right to see when a given park burns. Northern Savanna parks
+      (Mole, Comoé, W-Benin, W-Burkina Faso, Kaboré Tambi, Kainji Lake) show a sharp November–December
+      peak reaching 57–61% of park area in a single month. Southern Forest and humid-transition parks
+      (Bia, Marahoué) stay at or near zero throughout the dry season regardless of month.</p>
+    </section>
+
+    <section id="questions">
+      <h2>Research questions</h2>
+      <p>The analysis was structured around five questions that move from park-level description toward
+      the spatial and temporal mechanisms that explain observed differences:</p>
+      <ol>
+        <li>Why do protected areas differ in frequency of burning?</li>
+        <li>How is overall annual burning related to rainfall and temperature variability, particularly during dry years?</li>
+        <li>What is the relationship between fire activity, location, climate, and land cover types?</li>
+        <li>Do different land cover types burn at different frequencies, extents, and seasonal timings?</li>
+        <li>How does the timing of fires vary between inside and outside of protected areas?</li>
+      </ol>
+    </section>
+
+    <section id="workflow">
+      <h2>Five-step analytical workflow</h2>
+      <p>Every output on this site traces back to one of five processing steps, all implemented in
+      Google Earth Engine and chained through a single set of park, buffer, year, and month keys.
+      Full code is on the <a href="gee-scripts.html">GEE scripts</a> page; parameter-by-parameter
+      documentation is on the <a href="api-reference.html">API reference</a> page.</p>
+      <div class="grid2">
+        <div class="card"><span class="k">Step 1</span><h3>Burned-area harmonization</h3><p>MODIS MCD64A1 monthly composites, 2004–2024, summed per calendar month into a 20-year climatology.</p></div>
+        <div class="card"><span class="k">Step 2</span><h3>Buffer disaggregation</h3><p>Zonal reduction of burned area across five concentric analysis units per park (0–20 km).</p></div>
+        <div class="card"><span class="k">Step 3</span><h3>Land-cover harmonisation</h3><p>GLAD (2000–2020) and ESRI (2021–2024) reclassified to one 9-class scheme, sampled at benchmark years.</p></div>
+        <div class="card"><span class="k">Step 4</span><h3>Climate integration</h3><p>ERA5-Land monthly reanalysis reduced to zonal means per park, buffer, and year.</p></div>
+        <div class="card"><span class="k">Step 5</span><h3>Seasonal fire–rainfall coupling</h3><p>Dry- vs wet-season OLS regressions of burned area against precipitation, plus a lagged wet-season fuel-load test.</p></div>
+      </div>
+      <p><a href="methodology.html">Read the full methodology →</a></p>
+    </section>
+
+    <section id="zones">
+      <h2>Ecological zones used in this study</h2>
+      <p>Zones are region-specific groupings based on mean annual rainfall, dry-season length, and
+      vegetation structure — not global biome classes. They are the primary explanatory grouping used
+      throughout the results.</p>
+      <div class="tablewrap">
+        <table class="data">
+          <thead><tr><th>Zone</th><th>Vegetation</th><th>Expected fire regime</th></tr></thead>
+          <tbody>
+            <tr><td><span class="zone ns">Northern Savanna</span></td><td>Open canopy, continuous grass cover, long dry season</td><td>Frequent, spatially extensive, low intensity/severity</td></tr>
+            <tr><td><span class="zone nf">Northern Forest</span></td><td>Humid woodland–forest mosaic</td><td>Less frequent, more spatially patchy</td></tr>
+            <tr><td><span class="zone st">Southern Transition</span></td><td>Forest–savanna mosaic, moderate rainfall</td><td>Intermediate frequency, sensitive to interannual rainfall</td></tr>
+            <tr><td><span class="zone sf">Southern Forest</span></td><td>Closed canopy, high rainfall</td><td>Rare, locally severe under drought</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p><a href="study-area.html">See all 15 parks, designations, and IUCN categories →</a></p>
+    </section>
+
+    <section id="authors">
+      <h2>Authors &amp; citation</h2>
+      <p>Desmond Lartey, Aya Brigitte N'Dri, Esther Ekua Amoako, Eric Adjei Lawer, Hamza Issifu (corresponding),
+      Nandika Tsendbazar, George Ametsitsi, Thomas Janssen, Konan Amenan Sylvie, Elmar Veenendaal.
+      Affiliations span Wageningen University &amp; Research, Mary Immaculate College, Université Nangui
+      Abrogoua, University for Development Studies, and the Council for Scientific and Industrial Research, Ghana.</p>
+      <div class="cite">
+Lartey, D., N'Dri, A. B., Amoako, E. E., Lawer, E. A., Issifu, H., Tsendbazar, N.,
+Ametsitsi, G., Janssen, T., Sylvie, K. A., &amp; Veenendaal, E. (in production).
+Fire, Land Use and Climate Interactions: Understanding the drivers of fire regimes
+in conservation landscapes of West Africa. <em>Manuscript ID TRC-26-0053.</em>
+      </div>
+      <p class="note"><span class="tag">Status</span>This manuscript is currently in production / under review.
+      Figure numbers, exact wording, and reported statistics on this site follow the submitted draft and
+      may be revised before final publication. Consult the published version of record once available.</p>
+    </section>
+  </main>
+</div>
+
+<footer class="foot">
+  <div class="foot-in">
+    <div>
+      <h4>fires-landuse-climate-interactions</h4>
+      <p>Documentation site for a 20-year, 15-park fire regime analysis in West Africa. All processing
+      is done in Google Earth Engine; this site documents the workflow, scripts, and outputs so the
+      analysis can be checked and re-run.</p>
+    </div>
+    <div>
+      <h4>Site</h4>
+      <ul>
+        <li><a href="methodology.html">Methodology</a></li>
+        <li><a href="gee-scripts.html">GEE scripts</a></li>
+        <li><a href="api-reference.html">API reference</a></li>
+        <li><a href="reproduce.html">Reproduce</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Data sources</h4>
+      <ul>
+        <li>MODIS MCD64A1 C6.1 (NASA LP DAAC)</li>
+        <li>GLAD GLCLU2020 v2 (UMD)</li>
+        <li>ESRI Global LULC 10m (sat-io)</li>
+        <li>ERA5-Land Monthly Aggregates (ECMWF/C3S)</li>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/site.js"></script>
+</body>
+</html>
