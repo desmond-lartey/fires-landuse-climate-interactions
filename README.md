@@ -2,19 +2,31 @@
 
 Reproducible methods and Google Earth Engine scripts behind:
 
-> Lartey, D., N'Dri, A. B., Amoako, E. E., Lawer, E. A., Issifu, H., Tsendbazar, N.,
-> Ametsitsi, G., Janssen, T., Sylvie, K. A., & Veenendaal, E. (in production).
+> Lartey, D., N'Dri, A., Amoako, E. E., Lawer, E., Issifu, H., Tsendbazar, N.,
+> Ametsitsi, G., Janssen, T., Konan, A., & Veenendaal, E.
 > *Fire, Land Use and Climate Interactions: Understanding the drivers of fire regimes
-> in conservation landscapes of West Africa.* Manuscript ID TRC-26-0053.
+> in conservation landscapes of West Africa.* Tropical Conservation Science.
+> https://doi.org/10.1177/19400829261486748
 
 A 20-year (2004–2024), 15-park, buffer-based analysis of fire regimes across four
 West African ecological zones, integrating MODIS MCD64A1 burned area, harmonized
 GLAD/ESRI land cover, and ERA5-Land climate reanalysis.
 
 **Documentation site:** https://desmond-lartey.github.io/fires-landuse-climate-interactions/
-(built from the plain static HTML/CSS/JS in `docs/` — no Jekyll, no build step, no
-GitHub Actions required. GitHub Pages just needs to be pointed at the `docs/` folder
-on the default branch.)
+(plain static HTML/CSS/JS in `docs/`, generated once by `tools/build_site.py` — no
+Jekyll, no mkdocs, no GitHub Actions. GitHub Pages just needs to be pointed at the
+`docs/` folder on the default branch and serves the files as-is.)
+
+## Site map
+
+| Page | Contents |
+|---|---|
+| [Home](docs/index.html) | Overview, headline findings, fire-season calendar, quick links |
+| [Study Design](docs/study-design.html) | Objective, study region, research questions, ecological-zone criteria, the 15 protected areas, data sources |
+| [Pipeline](docs/pipeline.html) | Environment setup and the exact run order of every script |
+| [Script Reference](docs/script-reference.html) | Every Earth Engine script, function by function, with parameter/return documentation |
+| [Data & Outputs](docs/data-outputs.html) | Intermediate asset names, output CSV schema, repository layout |
+| [Findings](docs/findings.html) | Headline results and zone-by-zone operational guidance |
 
 ## What's in this repository
 
@@ -25,24 +37,36 @@ fires-landuse-climate-interactions/
 ├── pipeline/                 # Python: cleaning, joins, regressions, figures
 ├── notebooks/                 # exploratory notebooks (not part of the reproducible path)
 ├── outputs/                   # cleaned/joined CSVs consumed by pipeline scripts
-├── figures/                   # rendered figures referenced in the manuscript
-├── docs/                      # this documentation site (GitHub Pages source)
-├── archive/                    # superseded scripts, kept for provenance
-└── ecological_zones_5class/   # earlier 5-class zoning attempt, retained for reference
+├── figures/                    # rendered figures referenced in the manuscript
+├── docs/                        # documentation site (GitHub Pages source)
+├── tools/build_site.py           # regenerates docs/ — plain Python, no framework
+└── archive/                       # superseded scripts, kept for provenance
 ```
 
 ## Quick start
 
-1. Read the [Methodology](docs/methodology.html) page for the five-step workflow.
-2. Read the [GEE scripts](docs/gee-scripts.html) page, or open the scripts directly
-   from `gee-full-script/`, and paste them into the
+1. Read [Study Design](docs/study-design.html) for the objective, region, and the
+   15 protected areas.
+2. Read [Pipeline](docs/pipeline.html) for environment setup and run order, then open
+   the scripts directly from `gee-full-script/` and paste them into the
    [Earth Engine Code Editor](https://code.earthengine.google.com/) — updating the
    `projects/ee-desmond/assets/...` paths to your own project.
-3. Follow [Reproduce](docs/reproduce.html) for the exact run order, export
-   destinations, and the Python steps that turn raw exports into the figures and
-   regression tables reported in the manuscript.
-4. See the [API reference](docs/api-reference.html) for parameter-level
+3. See [Script Reference](docs/script-reference.html) for parameter-level
    documentation of every custom function used across the scripts.
+4. See [Data & Outputs](docs/data-outputs.html) for the exact CSV schema produced
+   at the end of the pipeline.
+
+### Editing the documentation site
+
+The site in `docs/` is generated, not hand-edited. To change content, edit the
+page-content functions in `tools/build_site.py` and re-run:
+
+```bash
+python tools/build_site.py
+```
+
+This rewrites every file in `docs/` deterministically — commit the regenerated
+output along with your source change.
 
 ## Data sources
 
@@ -53,11 +77,15 @@ fires-landuse-climate-interactions/
 | Climate | ERA5-Land Monthly Aggregates (ECMWF/C3S, 2018) | ~11 km native / ~25 km nominal |
 | Park boundaries | WDPA-derived, merged authors' shapefile | vector |
 
-## Status
+## Citation
 
-This manuscript is in production. Figure numbers, exact statistics, and wording in
-this repository's documentation follow the submitted draft and may be revised before
-final publication.
+```
+Lartey, D., N'Dri, A., Amoako, E. E., Lawer, E., Issifu, H., Tsendbazar, N.,
+Ametsitsi, G., Janssen, T., Konan, A., & Veenendaal, E. Fire, Land Use and
+Climate Interactions: Understanding the drivers of fire regimes in
+conservation landscapes of West Africa. Tropical Conservation Science.
+https://doi.org/10.1177/19400829261486748
+```
 
 ## License
 

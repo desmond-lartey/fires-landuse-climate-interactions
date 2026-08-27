@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Reproduce — fires-landuse-climate-interactions</title>
+<title>Reproduce, fires-landuse-climate-interactions</title>
 <meta name="description" content="Exact steps to re-run the Earth Engine pipeline and Python analysis on your own assets.">
 <link rel="icon" href="data:,">
 <link rel="stylesheet" href="assets/site.css">
@@ -51,7 +51,7 @@
     <p class="eyebrow">Reproduce this analysis</p>
     <h1>Run the pipeline on your own Earth Engine project</h1>
     <p class="lede">Every asset path in the scripts is namespaced under
-    <code>projects/ee-desmond/assets/...</code> — replace that prefix with your own Earth Engine cloud
+    <code>projects/ee-desmond/assets/...</code>, replace that prefix with your own Earth Engine cloud
     project before running anything. The order below matches script numbering on the
     <a href="gee-scripts.html">GEE scripts</a> page.</p>
 
@@ -76,7 +76,7 @@
         <div class="card"><span class="k">2</span><h3>Import park boundaries</h3><p>Upload your park shapefile as an asset and update the <code>NewParkMerged</code> path in every subsequent script to point at it.</p></div>
         <div class="card"><span class="k">3</span><h3>Buffer disaggregation</h3><p>Run <code>02_buffer_disaggregation.js</code> once the six monthly assets from Step 1 finish exporting and are re-imported as assets.</p></div>
         <div class="card"><span class="k">4</span><h3>Land-cover harmonisation</h3><p>Run <code>03_landcover_harmonisation.js</code> to confirm the GLAD/ESRI remap produces sensible layers on the map before using it inside the combined pipeline.</p></div>
-        <div class="card"><span class="k">5</span><h3>Combined pipeline</h3><p>Run <code>05_combined_pipeline.js</code>, which calls the climate and land-cover functions internally. This is the long-running export — expect it to take longer than the individual steps.</p></div>
+        <div class="card"><span class="k">5</span><h3>Combined pipeline</h3><p>Run <code>05_combined_pipeline.js</code>, which calls the climate and land-cover functions internally. This is the long-running export, expect it to take longer than the individual steps.</p></div>
         <div class="card"><span class="k">6</span><h3>Seasonal totals</h3><p>Run <code>05b_seasonal_fire_rainfall.js</code> separately to produce the dry/wet seasonal table used for the Step 5 regressions.</p></div>
       </div>
       <p class="note warn"><span class="tag">Export quotas</span>Earth Engine has per-user concurrent
@@ -120,7 +120,7 @@ python pipeline/02_fit_regressions.py --in outputs/BurnedArea_LC_Climate_joined.
 # 3. Render the figures referenced on the Results page
 python pipeline/03_make_figures.py --in outputs/ --out figures/</code></pre>
       </div>
-      <p>Each <code>pipeline/</code> script is a plain script, not a notebook — run with
+      <p>Each <code>pipeline/</code> script is a plain script, not a notebook, run with
       <code>--help</code> for its full argument list. Exploratory notebooks that informed but are not
       required by the final pipeline live in <code>notebooks/</code> and are not part of the
       reproducible path.</p>

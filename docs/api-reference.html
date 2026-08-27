@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>API reference — fires-landuse-climate-interactions</title>
+<title>API reference, fires-landuse-climate-interactions</title>
 <meta name="description" content="Parameter-by-parameter reference for every custom Earth Engine function used in the pipeline.">
 <link rel="icon" href="data:,">
 <link rel="stylesheet" href="assets/site.css">
@@ -74,7 +74,7 @@
         </tbody>
       </table>
     </div>
-    <p><strong>Returns</strong> <code>ee.Image</code> — single-band binary mask (<code>BurnDate &gt; 0</code>, self-masked), tagged with a <code>date</code> property.</p>
+    <p><strong>Returns</strong> <code>ee.Image</code>, single-band binary mask (<code>BurnDate &gt; 0</code>, self-masked), tagged with a <code>date</code> property.</p>
 
     <h3 id="sumBurnedAreaForSpecificMonth"><code>sumBurnedAreaForSpecificMonth(month, startYear, endYear, region)</code></h3>
     <p>Sums <a href="#processBurnedArea"><code>processBurnedArea</code></a> masks for one calendar month across a year range, producing the climatology count.</p>
@@ -89,7 +89,7 @@
         </tbody>
       </table>
     </div>
-    <p><strong>Returns</strong> <code>ee.Image</code> — pixel-wise count of years (0–21) that recorded a burn in that month, tagged with a <code>month</code> property, cast to <code>double</code>.</p>
+    <p><strong>Returns</strong> <code>ee.Image</code>, pixel-wise count of years (0–21) that recorded a burn in that month, tagged with a <code>month</code> property, cast to <code>double</code>.</p>
 
     <h3 id="sumBurnedAreaForAllMonths"><code>sumBurnedAreaForAllMonths(startYear, endYear, region)</code></h3>
     <p>Calls <a href="#sumBurnedAreaForSpecificMonth"><code>sumBurnedAreaForSpecificMonth</code></a> for all 12 months and sums the results into one all-months composite.</p>
@@ -102,7 +102,7 @@
         </tbody>
       </table>
     </div>
-    <p><strong>Returns</strong> <code>ee.Image</code> — single-band, all-months burn-frequency composite.</p>
+    <p><strong>Returns</strong> <code>ee.Image</code>, single-band, all-months burn-frequency composite.</p>
 
     <h3 id="calculateBurnedAreaAndFrequency"><code>calculateBurnedAreaAndFrequency(feature)</code></h3>
     <p>Defined in <a href="gee-scripts.html#buffer">02_buffer_disaggregation.js</a>. Builds five buffer
@@ -116,7 +116,7 @@
         </tbody>
       </table>
     </div>
-    <p><strong>Returns</strong> <code>ee.FeatureCollection</code> — 5 features (one per buffer distance), each carrying the fields listed in the <a href="data.html#schema">output schema</a>.</p>
+    <p><strong>Returns</strong> <code>ee.FeatureCollection</code>, 5 features (one per buffer distance), each carrying the fields listed in the <a href="data.html#schema">output schema</a>.</p>
     <p><strong>Closures over</strong> <code>months</code>, <code>burnedAreaImages</code>, <code>bufferDistances</code> (module-level constants set earlier in the script).</p>
 
     <h3 id="harmoniseGlad"><code>harmoniseGlad(img)</code></h3>
@@ -130,7 +130,7 @@
         </tbody>
       </table>
     </div>
-    <p><strong>Returns</strong> <code>ee.Image</code> — single band named <code>landcover</code>, values 1–9 (class 8/Clouds never appears from this source).</p>
+    <p><strong>Returns</strong> <code>ee.Image</code>, single band named <code>landcover</code>, values 1–9 (class 8/Clouds never appears from this source).</p>
 
     <h3 id="remapEsri"><code>remapEsri(image)</code></h3>
     <p>Remaps ESRI's 11-class scheme (native codes <code>1,2,4,5,7,8,9,10,11</code>) onto the same
@@ -143,7 +143,7 @@
         </tbody>
       </table>
     </div>
-    <p><strong>Returns</strong> <code>ee.Image</code> — single band named <code>landcover</code>, values 1–9.</p>
+    <p><strong>Returns</strong> <code>ee.Image</code>, single band named <code>landcover</code>, values 1–9.</p>
 
     <h3 id="getLandCoverYear"><code>getLandCoverYear(year)</code></h3>
     <p>Dispatches to the correct source dataset and harmonisation function based on year, so callers
@@ -166,7 +166,7 @@
         </tbody>
       </table>
     </div>
-    <p><strong>Returns</strong> <code>ee.Image</code> — single band named <code>landcover</code>.</p>
+    <p><strong>Returns</strong> <code>ee.Image</code>, single band named <code>landcover</code>.</p>
 
     <h3 id="getClimateForYear"><code>getClimateForYear(year)</code></h3>
     <p>Defined in <a href="gee-scripts.html#climate">04_climate_integration.js</a>. Builds an
@@ -179,7 +179,7 @@
         </tbody>
       </table>
     </div>
-    <p><strong>Returns</strong> <code>ee.Image</code> — 8 bands: <code>Tmean_C</code>, <code>Tmin_C</code>, <code>Tmax_C</code>, <code>Tdew_C</code>, <code>Precip_mm</code>, <code>SurfaceP_hPa</code>, <code>WindU</code>, <code>WindV</code>.</p>
+    <p><strong>Returns</strong> <code>ee.Image</code>, 8 bands: <code>Tmean_C</code>, <code>Tmin_C</code>, <code>Tmax_C</code>, <code>Tdew_C</code>, <code>Precip_mm</code>, <code>SurfaceP_hPa</code>, <code>WindU</code>, <code>WindV</code>.</p>
 
     <h3 id="calculateBurnedAreaAndLandUse"><code>calculateBurnedAreaAndLandUse(feature, landCover, year)</code></h3>
     <p>Defined in <a href="gee-scripts.html#seasonal">05_combined_pipeline.js</a>. The main
@@ -195,11 +195,11 @@
         </tbody>
       </table>
     </div>
-    <p><strong>Returns</strong> <code>ee.FeatureCollection</code> — 5 features (one per buffer), each with the full schema documented on the <a href="data.html#schema">data layers</a> page.</p>
+    <p><strong>Returns</strong> <code>ee.FeatureCollection</code>, 5 features (one per buffer), each with the full schema documented on the <a href="data.html#schema">data layers</a> page.</p>
 
     <h3 id="processParkYearSeason"><code>processParkYearSeason(park, year, season)</code></h3>
     <p>Defined in <a href="gee-scripts.html#seasonal">05b_seasonal_fire_rainfall.js</a>. Computes one
-    seasonal (dry or wet) burned-area and rainfall total for one park in one year — the unit consumed
+    seasonal (dry or wet) burned-area and rainfall total for one park in one year, the unit consumed
     by the Step 5 fire–rainfall regressions.</p>
     <div class="tablewrap">
       <table class="data">

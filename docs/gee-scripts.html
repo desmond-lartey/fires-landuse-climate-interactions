@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>GEE scripts — fires-landuse-climate-interactions</title>
+<title>GEE scripts, fires-landuse-climate-interactions</title>
 <meta name="description" content="Full Google Earth Engine JavaScript source for burned-area harmonization, buffer disaggregation, land-cover harmonisation, and climate integration.">
 <link rel="icon" href="data:,">
 <link rel="stylesheet" href="assets/site.css">
@@ -61,7 +61,7 @@
       <h2>01 · Monthly burned-area composites (Step 1)</h2>
       <p>Builds the 20-year (2004–2024) monthly burn-frequency climatology from MODIS MCD64A1, one
       image per calendar month, and exports both GeoTIFFs and an all-months composite. This is the
-      only script that reads raw MODIS data — everything else consumes its outputs.</p>
+      only script that reads raw MODIS data, everything else consumes its outputs.</p>
       <div class="codewrap tall">
         <div class="codebar"><span class="fname">01_burned_area_composites.js</span><span class="lang">GEE JS</span><button class="copy" type="button">Copy</button></div>
         <pre><code>// Define the extent covering all the required national parks
@@ -172,7 +172,7 @@ Map.centerObject(area, 6);
 // }</code></pre>
       </div>
       <p class="note"><span class="tag">Before you run this</span>Draw or import a <code>geometry</code>
-      covering all 15 study parks in the GEE Code Editor first — this script expects a variable named
+      covering all 15 study parks in the GEE Code Editor first, this script expects a variable named
       <code>geometry</code> to already exist in scope, either from the map-drawing tool or from an
       imported asset.</p>
     </section>
@@ -329,14 +329,14 @@ var lcDict = {
            "#EDE9E4","#F2FAFF","#C8C8C8","#C6AD8D"]
 };
 
-// GLAD -> ESRI 9-class dictionary (abridged view — full mapping covers all
+// GLAD -> ESRI 9-class dictionary (abridged view, full mapping covers all
 // GLAD sub-codes for stable, disturbed, and height-gain tree classes)
 var gladToEsri = ee.Dictionary({
   // Water
   200:1, 201:1, 202:1, 203:1, 204:1, 207:1, 208:1, 209:1, 210:1, 211:1,
   // Trees: stable (25-48), disturbed (49-72), gains (73-96),
   //        stable canopy-height tiers (126-148), disturbance (149-172),
-  //        height gain (173-196) — all map to class 2
+  //        height gain (173-196), all map to class 2
   25:2, 26:2, /* … 27 through 195 follow the same pattern … */ 196:2,
   // Flooded vegetation
   100:3, 101:3, /* … */ 124:3,
@@ -348,7 +348,7 @@ var gladToEsri = ee.Dictionary({
   250:5, 251:5, 252:5, 253:5,
   // Snow/Ice
   241:7, 242:7, 243:7
-  // Clouds (8) has no GLAD equivalent — absent by design
+  // Clouds (8) has no GLAD equivalent, absent by design
 });
 
 function harmoniseGlad(img) {
@@ -629,7 +629,7 @@ Export.table.toDrive({
       </div>
       <p class="note warn"><span class="tag">Performance note</span>The triple <code>for</code> loop
       calls <code>.getInfo()</code> to get client-side list lengths, which is fine for 15 parks × 21
-      years × 2 seasons (630 features) but does not scale to much larger park lists — beyond a few
+      years × 2 seasons (630 features) but does not scale to much larger park lists, beyond a few
       thousand features, restructure this as server-side <code>.map()</code> nesting instead.</p>
     </section>
   </main>

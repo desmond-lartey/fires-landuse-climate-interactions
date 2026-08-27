@@ -3,95 +3,109 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Fire, Land Use and Climate Interactions — West African Protected Areas</title>
-<meta name="description" content="Reproducible methods, Earth Engine scripts, and data layers behind a 20-year (2004–2024) fire-regime analysis of 15 West African protected areas.">
+<title>Home — fires-landuse-climate-interactions</title>
+<meta name="description" content="Overview, headline findings, and quick links.">
 <link rel="icon" href="data:,">
 <link rel="stylesheet" href="assets/site.css">
 </head>
 <body>
 <a class="skip" href="#content">Skip to content</a>
 
-<header class="masthead">
-  <div class="masthead-in">
-    <a class="brand" href="index.html"><b>fires-landuse-climate</b><span class="slash">/</span>interactions</a>
-    <button class="navtoggle" aria-expanded="false" aria-label="Toggle navigation">Menu</button>
-    <nav class="mast-nav" aria-label="Primary">
-      <a href="index.html" aria-current="page">Overview</a>
-      <a href="study-area.html">Study area</a>
-      <a href="methodology.html">Methodology</a>
-      <a href="data.html">Data layers</a>
-      <a href="gee-scripts.html">GEE scripts</a>
-      <a href="api-reference.html">API reference</a>
-      <a href="results.html">Results</a>
-      <a href="reproduce.html">Reproduce</a>
-      <a class="ext" href="https://github.com/desmond-lartey/fires-landuse-climate-interactions">Repo ↗</a>
-    </nav>
+<header class="topbar">
+  <div class="topbar-in">
+    <button class="burger" aria-expanded="false" aria-label="Toggle navigation"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg></button>
+    <a class="site-title" href="index.html">
+      <span class="mark">FLC</span>
+      <span class="name">fires-landuse-climate-interactions<small>Documentation</small></span>
+    </a>
+    <div class="topbar-search">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+      <input type="search" placeholder="Search the docs&hellip;" aria-label="Search the documentation">
+      <div class="search-results"></div>
+    </div>
+    <div class="topbar-actions">
+      <button class="icon-btn theme-toggle" aria-label="Toggle dark mode"><svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg><svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 12.8A9 9 0 1111.2 3a7 7 0 009.8 9.8z"/></svg></button>
+      <a class="icon-btn" href="https://github.com/desmond-lartey/fires-landuse-climate-interactions" aria-label="View source on GitHub"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.57.1.79-.25.79-.55 0-.27-.01-1.16-.02-2.11-3.2.7-3.88-1.36-3.88-1.36-.52-1.34-1.28-1.69-1.28-1.69-1.04-.72.08-.7.08-.7 1.15.08 1.76 1.19 1.76 1.19 1.03 1.76 2.69 1.25 3.35.96.1-.75.4-1.25.73-1.54-2.55-.29-5.24-1.28-5.24-5.7 0-1.26.45-2.29 1.19-3.09-.12-.29-.52-1.47.11-3.06 0 0 .97-.31 3.18 1.18a11 11 0 015.8 0c2.2-1.49 3.17-1.18 3.17-1.18.64 1.6.24 2.77.12 3.06.74.8 1.18 1.83 1.18 3.09 0 4.43-2.69 5.4-5.25 5.69.41.36.78 1.06.78 2.14 0 1.55-.01 2.79-.01 3.17 0 .3.21.66.8.55A10.52 10.52 0 0023.5 12C23.5 5.65 18.35.5 12 .5z"/></svg></a>
+    </div>
   </div>
 </header>
+<div class="sidebar-scrim"></div>
 
 <div class="shell">
-  <aside class="sidebar" aria-label="On this page">
-    <p class="side-label">On this page</p>
-    <ol>
-      <li><a href="#abstract">Abstract</a></li>
-      <li><a href="#calendar">Fire-season calendar</a></li>
-      <li><a href="#questions">Research questions</a></li>
-      <li><a href="#workflow">Five-step workflow</a></li>
-      <li><a href="#zones">Ecological zones</a></li>
-      <li><a href="#authors">Authors &amp; citation</a></li>
-    </ol>
-    <p class="side-label">Site map</p>
-    <ul>
-      <li><a href="study-area.html">Study area &amp; parks</a></li>
-      <li><a href="methodology.html">Methodology</a></li>
-      <li><a href="data.html">Data layers &amp; outputs</a></li>
-      <li><a href="gee-scripts.html">Earth Engine scripts</a></li>
-      <li><a href="api-reference.html">API reference</a></li>
-      <li><a href="results.html">Results summary</a></li>
-      <li><a href="reproduce.html">Reproduce this analysis</a></li>
-    </ul>
+  <aside class="sidebar" aria-label="Documentation">
+    <p class="side-group-label">Documentation</p><ul class="side-nav"><li><a href="index.html" aria-current="page">Home</a></li><ul class="side-sub"><li><a href="#about">About this study</a></li><li><a href="#headline">Headline findings</a></li><li><a href="#calendar">Fire-season calendar</a></li><li><a href="#map">Quick links</a></li><li><a href="#cite">Citation</a></li></ul><li><a href="study-design.html">Study Design</a></li><li><a href="pipeline.html">Pipeline</a></li><li><a href="script-reference.html">Script Reference</a></li><li><a href="data-outputs.html">Data &amp; Outputs</a></li><li><a href="findings.html">Findings</a></li></ul>
+<div class="repo-card">
+  <a href="https://github.com/desmond-lartey/fires-landuse-climate-interactions"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.57.1.79-.25.79-.55 0-.27-.01-1.16-.02-2.11-3.2.7-3.88-1.36-3.88-1.36-.52-1.34-1.28-1.69-1.28-1.69-1.04-.72.08-.7.08-.7 1.15.08 1.76 1.19 1.76 1.19 1.03 1.76 2.69 1.25 3.35.96.1-.75.4-1.25.73-1.54-2.55-.29-5.24-1.28-5.24-5.7 0-1.26.45-2.29 1.19-3.09-.12-.29-.52-1.47.11-3.06 0 0 .97-.31 3.18 1.18a11 11 0 015.8 0c2.2-1.49 3.17-1.18 3.17-1.18.64 1.6.24 2.77.12 3.06.74.8 1.18 1.83 1.18 3.09 0 4.43-2.69 5.4-5.25 5.69.41.36.78 1.06.78 2.14 0 1.55-.01 2.79-.01 3.17 0 .3.21.66.8.55A10.52 10.52 0 0023.5 12C23.5 5.65 18.35.5 12 .5z"/></svg> View on GitHub</a>
+  <p>Static docs — no Jekyll, no build step. GitHub Pages serves <code>docs/</code> directly.</p>
+</div>
   </aside>
 
-  <main class="main" id="content">
-    <section class="hero" id="abstract">
-      <p class="eyebrow">Manuscript in production · TRC-26-0053</p>
-      <h1>Fire, land use, and climate interactions in West African conservation landscapes</h1>
-      <p class="lede">A spatially explicit, buffer-based analysis of 20 years (2004–2024) of MODIS burned-area
-      detections across 15 protected areas in Côte d'Ivoire, Ghana, Togo, Burkina Faso, Benin, and Nigeria —
-      integrating harmonized GLAD/ESRI land cover and ERA5-Land climate reanalysis to explain why fire regimes
-      differ across ecological zones, buffer distance, and vegetation type.</p>
-      <p class="hero-meta">
-        <span><b>Period</b> 2004–2024</span>
-        <span><b>Protected areas</b> 15</span>
-        <span><b>Ecological zones</b> 4</span>
-        <span><b>Buffer distances</b> 0, 5, 10, 15, 20 km</span>
-        <span><b>Countries</b> CI · GH · TG · BF · BJ · NG</span>
-      </p>
+  <main class="content" id="content">
+    
+<p class="eyebrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l2.5 2.5L16 9.5"/></svg>Published research &middot; documentation site</p>
+<h1>Fire, land use, and climate interactions in West African conservation landscapes</h1>
+<p class="lede">A spatially explicit, buffer-based analysis of 20 years (2004&ndash;2024) of MODIS
+burned-area detections across 15 protected areas in C&ocirc;te d'Ivoire, Ghana, Togo, Burkina Faso,
+Benin, and Nigeria &mdash; integrating harmonized GLAD/ESRI land cover and ERA5-Land climate
+reanalysis to explain why fire regimes differ across ecological zones, buffer distance, and
+vegetation type.</p>
 
-      <div class="grid2" style="margin-top:1.9rem;">
-        <div class="card">
-          <span class="k">Data inputs</span>
-          <h3>Four remotely sensed layers</h3>
-          <p>MODIS MCD64A1 burned area (500 m), harmonized GLAD 2000–2020 / ESRI 2021–2024 land cover
-          (30 m / 10 m), and ERA5-Land monthly climate reanalysis (~25 km), reduced to park- and
-          buffer-level zonal statistics in Google Earth Engine.</p>
-        </div>
-        <div class="card">
-          <span class="k">Spatial framework</span>
-          <h3>Interior-to-edge gradients</h3>
-          <p>Each park is analysed as five concentric units — the interior (0 km) and buffer rings at
-          5, 10, 15, and 20 km — so that fire exposure, land cover, and climate can be compared from
-          park core to surrounding human-modified landscape.</p>
-        </div>
-      </div>
-    </section>
+<div class="badges">
+  <span class="badge pub"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l2.5 2.5L16 9.5"/></svg>Published</span>
+  <span class="badge doi"><a href="https://doi.org/10.1177/19400829261486748">DOI 10.1177/19400829261486748</a></span>
+  <span class="badge">Journal <b>Tropical Conservation Science</b></span>
+  <span class="badge">Period <b>2004&ndash;2024</b></span>
+  <span class="badge">Protected areas <b>15</b></span>
+  <span class="badge">Ecological zones <b>4</b></span>
+  <span class="badge">License <b>MIT</b> (code)</span>
+</div>
 
-    <section class="calendar" id="calendar" aria-labelledby="cal-h">
-      <div class="cal-head">
-        <h2 id="cal-h" class="cal-title">Fire season, 15 protected areas — average % of park area burned per month, 2004–2024</h2>
-      </div>
-      <div class="cal-scroll">
-        <table class="cal">
+<section id="about">
+<h2>About this study</h2>
+<p>Fire shapes vegetation structure, biodiversity, and carbon dynamics across West African protected
+areas (PAs), yet fine-scale interactions of climatic, ecological, and landscape controls on burning
+have remained poorly understood. This study analyzed fire dynamics across 15 PAs in four ecological
+zones, using 20 years (2004&ndash;2024) of MODIS burned area data, harmonized GLAD and ESRI land
+cover, and ERA5 climate reanalysis within a buffer-based spatial framework (0&ndash;20&nbsp;km) that
+captures the gradient from PA interiors to surrounding human-modified landscapes.</p>
+<div class="grid">
+  <div class="card"><span class="k">Data inputs</span><h3>Four remotely sensed layers</h3>
+  <p>MODIS MCD64A1 burned area (500&nbsp;m), harmonized GLAD 2000&ndash;2020 / ESRI 2021&ndash;2024
+  land cover (30&nbsp;m / 10&nbsp;m), and ERA5-Land monthly climate reanalysis (~25&nbsp;km), reduced
+  to park- and buffer-level zonal statistics in Google Earth Engine.</p></div>
+  <div class="card"><span class="k">Spatial framework</span><h3>Interior-to-edge gradients</h3>
+  <p>Each park is analysed as five concentric units &mdash; the interior (0&nbsp;km) and buffer rings
+  at 5, 10, 15, and 20&nbsp;km &mdash; so fire exposure, land cover, and climate can be compared from
+  park core to surrounding landscape.</p></div>
+</div>
+</section>
+
+<section id="headline">
+<h2>Headline findings</h2>
+<ul>
+  <li><strong>Northern Savanna parks burn hardest and most predictably.</strong> Mole, Comoé, and
+  W (Benin) reach 57&ndash;61% of park area burned in December alone; Southern Forest parks (Bia,
+  Marahoué) stay near zero regardless of season.</li>
+  <li><strong>Dry-season rainfall is the dominant climatic control.</strong> Burned area rises as
+  precipitation falls (pooled slope &minus;371.08&nbsp;km&sup2;/mm, p&nbsp;&lt;&nbsp;0.001); the
+  effect is individually significant at Gashaka-Gumti (p&nbsp;=&nbsp;0.014).</li>
+  <li><strong>Fire exposure declines from park interior to edge</strong> &mdash; strongest in
+  Northern Savanna, essentially flat in Southern Forest, where fire is ecologically constrained at
+  any distance.</li>
+  <li><strong>Ecological zone governs fire frequency more than land-cover class does.</strong> The
+  same land-cover type burns at very different rates depending on which zone it sits in.</li>
+  <li><strong>Fires outside park boundaries ignite earlier and burn more</strong> than fires inside,
+  pointing to stronger anthropogenic ignition pressure in surrounding landscapes.</li>
+</ul>
+<p>Full statistical detail is on the <a href="findings.html">Findings</a> page.</p>
+</section>
+
+<section id="calendar">
+<h2>Fire-season calendar</h2>
+<p>Average % of park area burned per month, October&ndash;March, 2004&ndash;2024, across all 15
+protected areas:</p>
+<div class="tablewrap">
+<table class="data">
     <thead>
       <tr>
         <th class="park" scope="col">Protected area</th>
@@ -240,112 +254,64 @@
         <td class="v" style="background:#F8F6F2;color:#2A211C">0</td>
       </tr>
     </tbody>
-        </table>
-      </div>
-      <div class="cal-legend">
-        <span>0%</span>
-        <span class="ramp" role="img" aria-label="Colour ramp from pale cream at zero percent to dark red at the maximum"></span>
-        <span>61%</span>
-        <span style="margin-left:0.6rem;">— derived from Figure 3, dry-season composites (Oct–Mar)</span>
-      </div>
-      <p class="cal-note">Read a row left to right to see when a given park burns. Northern Savanna parks
-      (Mole, Comoé, W-Benin, W-Burkina Faso, Kaboré Tambi, Kainji Lake) show a sharp November–December
-      peak reaching 57–61% of park area in a single month. Southern Forest and humid-transition parks
-      (Bia, Marahoué) stay at or near zero throughout the dry season regardless of month.</p>
-    </section>
+</table>
+</div>
+<p style="font-size:0.85rem;color:var(--fg-muted);">Colour scale runs from pale (0%) to dark red
+(61%, the study maximum). Derived from Figure 3 of the manuscript.</p>
+</section>
 
-    <section id="questions">
-      <h2>Research questions</h2>
-      <p>The analysis was structured around five questions that move from park-level description toward
-      the spatial and temporal mechanisms that explain observed differences:</p>
-      <ol>
-        <li>Why do protected areas differ in frequency of burning?</li>
-        <li>How is overall annual burning related to rainfall and temperature variability, particularly during dry years?</li>
-        <li>What is the relationship between fire activity, location, climate, and land cover types?</li>
-        <li>Do different land cover types burn at different frequencies, extents, and seasonal timings?</li>
-        <li>How does the timing of fires vary between inside and outside of protected areas?</li>
-      </ol>
-    </section>
+<section id="map">
+<h2>Quick links</h2>
+<div class="tablewrap">
+<table class="data">
+<thead><tr><th>Page</th><th>What's there</th></tr></thead>
+<tbody>
+<tr><td><a href="study-design.html">Study Design</a></td><td>Objective, study region, research questions, ecological-zone criteria, the 15 protected areas, and the four source datasets.</td></tr>
+<tr><td><a href="pipeline.html">Pipeline</a></td><td>Environment setup and the exact order every script runs in, from raw MODIS composites to the final joined CSV.</td></tr>
+<tr><td><a href="script-reference.html">Script Reference</a></td><td>Every Earth Engine script, read top to bottom, with a full parameter/return reference for each custom function.</td></tr>
+<tr><td><a href="data-outputs.html">Data &amp; Outputs</a></td><td>Intermediate Earth Engine asset names, the output CSV schema, and how the repository is laid out on disk.</td></tr>
+<tr><td><a href="findings.html">Findings</a></td><td>Headline results and zone-by-zone operational guidance.</td></tr>
+</tbody>
+</table>
+</div>
+</section>
 
-    <section id="workflow">
-      <h2>Five-step analytical workflow</h2>
-      <p>Every output on this site traces back to one of five processing steps, all implemented in
-      Google Earth Engine and chained through a single set of park, buffer, year, and month keys.
-      Full code is on the <a href="gee-scripts.html">GEE scripts</a> page; parameter-by-parameter
-      documentation is on the <a href="api-reference.html">API reference</a> page.</p>
-      <div class="grid2">
-        <div class="card"><span class="k">Step 1</span><h3>Burned-area harmonization</h3><p>MODIS MCD64A1 monthly composites, 2004–2024, summed per calendar month into a 20-year climatology.</p></div>
-        <div class="card"><span class="k">Step 2</span><h3>Buffer disaggregation</h3><p>Zonal reduction of burned area across five concentric analysis units per park (0–20 km).</p></div>
-        <div class="card"><span class="k">Step 3</span><h3>Land-cover harmonisation</h3><p>GLAD (2000–2020) and ESRI (2021–2024) reclassified to one 9-class scheme, sampled at benchmark years.</p></div>
-        <div class="card"><span class="k">Step 4</span><h3>Climate integration</h3><p>ERA5-Land monthly reanalysis reduced to zonal means per park, buffer, and year.</p></div>
-        <div class="card"><span class="k">Step 5</span><h3>Seasonal fire–rainfall coupling</h3><p>Dry- vs wet-season OLS regressions of burned area against precipitation, plus a lagged wet-season fuel-load test.</p></div>
-      </div>
-      <p><a href="methodology.html">Read the full methodology →</a></p>
-    </section>
+<section id="cite">
+<h2>Citation</h2>
+<div class="cite">
+Lartey, D., N&rsquo;Dri, A. B., Amoako, E. E., Lawer, E. A., Issifu, H., Tsendbazar, N.,
+Ametsitsi, G., Janssen, T., Konan, A., &amp; Veenendaal, E. Fire, Land Use and Climate
+Interactions: Understanding the drivers of fire regimes in conservation landscapes of West
+Africa. <em>Tropical Conservation Science</em>. <a href="https://doi.org/10.1177/19400829261486748">https://doi.org/10.1177/19400829261486748</a>
+</div>
+</section>
 
-    <section id="zones">
-      <h2>Ecological zones used in this study</h2>
-      <p>Zones are region-specific groupings based on mean annual rainfall, dry-season length, and
-      vegetation structure — not global biome classes. They are the primary explanatory grouping used
-      throughout the results.</p>
-      <div class="tablewrap">
-        <table class="data">
-          <thead><tr><th>Zone</th><th>Vegetation</th><th>Expected fire regime</th></tr></thead>
-          <tbody>
-            <tr><td><span class="zone ns">Northern Savanna</span></td><td>Open canopy, continuous grass cover, long dry season</td><td>Frequent, spatially extensive, low intensity/severity</td></tr>
-            <tr><td><span class="zone nf">Northern Forest</span></td><td>Humid woodland–forest mosaic</td><td>Less frequent, more spatially patchy</td></tr>
-            <tr><td><span class="zone st">Southern Transition</span></td><td>Forest–savanna mosaic, moderate rainfall</td><td>Intermediate frequency, sensitive to interannual rainfall</td></tr>
-            <tr><td><span class="zone sf">Southern Forest</span></td><td>Closed canopy, high rainfall</td><td>Rare, locally severe under drought</td></tr>
-          </tbody>
-        </table>
-      </div>
-      <p><a href="study-area.html">See all 15 parks, designations, and IUCN categories →</a></p>
-    </section>
-
-    <section id="authors">
-      <h2>Authors &amp; citation</h2>
-      <p>Desmond Lartey, Aya Brigitte N'Dri, Esther Ekua Amoako, Eric Adjei Lawer, Hamza Issifu (corresponding),
-      Nandika Tsendbazar, George Ametsitsi, Thomas Janssen, Konan Amenan Sylvie, Elmar Veenendaal.
-      Affiliations span Wageningen University &amp; Research, Mary Immaculate College, Université Nangui
-      Abrogoua, University for Development Studies, and the Council for Scientific and Industrial Research, Ghana.</p>
-      <div class="cite">
-Lartey, D., N'Dri, A. B., Amoako, E. E., Lawer, E. A., Issifu, H., Tsendbazar, N.,
-Ametsitsi, G., Janssen, T., Sylvie, K. A., &amp; Veenendaal, E. (in production).
-Fire, Land Use and Climate Interactions: Understanding the drivers of fire regimes
-in conservation landscapes of West Africa. <em>Manuscript ID TRC-26-0053.</em>
-      </div>
-      <p class="note"><span class="tag">Status</span>This manuscript is currently in production / under review.
-      Figure numbers, exact wording, and reported statistics on this site follow the submitted draft and
-      may be revised before final publication. Consult the published version of record once available.</p>
-    </section>
+    <div class="pagenav"><span></span><a class="next" href="study-design.html"><span class="dir">Next &rarr;</span><span class="lbl">Study Design</span></a></div>
   </main>
+
+  <aside class="toc" aria-label="On this page">
+    <p class="toc-label">On this page</p><ol><li><a href="#about">About this study</a></li><li><a href="#headline">Headline findings</a></li><li><a href="#calendar">Fire-season calendar</a></li><li><a href="#map">Quick links</a></li><li><a href="#cite">Citation</a></li></ol>
+  </aside>
 </div>
 
 <footer class="foot">
   <div class="foot-in">
     <div>
       <h4>fires-landuse-climate-interactions</h4>
-      <p>Documentation site for a 20-year, 15-park fire regime analysis in West Africa. All processing
-      is done in Google Earth Engine; this site documents the workflow, scripts, and outputs so the
-      analysis can be checked and re-run.</p>
+      <p>Documentation for a 20-year, 15-park fire regime analysis in West Africa, published in
+      Tropical Conservation Science.</p>
     </div>
     <div>
       <h4>Site</h4>
-      <ul>
-        <li><a href="methodology.html">Methodology</a></li>
-        <li><a href="gee-scripts.html">GEE scripts</a></li>
-        <li><a href="api-reference.html">API reference</a></li>
-        <li><a href="reproduce.html">Reproduce</a></li>
-      </ul>
+      <ul><li><a href="study-design.html">Study Design</a></li><li><a href="pipeline.html">Pipeline</a></li><li><a href="script-reference.html">Script Reference</a></li><li><a href="data-outputs.html">Data &amp; Outputs</a></li><li><a href="findings.html">Findings</a></li></ul>
     </div>
     <div>
       <h4>Data sources</h4>
-      <ul>
-        <li>MODIS MCD64A1 C6.1 (NASA LP DAAC)</li>
-        <li>GLAD GLCLU2020 v2 (UMD)</li>
-        <li>ESRI Global LULC 10m (sat-io)</li>
-        <li>ERA5-Land Monthly Aggregates (ECMWF/C3S)</li>
-      </ul>
+      <ul><li>MODIS MCD64A1 C6.1</li><li>GLAD GLCLU2020 v2</li><li>ESRI Global LULC 10m</li><li>ERA5-Land Monthly Aggregates</li></ul>
+    </div>
+    <div>
+      <h4>Publication</h4>
+      <ul><li><a href="https://doi.org/10.1177/19400829261486748">DOI: 10.1177/19400829261486748</a></li><li>Tropical Conservation Science</li></ul>
     </div>
   </div>
 </footer>

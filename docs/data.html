@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Data layers — fires-landuse-climate-interactions</title>
+<title>Data layers, fires-landuse-climate-interactions</title>
 <meta name="description" content="Source datasets, resolutions, and the CSV output schema produced by the Earth Engine pipeline.">
 <link rel="icon" href="data:,">
 <link rel="stylesheet" href="assets/site.css">
@@ -50,8 +50,8 @@
   <main class="main" id="content">
     <p class="eyebrow">Data layers</p>
     <h1>Four remotely sensed inputs, one joined output table</h1>
-    <p class="lede">Everything downstream of Earth Engine — the regressions, figures, and tables in the
-    manuscript — is built from a single wide CSV keyed by park, buffer distance, and year. This page
+    <p class="lede">Everything downstream of Earth Engine, the regressions, figures, and tables in the
+    manuscript, is built from a single wide CSV keyed by park, buffer distance, and year. This page
     documents the four source layers (Table 3) and the resulting schema.</p>
 
     <section id="sources">
@@ -62,7 +62,7 @@
           <tbody>
             <tr>
               <td>Burned area</td>
-              <td>MODIS MCD64A1 Collection 6.1 — monthly global burned area from 500 m surface reflectance and active-fire detections (Giglio et al., 2018)</td>
+              <td>MODIS MCD64A1 Collection 6.1, monthly global burned area from 500 m surface reflectance and active-fire detections (Giglio et al., 2018)</td>
               <td class="num">500 m</td>
               <td class="num">2004–2024</td>
             </tr>
@@ -74,7 +74,7 @@
             </tr>
             <tr>
               <td>Climate</td>
-              <td>ERA5-Land Monthly Aggregates, ECMWF/Copernicus Climate Change Service (C3S, 2018) — precipitation, air temperature, wind</td>
+              <td>ERA5-Land Monthly Aggregates, ECMWF/Copernicus Climate Change Service (C3S, 2018), precipitation, air temperature, wind</td>
               <td class="num">~0.25° (~25 km); native grid ~11 km</td>
               <td class="num">2004–2024</td>
             </tr>
@@ -112,10 +112,10 @@
     <section id="schema">
       <h2>Output CSV schema</h2>
       <p>The final export (<code>BurnedArea_LC_Climate_ESRI_GLAD_2000_2024_corrected2.csv</code>) has
-      one row per <code>(park, buffer distance, year)</code> combination — 15 parks × 5 buffers × 9
+      one row per <code>(park, buffer distance, year)</code> combination, 15 parks × 5 buffers × 9
       benchmark years = 675 rows in the land-cover-linked table; the fully seasonal version
       (<code>BurnedArea_ERA5Seasonal_2004_2024.csv</code>) has one row per
-      <code>(park, year, season)</code> — 15 × 21 × 2 = 630 rows.</p>
+      <code>(park, year, season)</code>, 15 × 21 × 2 = 630 rows.</p>
       <div class="tablewrap">
         <table class="data">
           <thead><tr><th>Column</th><th>Type</th><th>Description</th></tr></thead>
@@ -134,8 +134,8 @@
             <tr><td><code>ERA5_Precip_mm</code></td><td>float</td><td>Zonal mean total precipitation, mm</td></tr>
             <tr><td><code>ERA5_SurfacePressure_hPa</code></td><td>float</td><td>Zonal mean surface pressure, hPa</td></tr>
             <tr><td><code>ERA5_WindU</code>, <code>ERA5_WindV</code></td><td>float</td><td>Zonal mean 10 m wind components, m/s</td></tr>
-            <tr><td><code>Season</code></td><td>string</td><td><code>Dry</code> (Oct–Mar) or <code>Wet</code> (Apr–Sep) — seasonal table only</td></tr>
-            <tr><td><code>BurnedArea_km2</code>, <code>Rainfall_mm</code></td><td>float</td><td>Seasonal totals — seasonal table only</td></tr>
+            <tr><td><code>Season</code></td><td>string</td><td><code>Dry</code> (Oct–Mar) or <code>Wet</code> (Apr–Sep), seasonal table only</td></tr>
+            <tr><td><code>BurnedArea_km2</code>, <code>Rainfall_mm</code></td><td>float</td><td>Seasonal totals, seasonal table only</td></tr>
           </tbody>
         </table>
       </div>
