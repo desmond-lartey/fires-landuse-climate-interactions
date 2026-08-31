@@ -1,7 +1,7 @@
 # Findings
 
-The full quantitative results — per-park regression tables, figures, and
-statistics — are in the published manuscript. This page summarises the
+The full quantitative results, per-park regression tables, figures, and
+statistics, are in the published manuscript. This page summarises the
 headline results and the operational guidance that follows from them.
 
 ## Headline results
@@ -20,7 +20,7 @@ headline results and the operational guidance that follows from them.
   alone.** The same land-cover type burns at very different rates
   depending on zone.
 - **Fires outside park boundaries ignite earlier and burn more
-  extensively** than fires inside, especially in savanna-dominated parks —
+  extensively** than fires inside, especially in savanna-dominated parks,
   consistent with stronger anthropogenic ignition pressure at the
   boundary.
 
@@ -45,10 +45,10 @@ January, but the extent differs sharply by park.
 | Forêt Classée et Réserve Partielle de Faune de Bontioli | Northern Savanna | November | 7.2% |
 | Forêt Classée de Tiogo | Northern Savanna | October | 7.8% |
 | Parc national de la Marahoué | Southern Transition | December | 1.0% |
-| Bia National Park | Southern Forest | — | 0.0% |
+| Bia National Park | Southern Forest |, | 0.0% |
 
 W (Burkina Faso), Gashaka-Gumti, and Kaboré Tambi show strong
-November–January peaks — all Northern Savanna. Bia, Marahoué, and Togo
+November–January peaks, all Northern Savanna. Bia, Marahoué, and Togo
 show near-zero burned area throughout the fire season. Grouped by zone,
 Northern Savanna forms a clear high-burning cluster, Northern Forest and
 Southern Transition are intermediate and variable, and Southern Forest is
@@ -57,19 +57,19 @@ consistently near zero.
 ## Rainfall coupling
 
 The rainfall–fire relationship is strongest in the dry season, when fuel
-moisture is lowest. Fire-prone parks — Gashaka-Gumti, Mole, Comoé, Kainji
-Lake, and Kogyae — show negative slopes between precipitation and burned
+moisture is lowest. Fire-prone parks, Gashaka-Gumti, Mole, Comoé, Kainji
+Lake, and Kogyae, show negative slopes between precipitation and burned
 area. Gashaka-Gumti is the only park with an individually significant
 negative slope; others show the same direction without reaching
 significance, likely reflecting high interannual variability relative to
-record length. Parks with limited fire activity — Bia, Tiogo, Kyabobo,
-Marahoué, Bontioli — show flat or inconsistent slopes, indicating
+record length. Parks with limited fire activity, Bia, Tiogo, Kyabobo,
+Marahoué, Bontioli, show flat or inconsistent slopes, indicating
 ecological rather than climatic constraints on burning.
 
 | Fit | Scale | Slope | p | R² |
 |---|---|---|---|---|
 | Pooled, all parks & years | 2004–2024 | −371.08 km²/mm | < 0.001 | 0.04 |
-| Gashaka-Gumti | 2004–2024 | −182.69 km²/mm | 0.014 | — |
+| Gashaka-Gumti | 2004–2024 | −182.69 km²/mm | 0.014 |, |
 
 Interannual peaks in dry-season burned area at fire-prone Northern Savanna
 parks align with drier years (notably around 2009, 2012, 2015–2016, and
@@ -84,7 +84,7 @@ an effect strongest in Northern Savanna, where fire frequency peaks within
 with higher cumulative burned area show larger tree-cover losses, mixed
 rangeland responses, and moderate cropland gains at moderate fire exposure
 but declines at extreme exposure. Rangelands show the highest proportional
-burned area — 60–80% of grass-dominated pixels within the 0 km buffer at
+burned area, 60–80% of grass-dominated pixels within the 0 km buffer at
 Comoé, Mole, and W (Benin).
 
 ## Zone-by-zone guidance
@@ -93,7 +93,7 @@ Comoé, Mole, and W (Benin).
 |---|---|
 | **Northern Savanna** | Fire is frequent and largely unavoidable. Prioritise seasonal rainfall forecasts for early-burn planning and buffer-zone coordination with farming/pastoral communities rather than suppression. |
 | **Northern Forest** | Intermediate, patchier fire activity. Monitor for encroachment of savanna-type burning at drier margins. |
-| **Southern Transition** | Fire activity is intermediate and interannually variable — the zone most sensitive to a shifting climate; context-specific management is needed for the mosaic of open and closed vegetation patches. |
+| **Southern Transition** | Fire activity is intermediate and interannually variable, the zone most sensitive to a shifting climate; context-specific management is needed for the mosaic of open and closed vegetation patches. |
 | **Southern Forest** | Near-zero burning at any distance from the boundary. Canopy integrity, not active fire suppression, is the operative protection mechanism. |
 
 ## Inside vs. outside timing
@@ -102,7 +102,7 @@ Fires outside park boundaries ignite earlier and burn more extensively
 than fires inside, particularly in savanna-dominated parks. At Mole,
 Kainji Lake, Old Oyo, Gashaka-Gumti, Kyabobo, and Togo, burned area
 outside the park rises sharply in November–December, peaking in
-December–January, while interior burning peaks one to two months later —
+December–January, while interior burning peaks one to two months later,
 consistent with earlier ignition pressure from agricultural burning and
 land clearing in surrounding landscapes. Comoé and W (Benin) show
 synchronized inside/outside timing but higher magnitude outside.
@@ -112,7 +112,7 @@ constrained regardless of boundary position.
 
 !!! tip "What this means for management"
     Buffer zones in savanna parks are active ignition interfaces that need
-    targeted, coordinated intervention — working with surrounding
+    targeted, coordinated intervention, working with surrounding
     communities on early-season burn timing, rather than attempting
     exclusion, is the more realistic path to reducing uncontrolled fire
     spread into park interiors.

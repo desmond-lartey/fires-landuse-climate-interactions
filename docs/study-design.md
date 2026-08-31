@@ -3,9 +3,9 @@
 ## Objective
 
 Assess fine-scale interactions of climatic, ecological, and landscape
-controls on burning across West African protected areas — controls that
+controls on burning across West African protected areas, controls that
 remain poorly understood despite advances in remote sensing and climate
-modelling at larger scales — using a unified spatial and ecological
+modelling at larger scales, using a unified spatial and ecological
 framework that allows direct comparison across parks, rather than the
 single-site studies that have dominated the literature to date.
 
@@ -36,9 +36,9 @@ single-site studies that have dominated the literature to date.
 Zones are a region-specific classification, not a global biome scheme,
 combining three criteria:
 
-- **Mean annual rainfall** — following Tano et al. (2023)
-- **Dry-season length** — following Eva & Lambin (2000) and Ouattara et al. (2024)
-- **Vegetation structure** — following Ametsitsi et al. (2020), Janssen et al. (2018), Liu et al. (2016)
+- **Mean annual rainfall**, following Tano et al. (2023)
+- **Dry-season length**, following Eva & Lambin (2000) and Ouattara et al. (2024)
+- **Vegetation structure**, following Ametsitsi et al. (2020), Janssen et al. (2018), Liu et al. (2016)
 
 | Zone | Character | Expected fire regime |
 |---|---|---|
@@ -49,7 +49,7 @@ combining three criteria:
 
 !!! note "Zone assignment is a hypothesis, not an assumption"
     These zone–fire associations are treated as testable expectations
-    against the 15 study parks, not foregone conclusions — see
+    against the 15 study parks, not foregone conclusions, see
     [Findings → zone-by-zone guidance](findings.md#zone-by-zone-guidance)
     for how each zone actually behaved.
 

@@ -13,7 +13,7 @@
 </p>
 
 Fire shapes vegetation structure, biodiversity, and carbon dynamics across West
-African protected areas (PAs), yet fine-scale interactions of climatic,
+African protected areas (PAs), but fine-scale interactions of climatic,
 ecological, and landscape controls on burning have remained poorly understood.
 This project analyzes fire dynamics across **15 protected areas** in **four
 ecological zones**, using **20 years (2004–2024)** of MODIS burned-area data,
@@ -38,14 +38,14 @@ Published as:
 - **Harmonizes GLAD (2000–2020) and ESRI (2021–2024) land cover** into one
   9-class scheme so fire activity can be linked to consistent vegetation
   classes across the full study period.
-- **Integrates ERA5-Land climate reanalysis** — temperature, precipitation,
-  pressure, wind — at the park/buffer/year level.
+- **Integrates ERA5-Land climate reanalysis**, temperature, precipitation,
+  pressure, wind, at the park/buffer/year level.
 - **Tests dry- and wet-season fire–rainfall coupling** with OLS regression,
   including a lagged wet-season fuel-load test.
 
 ## Headline findings
 
-- **Northern Savanna parks burn hardest and most predictably** — Mole,
+- **Northern Savanna parks burn hardest and most predictably**, Mole,
   Comoé, and W (Benin) reach 57–61% of park area burned in December alone.
 - **Dry-season rainfall is the dominant climatic control** on burned area
   (pooled slope −371.08 km²/mm, p < 0.001); individually significant at
@@ -53,7 +53,7 @@ Published as:
 - **Fire exposure declines from park interior to edge**, most strongly in
   Northern Savanna; Southern Forest shows almost no buffer-distance effect.
 - **Ecological zone governs fire frequency more than land-cover class alone**
-  — the same land-cover type burns at very different rates depending on zone.
+ , the same land-cover type burns at very different rates depending on zone.
 - **Fires outside park boundaries ignite earlier and burn more** than fires
   inside, pointing to stronger anthropogenic ignition pressure at the
   boundary.

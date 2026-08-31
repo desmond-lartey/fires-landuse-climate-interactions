@@ -1,7 +1,7 @@
 # Pipeline
 
 The analysis runs in a fixed order. The first steps require Google Earth
-Engine access — they submit extraction/export tasks and download the
+Engine access, they submit extraction/export tasks and download the
 results from Google Drive. The remaining steps run entirely locally.
 
 ## Environment
@@ -61,7 +61,7 @@ Step 6   gee-full-script/05b_seasonal_fire_rainfall_full.js
 !!! warning "Export quotas"
     Earth Engine limits concurrent per-user tasks. Queue the 12 monthly
     exports in Step 1 in smaller batches if you hit a limit, and expect the
-    combined pipeline (Steps 4/5) to be the slowest single export — it
+    combined pipeline (Steps 4/5) to be the slowest single export, it
     re-runs the climate zonal mean for every park × buffer × year.
 
 ### Local steps (no Earth Engine required)

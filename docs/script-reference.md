@@ -4,12 +4,12 @@ This page documents the functions in each Earth Engine script. These
 scripts live in **`gee-full-script/`** and run in order (see
 [Pipeline](pipeline.md)). They are a **run-in-order study pipeline**, pasted
 directly into the [Earth Engine Code Editor](https://code.earthengine.google.com/),
-not an installable package — so this is a reference for reading and
+not an installable package, so this is a reference for reading and
 adapting the code.
 
 !!! note "Full unabridged source"
     The excerpts below are trimmed for readability. Complete, unabridged
-    scripts — including the full ~200-entry `gladToEsri` dictionary — are in
+    scripts, including the full ~200-entry `gladToEsri` dictionary, are in
     `gee-full-script/` in the repository.
 
 ## 01_burned_area_composites.js
@@ -17,12 +17,12 @@ adapting the code.
 Builds the 20-year (2004–2024) monthly burn-frequency climatology from
 MODIS MCD64A1, one image per calendar month.
 
-- **`processBurnedArea(date, region)`** — filters MCD64A1 to a one-month
+- **`processBurnedArea(date, region)`**, filters MCD64A1 to a one-month
   window, mosaics over `region`, returns a binary "burned this month" mask.
-- **`sumBurnedAreaForSpecificMonth(month, startYear, endYear, region)`** —
+- **`sumBurnedAreaForSpecificMonth(month, startYear, endYear, region)`**,
   sums that mask across a year range into a per-pixel year-count
   climatology.
-- **`sumBurnedAreaForAllMonths(startYear, endYear, region)`** — sums all 12
+- **`sumBurnedAreaForAllMonths(startYear, endYear, region)`**, sums all 12
   months into one all-months composite.
 
 ```javascript
@@ -76,7 +76,7 @@ Generates five concentric buffers per park (0, 5, 10, 15, 20 km) and
 computes burn frequency, burned area, and normalised exposure rates for
 each.
 
-- **`calculateBurnedAreaAndFrequency(feature)`** — builds the five buffer
+- **`calculateBurnedAreaAndFrequency(feature)`**, builds the five buffer
   geometries around one park and reduces each of the six dry-season monthly
   composites within them.
 
@@ -140,11 +140,11 @@ Export.table.toDrive({
 Remaps GLAD's native codes and ESRI's 11-class scheme onto one shared
 9-class scheme, and resolves the correct dataset for any requested year.
 
-- **`harmoniseGlad(img)`** — remaps GLAD codes via the `gladToEsri`
+- **`harmoniseGlad(img)`**, remaps GLAD codes via the `gladToEsri`
   dictionary.
-- **`remapEsri(image)`** — remaps ESRI's 11 native codes onto the same
+- **`remapEsri(image)`**, remaps ESRI's 11 native codes onto the same
   9-class target.
-- **`getLandCoverYear(year)`** — dispatches to GLAD (2000–2020) or ESRI
+- **`getLandCoverYear(year)`**, dispatches to GLAD (2000–2020) or ESRI
   (2021–2024) automatically.
 
 ```javascript
@@ -194,7 +194,7 @@ function getLandCoverYear(year) {
 Builds an 8-band annual-mean ERA5-Land climate image with unit conversions
 already applied.
 
-- **`getClimateForYear(year)`** — K→°C, m→mm, Pa→hPa conversions, one image
+- **`getClimateForYear(year)`**, K→°C, m→mm, Pa→hPa conversions, one image
   per year.
 
 ```javascript
@@ -228,7 +228,7 @@ The production script: for every park × buffer × benchmark year, emits burn
 frequency, burned area, the land-cover histogram, and all eight climate
 variables in a single feature.
 
-- **`calculateBurnedAreaAndLandUse(feature, landCover, year)`** — the main
+- **`calculateBurnedAreaAndLandUse(feature, landCover, year)`**, the main
   per-park-per-year driver, merging burn stats, land cover, and climate into
   one output row per buffer.
 
@@ -301,10 +301,10 @@ Export.table.toDrive({
 
 ## 05b_seasonal_fire_rainfall_full.js
 
-Computes dry- vs wet-season burned-area and rainfall totals per park/year —
+Computes dry- vs wet-season burned-area and rainfall totals per park/year,
 the input to the fire–rainfall regressions.
 
-- **`processParkYearSeason(park, year, season)`** — one seasonal
+- **`processParkYearSeason(park, year, season)`**, one seasonal
   burned-area/rainfall total for one park in one year.
 
 ```javascript
@@ -412,7 +412,7 @@ Returns a single band named `landcover`, values 1–9.
 |---|---|---|
 | 2000–2020 | GLAD GLCLU2020 v2 | `harmoniseGlad()` |
 | 2021–2024 | ESRI Global LULC 10 m | `remapEsri()` after annual mosaic |
-| other | — | `ee.Image(0)` fallback |
+| other |, | `ee.Image(0)` fallback |
 
 ### `getClimateForYear(year)` → `ee.Image`
 

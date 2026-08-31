@@ -19,7 +19,7 @@ assets and the resulting schema.
 
 One row per `(park, buffer distance, year)` in the land-cover-linked table
 — 15 parks × 5 buffers × 9 benchmark years = 675 rows. The seasonal table
-has one row per `(park, year, season)` — 15 × 21 × 2 = 630 rows.
+has one row per `(park, year, season)`, 15 × 21 × 2 = 630 rows.
 
 | Column | Type | Description |
 |---|---|---|
@@ -37,8 +37,8 @@ has one row per `(park, year, season)` — 15 × 21 × 2 = 630 rows.
 | `ERA5_Precip_mm` | float | Zonal mean total precipitation, mm |
 | `ERA5_SurfacePressure_hPa` | float | Zonal mean surface pressure, hPa |
 | `ERA5_WindU`, `ERA5_WindV` | float | Zonal mean 10 m wind components, m/s |
-| `Season` | string | Dry (Oct–Mar) or Wet (Apr–Sep) — seasonal table only |
-| `BurnedArea_km2`, `Rainfall_mm` | float | Seasonal totals — seasonal table only |
+| `Season` | string | Dry (Oct–Mar) or Wet (Apr–Sep), seasonal table only |
+| `BurnedArea_km2`, `Rainfall_mm` | float | Seasonal totals, seasonal table only |
 
 !!! note "frequencyHistogram output"
     `LandUseDistribution` is a nested dictionary keyed by class code
