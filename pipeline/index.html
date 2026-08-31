@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Drivers of fire regimes in conservation landscapes of West Africa — a 20-year, 15-park buffer-based analysis">
+        <meta name="description" content="Drivers of fire regimes in conservation landscapes of West Africa, a 20-year, 15-park buffer-based analysis">
       
       
         <meta name="author" content="Desmond Lartey">
@@ -681,7 +681,7 @@
 
 <h1 id="pipeline">Pipeline<a class="headerlink" href="#pipeline" title="Permanent link">&para;</a></h1>
 <p>The analysis runs in a fixed order. The first steps require Google Earth
-Engine access — they submit extraction/export tasks and download the
+Engine access, they submit extraction/export tasks and download the
 results from Google Drive. The remaining steps run entirely locally.</p>
 <h2 id="environment">Environment<a class="headerlink" href="#environment" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code>python<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>.venv
@@ -733,7 +733,7 @@ Step 6   gee-full-script/05b_seasonal_fire_rainfall_full.js
 <p class="admonition-title">Export quotas</p>
 <p>Earth Engine limits concurrent per-user tasks. Queue the 12 monthly
 exports in Step 1 in smaller batches if you hit a limit, and expect the
-combined pipeline (Steps 4/5) to be the slowest single export — it
+combined pipeline (Steps 4/5) to be the slowest single export, it
 re-runs the climate zonal mean for every park × buffer × year.</p>
 </div>
 <h3 id="local-steps-no-earth-engine-required">Local steps (no Earth Engine required)<a class="headerlink" href="#local-steps-no-earth-engine-required" title="Permanent link">&para;</a></h3>

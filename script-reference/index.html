@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Drivers of fire regimes in conservation landscapes of West Africa — a 20-year, 15-park buffer-based analysis">
+        <meta name="description" content="Drivers of fire regimes in conservation landscapes of West Africa, a 20-year, 15-park buffer-based analysis">
       
       
         <meta name="author" content="Desmond Lartey">
@@ -926,24 +926,24 @@
 scripts live in <strong><code>gee-full-script/</code></strong> and run in order (see
 <a href="../pipeline/">Pipeline</a>). They are a <strong>run-in-order study pipeline</strong>, pasted
 directly into the <a href="https://code.earthengine.google.com/">Earth Engine Code Editor</a>,
-not an installable package — so this is a reference for reading and
+not an installable package, so this is a reference for reading and
 adapting the code.</p>
 <div class="admonition note">
 <p class="admonition-title">Full unabridged source</p>
 <p>The excerpts below are trimmed for readability. Complete, unabridged
-scripts — including the full ~200-entry <code>gladToEsri</code> dictionary — are in
+scripts, including the full ~200-entry <code>gladToEsri</code> dictionary, are in
 <code>gee-full-script/</code> in the repository.</p>
 </div>
 <h2 id="01_burned_area_compositesjs">01_burned_area_composites.js<a class="headerlink" href="#01_burned_area_compositesjs" title="Permanent link">&para;</a></h2>
 <p>Builds the 20-year (2004–2024) monthly burn-frequency climatology from
 MODIS MCD64A1, one image per calendar month.</p>
 <ul>
-<li><strong><code>processBurnedArea(date, region)</code></strong> — filters MCD64A1 to a one-month
+<li><strong><code>processBurnedArea(date, region)</code></strong>, filters MCD64A1 to a one-month
   window, mosaics over <code>region</code>, returns a binary "burned this month" mask.</li>
-<li><strong><code>sumBurnedAreaForSpecificMonth(month, startYear, endYear, region)</code></strong> —
+<li><strong><code>sumBurnedAreaForSpecificMonth(month, startYear, endYear, region)</code></strong>,
   sums that mask across a year range into a per-pixel year-count
   climatology.</li>
-<li><strong><code>sumBurnedAreaForAllMonths(startYear, endYear, region)</code></strong> — sums all 12
+<li><strong><code>sumBurnedAreaForAllMonths(startYear, endYear, region)</code></strong>, sums all 12
   months into one all-months composite.</li>
 </ul>
 <div class="highlight"><pre><span></span><code><span class="kd">function</span><span class="w"> </span><span class="nx">processBurnedArea</span><span class="p">(</span><span class="nx">date</span><span class="p">,</span><span class="w"> </span><span class="nx">region</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
@@ -994,7 +994,7 @@ MODIS MCD64A1, one image per calendar month.</p>
 computes burn frequency, burned area, and normalised exposure rates for
 each.</p>
 <ul>
-<li><strong><code>calculateBurnedAreaAndFrequency(feature)</code></strong> — builds the five buffer
+<li><strong><code>calculateBurnedAreaAndFrequency(feature)</code></strong>, builds the five buffer
   geometries around one park and reduces each of the six dry-season monthly
   composites within them.</li>
 </ul>
@@ -1055,11 +1055,11 @@ each.</p>
 <p>Remaps GLAD's native codes and ESRI's 11-class scheme onto one shared
 9-class scheme, and resolves the correct dataset for any requested year.</p>
 <ul>
-<li><strong><code>harmoniseGlad(img)</code></strong> — remaps GLAD codes via the <code>gladToEsri</code>
+<li><strong><code>harmoniseGlad(img)</code></strong>, remaps GLAD codes via the <code>gladToEsri</code>
   dictionary.</li>
-<li><strong><code>remapEsri(image)</code></strong> — remaps ESRI's 11 native codes onto the same
+<li><strong><code>remapEsri(image)</code></strong>, remaps ESRI's 11 native codes onto the same
   9-class target.</li>
-<li><strong><code>getLandCoverYear(year)</code></strong> — dispatches to GLAD (2000–2020) or ESRI
+<li><strong><code>getLandCoverYear(year)</code></strong>, dispatches to GLAD (2000–2020) or ESRI
   (2021–2024) automatically.</li>
 </ul>
 <div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nx">gladToEsri</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">ee</span><span class="p">.</span><span class="nx">Dictionary</span><span class="p">({</span>
@@ -1106,7 +1106,7 @@ each.</p>
 <p>Builds an 8-band annual-mean ERA5-Land climate image with unit conversions
 already applied.</p>
 <ul>
-<li><strong><code>getClimateForYear(year)</code></strong> — K→°C, m→mm, Pa→hPa conversions, one image
+<li><strong><code>getClimateForYear(year)</code></strong>, K→°C, m→mm, Pa→hPa conversions, one image
   per year.</li>
 </ul>
 <div class="highlight"><pre><span></span><code><span class="kd">function</span><span class="w"> </span><span class="nx">getClimateForYear</span><span class="p">(</span><span class="nx">year</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
@@ -1137,7 +1137,7 @@ already applied.</p>
 frequency, burned area, the land-cover histogram, and all eight climate
 variables in a single feature.</p>
 <ul>
-<li><strong><code>calculateBurnedAreaAndLandUse(feature, landCover, year)</code></strong> — the main
+<li><strong><code>calculateBurnedAreaAndLandUse(feature, landCover, year)</code></strong>, the main
   per-park-per-year driver, merging burn stats, land cover, and climate into
   one output row per buffer.</li>
 </ul>
@@ -1207,10 +1207,10 @@ variables in a single feature.</p>
 <span class="p">});</span>
 </code></pre></div>
 <h2 id="05b_seasonal_fire_rainfall_fulljs">05b_seasonal_fire_rainfall_full.js<a class="headerlink" href="#05b_seasonal_fire_rainfall_fulljs" title="Permanent link">&para;</a></h2>
-<p>Computes dry- vs wet-season burned-area and rainfall totals per park/year —
+<p>Computes dry- vs wet-season burned-area and rainfall totals per park/year,
 the input to the fire–rainfall regressions.</p>
 <ul>
-<li><strong><code>processParkYearSeason(park, year, season)</code></strong> — one seasonal
+<li><strong><code>processParkYearSeason(park, year, season)</code></strong>, one seasonal
   burned-area/rainfall total for one park in one year.</li>
 </ul>
 <div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nx">seasons</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span>
@@ -1367,7 +1367,7 @@ Returns a single band named <code>landcover</code>, values 1–9.</p>
 </tr>
 <tr>
 <td>other</td>
-<td>—</td>
+<td>,</td>
 <td><code>ee.Image(0)</code> fallback</td>
 </tr>
 </tbody>
