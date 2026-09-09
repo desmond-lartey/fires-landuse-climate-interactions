@@ -62,6 +62,6 @@ Published as:
 
 We gratefully acknowledge the support of the following organizations:
 
--   [Wageningen University](https://www.wur.nl/en/about-wur/university-fund): This research is supported by the Wageningen University Fund, awarded under the [Africa Scholarship Programme](https://www.wur.nl/en/education/master/study-expenses-masters/scholarships#:~:text=Excellence%20programme-,Africa%20Scholarship%20Programme%20(ASP),-The%20Africa%20Scholarship)
+-   [Wageningen University](https://www.wur.nl/en/about-wur/university-fund): This research is supported by the Wageningen University Fund, awarded under the [Africa Scholarship Programme (ASP)](https://www.wur.nl/en/education/master/study-expenses-masters/scholarships#:~:text=Excellence%20programme-,Africa%20Scholarship%20Programme%20(ASP),-The%20Africa%20Scholarship)
 -   [Irish Research Council](https://research.ie/funding/goipg/):  This work is also partially supported by the Government of Ireland Postgraduate Scholarship through Grant No. GOIPG/2025/8306, awarded under the [Research Ireland Programme](https://www.researchireland.ie/funding/government-ireland-postgraduate/)
 
