@@ -4,7 +4,7 @@
 
 <p align="center">
   <a href="https://github.com/desmond-lartey/fires-landuse-climate-interactions" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/badge/status-published-brightgreen" alt="Status"></a>
-  <a href="https://doi.org/10.1177/19400829261486748" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/badge/DOI-10.1177%2F19400829261486748-blue" alt="DOI"></a>
+  <a href="https://journals.sagepub.com/eprint/CKSAKWE9VFRFVDDB7XWA/full" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/badge/DOI-10.1177%2F19400829261486748-blue" alt="DOI"></a>
   <a href="https://github.com/desmond-lartey/fires-landuse-climate-interactions/blob/main/LICENSE" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/badge/license-MIT-green" alt="License"></a>
   <img src="https://img.shields.io/badge/period-2004–2024-lightgrey" alt="Period">
   <img src="https://img.shields.io/badge/protected%20areas-15-orange" alt="Parks">
